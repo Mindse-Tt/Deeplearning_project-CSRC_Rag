@@ -1,0 +1,993 @@
+{
+  "evaluator": "TrendAggregator vs gold_trend_30",
+  "n_eligible": 20,
+  "n_skipped": 10,
+  "macro_exact_bucket_rate": 1.0,
+  "macro_mean_rel_err": 0.0,
+  "macro_ranking_accuracy": 1.0,
+  "peak_year_accuracy": 1.0,
+  "per_row": [
+    {
+      "id": "gold_111",
+      "query": "2020-2024 年内幕交易案件数量逐年变化情况？",
+      "facet": "year",
+      "n_keys_actual": 5,
+      "n_keys_expected": 5,
+      "exact_bucket_hits": 5,
+      "exact_bucket_rate": 1.0,
+      "mean_rel_err": 0.0,
+      "ranking_accuracy": null,
+      "peak_year_correct": true,
+      "per_key": [
+        {
+          "key": "2020",
+          "actual": 31,
+          "expected": 31,
+          "rel_err": 0.0
+        },
+        {
+          "key": "2021",
+          "actual": 31,
+          "expected": 31,
+          "rel_err": 0.0
+        },
+        {
+          "key": "2022",
+          "actual": 13,
+          "expected": 13,
+          "rel_err": 0.0
+        },
+        {
+          "key": "2023",
+          "actual": 20,
+          "expected": 20,
+          "rel_err": 0.0
+        },
+        {
+          "key": "2024",
+          "actual": 41,
+          "expected": 41,
+          "rel_err": 0.0
+        }
+      ]
+    },
+    {
+      "id": "gold_112",
+      "query": "虚构利润类案件 2019-2024 年数量演变？",
+      "facet": "year",
+      "n_keys_actual": 6,
+      "n_keys_expected": 6,
+      "exact_bucket_hits": 6,
+      "exact_bucket_rate": 1.0,
+      "mean_rel_err": 0.0,
+      "ranking_accuracy": null,
+      "peak_year_correct": true,
+      "per_key": [
+        {
+          "key": "2019",
+          "actual": 24,
+          "expected": 24,
+          "rel_err": 0.0
+        },
+        {
+          "key": "2020",
+          "actual": 31,
+          "expected": 31,
+          "rel_err": 0.0
+        },
+        {
+          "key": "2021",
+          "actual": 41,
+          "expected": 41,
+          "rel_err": 0.0
+        },
+        {
+          "key": "2022",
+          "actual": 44,
+          "expected": 44,
+          "rel_err": 0.0
+        },
+        {
+          "key": "2023",
+          "actual": 37,
+          "expected": 37,
+          "rel_err": 0.0
+        },
+        {
+          "key": "2024",
+          "actual": 38,
+          "expected": 38,
+          "rel_err": 0.0
+        }
+      ]
+    },
+    {
+      "id": "gold_113",
+      "query": "推迟披露类违规 2021-2024 年数量分布？",
+      "facet": "year",
+      "n_keys_actual": 4,
+      "n_keys_expected": 4,
+      "exact_bucket_hits": 4,
+      "exact_bucket_rate": 1.0,
+      "mean_rel_err": 0.0,
+      "ranking_accuracy": null,
+      "peak_year_correct": true,
+      "per_key": [
+        {
+          "key": "2021",
+          "actual": 51,
+          "expected": 51,
+          "rel_err": 0.0
+        },
+        {
+          "key": "2022",
+          "actual": 100,
+          "expected": 100,
+          "rel_err": 0.0
+        },
+        {
+          "key": "2023",
+          "actual": 50,
+          "expected": 50,
+          "rel_err": 0.0
+        },
+        {
+          "key": "2024",
+          "actual": 40,
+          "expected": 40,
+          "rel_err": 0.0
+        }
+      ]
+    },
+    {
+      "id": "gold_114",
+      "query": "重大遗漏类案件 2020-2024 年度数量变化？",
+      "facet": "year",
+      "n_keys_actual": 5,
+      "n_keys_expected": 5,
+      "exact_bucket_hits": 5,
+      "exact_bucket_rate": 1.0,
+      "mean_rel_err": 0.0,
+      "ranking_accuracy": null,
+      "peak_year_correct": true,
+      "per_key": [
+        {
+          "key": "2020",
+          "actual": 61,
+          "expected": 61,
+          "rel_err": 0.0
+        },
+        {
+          "key": "2021",
+          "actual": 72,
+          "expected": 72,
+          "rel_err": 0.0
+        },
+        {
+          "key": "2022",
+          "actual": 64,
+          "expected": 64,
+          "rel_err": 0.0
+        },
+        {
+          "key": "2023",
+          "actual": 54,
+          "expected": 54,
+          "rel_err": 0.0
+        },
+        {
+          "key": "2024",
+          "actual": 42,
+          "expected": 42,
+          "rel_err": 0.0
+        }
+      ]
+    },
+    {
+      "id": "gold_115",
+      "query": "违规买卖股票类案件 2022-2024 年是否呈上升趋势？",
+      "facet": "year",
+      "n_keys_actual": 3,
+      "n_keys_expected": 3,
+      "exact_bucket_hits": 3,
+      "exact_bucket_rate": 1.0,
+      "mean_rel_err": 0.0,
+      "ranking_accuracy": null,
+      "peak_year_correct": true,
+      "per_key": [
+        {
+          "key": "2022",
+          "actual": 17,
+          "expected": 17,
+          "rel_err": 0.0
+        },
+        {
+          "key": "2023",
+          "actual": 36,
+          "expected": 36,
+          "rel_err": 0.0
+        },
+        {
+          "key": "2024",
+          "actual": 39,
+          "expected": 39,
+          "rel_err": 0.0
+        }
+      ]
+    },
+    {
+      "id": "gold_116",
+      "query": "没收非法所得类处罚 2020-2024 年应用情况？",
+      "facet": "year",
+      "n_keys_actual": 5,
+      "n_keys_expected": 5,
+      "exact_bucket_hits": 5,
+      "exact_bucket_rate": 1.0,
+      "mean_rel_err": 0.0,
+      "ranking_accuracy": null,
+      "peak_year_correct": true,
+      "per_key": [
+        {
+          "key": "2020",
+          "actual": 102,
+          "expected": 102,
+          "rel_err": 0.0
+        },
+        {
+          "key": "2021",
+          "actual": 141,
+          "expected": 141,
+          "rel_err": 0.0
+        },
+        {
+          "key": "2022",
+          "actual": 101,
+          "expected": 101,
+          "rel_err": 0.0
+        },
+        {
+          "key": "2023",
+          "actual": 122,
+          "expected": 122,
+          "rel_err": 0.0
+        },
+        {
+          "key": "2024",
+          "actual": 173,
+          "expected": 173,
+          "rel_err": 0.0
+        }
+      ]
+    },
+    {
+      "id": "gold_117",
+      "query": "警告类处罚 2022-2024 年数量变化？",
+      "facet": "year",
+      "n_keys_actual": 3,
+      "n_keys_expected": 3,
+      "exact_bucket_hits": 3,
+      "exact_bucket_rate": 1.0,
+      "mean_rel_err": 0.0,
+      "ranking_accuracy": null,
+      "peak_year_correct": true,
+      "per_key": [
+        {
+          "key": "2022",
+          "actual": 237,
+          "expected": 237,
+          "rel_err": 0.0
+        },
+        {
+          "key": "2023",
+          "actual": 288,
+          "expected": 288,
+          "rel_err": 0.0
+        },
+        {
+          "key": "2024",
+          "actual": 305,
+          "expected": 305,
+          "rel_err": 0.0
+        }
+      ]
+    },
+    {
+      "id": "gold_118",
+      "query": "近 5 年各违规类型占比如何？",
+      "facet": "violation_type",
+      "n_keys_actual": 8,
+      "n_keys_expected": 8,
+      "exact_bucket_hits": 8,
+      "exact_bucket_rate": 1.0,
+      "mean_rel_err": 0.0,
+      "ranking_accuracy": 1.0,
+      "peak_year_correct": null,
+      "per_key": [
+        {
+          "key": "其他",
+          "actual": 1431,
+          "expected": 1431,
+          "rel_err": 0.0
+        },
+        {
+          "key": "内幕交易",
+          "actual": 133,
+          "expected": 133,
+          "rel_err": 0.0
+        },
+        {
+          "key": "占用公司资产",
+          "actual": 228,
+          "expected": 228,
+          "rel_err": 0.0
+        },
+        {
+          "key": "推迟披露",
+          "actual": 569,
+          "expected": 569,
+          "rel_err": 0.0
+        },
+        {
+          "key": "虚假记载(误导性陈述)",
+          "actual": 1054,
+          "expected": 1054,
+          "rel_err": 0.0
+        },
+        {
+          "key": "虚构利润",
+          "actual": 551,
+          "expected": 551,
+          "rel_err": 0.0
+        },
+        {
+          "key": "违规买卖股票",
+          "actual": 250,
+          "expected": 250,
+          "rel_err": 0.0
+        },
+        {
+          "key": "重大遗漏",
+          "actual": 702,
+          "expected": 702,
+          "rel_err": 0.0
+        }
+      ]
+    },
+    {
+      "id": "gold_119",
+      "query": "2024 年所有行政处罚按处罚方式分布？",
+      "facet": "punishment_type",
+      "n_keys_actual": 5,
+      "n_keys_expected": 5,
+      "exact_bucket_hits": 5,
+      "exact_bucket_rate": 1.0,
+      "mean_rel_err": 0.0,
+      "ranking_accuracy": 1.0,
+      "peak_year_correct": null,
+      "per_key": [
+        {
+          "key": "其他",
+          "actual": 198,
+          "expected": 198,
+          "rel_err": 0.0
+        },
+        {
+          "key": "市场禁入",
+          "actual": 71,
+          "expected": 71,
+          "rel_err": 0.0
+        },
+        {
+          "key": "没收非法所得",
+          "actual": 173,
+          "expected": 173,
+          "rel_err": 0.0
+        },
+        {
+          "key": "罚款",
+          "actual": 521,
+          "expected": 521,
+          "rel_err": 0.0
+        },
+        {
+          "key": "警告",
+          "actual": 305,
+          "expected": 305,
+          "rel_err": 0.0
+        }
+      ]
+    },
+    {
+      "id": "gold_120",
+      "query": "整个证监会数据库里哪些违规类型最常见？",
+      "facet": "violation_type",
+      "n_keys_actual": 8,
+      "n_keys_expected": 8,
+      "exact_bucket_hits": 8,
+      "exact_bucket_rate": 1.0,
+      "mean_rel_err": 0.0,
+      "ranking_accuracy": 1.0,
+      "peak_year_correct": null,
+      "per_key": [
+        {
+          "key": "其他",
+          "actual": 2043,
+          "expected": 2043,
+          "rel_err": 0.0
+        },
+        {
+          "key": "内幕交易",
+          "actual": 435,
+          "expected": 435,
+          "rel_err": 0.0
+        },
+        {
+          "key": "占用公司资产",
+          "actual": 368,
+          "expected": 368,
+          "rel_err": 0.0
+        },
+        {
+          "key": "推迟披露",
+          "actual": 1233,
+          "expected": 1233,
+          "rel_err": 0.0
+        },
+        {
+          "key": "虚假记载(误导性陈述)",
+          "actual": 2006,
+          "expected": 2006,
+          "rel_err": 0.0
+        },
+        {
+          "key": "虚构利润",
+          "actual": 1014,
+          "expected": 1014,
+          "rel_err": 0.0
+        },
+        {
+          "key": "违规买卖股票",
+          "actual": 635,
+          "expected": 635,
+          "rel_err": 0.0
+        },
+        {
+          "key": "重大遗漏",
+          "actual": 1684,
+          "expected": 1684,
+          "rel_err": 0.0
+        }
+      ]
+    },
+    {
+      "id": "gold_121",
+      "query": "全量数据里处罚方式的分布如何？",
+      "facet": "punishment_type",
+      "n_keys_actual": 8,
+      "n_keys_expected": 8,
+      "exact_bucket_hits": 8,
+      "exact_bucket_rate": 1.0,
+      "mean_rel_err": 0.0,
+      "ranking_accuracy": 1.0,
+      "peak_year_correct": null,
+      "per_key": [
+        {
+          "key": "其他",
+          "actual": 1354,
+          "expected": 1354,
+          "rel_err": 0.0
+        },
+        {
+          "key": "取消营业许可(责令关闭)",
+          "actual": 2,
+          "expected": 2,
+          "rel_err": 0.0
+        },
+        {
+          "key": "市场禁入",
+          "actual": 567,
+          "expected": 567,
+          "rel_err": 0.0
+        },
+        {
+          "key": "批评",
+          "actual": 53,
+          "expected": 53,
+          "rel_err": 0.0
+        },
+        {
+          "key": "没收非法所得",
+          "actual": 1241,
+          "expected": 1241,
+          "rel_err": 0.0
+        },
+        {
+          "key": "罚款",
+          "actual": 3893,
+          "expected": 3893,
+          "rel_err": 0.0
+        },
+        {
+          "key": "警告",
+          "actual": 2439,
+          "expected": 2439,
+          "rel_err": 0.0
+        },
+        {
+          "key": "谴责",
+          "actual": 7,
+          "expected": 7,
+          "rel_err": 0.0
+        }
+      ]
+    },
+    {
+      "id": "gold_122",
+      "query": "各监管机构在 2023-2024 年处罚案件数量排名？",
+      "facet": "agency",
+      "n_keys_actual": 8,
+      "n_keys_expected": 8,
+      "exact_bucket_hits": 8,
+      "exact_bucket_rate": 1.0,
+      "mean_rel_err": 0.0,
+      "ranking_accuracy": 1.0,
+      "peak_year_correct": null,
+      "per_key": [
+        {
+          "key": "上海证监局",
+          "actual": 22,
+          "expected": 22,
+          "rel_err": 0.0
+        },
+        {
+          "key": "中国证监会",
+          "actual": 699,
+          "expected": 699,
+          "rel_err": 0.0
+        },
+        {
+          "key": "北京证监局",
+          "actual": 30,
+          "expected": 30,
+          "rel_err": 0.0
+        },
+        {
+          "key": "广东证监局",
+          "actual": 42,
+          "expected": 42,
+          "rel_err": 0.0
+        },
+        {
+          "key": "江苏证监局",
+          "actual": 19,
+          "expected": 19,
+          "rel_err": 0.0
+        },
+        {
+          "key": "河南证监局",
+          "actual": 14,
+          "expected": 14,
+          "rel_err": 0.0
+        },
+        {
+          "key": "浙江证监局",
+          "actual": 39,
+          "expected": 39,
+          "rel_err": 0.0
+        },
+        {
+          "key": "深圳证监局",
+          "actual": 17,
+          "expected": 17,
+          "rel_err": 0.0
+        }
+      ]
+    },
+    {
+      "id": "gold_123",
+      "query": "2024 年哪个监管机构发出的处罚最多？",
+      "facet": "agency",
+      "n_keys_actual": 8,
+      "n_keys_expected": 8,
+      "exact_bucket_hits": 8,
+      "exact_bucket_rate": 1.0,
+      "mean_rel_err": 0.0,
+      "ranking_accuracy": 1.0,
+      "peak_year_correct": null,
+      "per_key": [
+        {
+          "key": "上海证监局",
+          "actual": 10,
+          "expected": 10,
+          "rel_err": 0.0
+        },
+        {
+          "key": "中国证监会",
+          "actual": 378,
+          "expected": 378,
+          "rel_err": 0.0
+        },
+        {
+          "key": "北京证监局",
+          "actual": 19,
+          "expected": 19,
+          "rel_err": 0.0
+        },
+        {
+          "key": "厦门证监局",
+          "actual": 7,
+          "expected": 7,
+          "rel_err": 0.0
+        },
+        {
+          "key": "天津证监局",
+          "actual": 10,
+          "expected": 10,
+          "rel_err": 0.0
+        },
+        {
+          "key": "广东证监局",
+          "actual": 16,
+          "expected": 16,
+          "rel_err": 0.0
+        },
+        {
+          "key": "浙江证监局",
+          "actual": 25,
+          "expected": 25,
+          "rel_err": 0.0
+        },
+        {
+          "key": "深圳证监局",
+          "actual": 11,
+          "expected": 11,
+          "rel_err": 0.0
+        }
+      ]
+    },
+    {
+      "id": "gold_124",
+      "query": "2024 年内幕交易案件按处罚方式分布？",
+      "facet": "punishment_type",
+      "n_keys_actual": 5,
+      "n_keys_expected": 5,
+      "exact_bucket_hits": 5,
+      "exact_bucket_rate": 1.0,
+      "mean_rel_err": 0.0,
+      "ranking_accuracy": 1.0,
+      "peak_year_correct": null,
+      "per_key": [
+        {
+          "key": "其他",
+          "actual": 9,
+          "expected": 9,
+          "rel_err": 0.0
+        },
+        {
+          "key": "市场禁入",
+          "actual": 4,
+          "expected": 4,
+          "rel_err": 0.0
+        },
+        {
+          "key": "没收非法所得",
+          "actual": 29,
+          "expected": 29,
+          "rel_err": 0.0
+        },
+        {
+          "key": "罚款",
+          "actual": 40,
+          "expected": 40,
+          "rel_err": 0.0
+        },
+        {
+          "key": "警告",
+          "actual": 4,
+          "expected": 4,
+          "rel_err": 0.0
+        }
+      ]
+    },
+    {
+      "id": "gold_125",
+      "query": "2023-2024 年操纵股价案件按年度分布？",
+      "facet": "year",
+      "n_keys_actual": 2,
+      "n_keys_expected": 2,
+      "exact_bucket_hits": 2,
+      "exact_bucket_rate": 1.0,
+      "mean_rel_err": 0.0,
+      "ranking_accuracy": null,
+      "peak_year_correct": true,
+      "per_key": [
+        {
+          "key": "2023",
+          "actual": 10,
+          "expected": 10,
+          "rel_err": 0.0
+        },
+        {
+          "key": "2024",
+          "actual": 6,
+          "expected": 6,
+          "rel_err": 0.0
+        }
+      ]
+    },
+    {
+      "id": "gold_126",
+      "query": "2022-2024 年虚假记载案件按年度分布？",
+      "facet": "year",
+      "n_keys_actual": 3,
+      "n_keys_expected": 3,
+      "exact_bucket_hits": 3,
+      "exact_bucket_rate": 1.0,
+      "mean_rel_err": 0.0,
+      "ranking_accuracy": null,
+      "peak_year_correct": true,
+      "per_key": [
+        {
+          "key": "2022",
+          "actual": 73,
+          "expected": 73,
+          "rel_err": 0.0
+        },
+        {
+          "key": "2023",
+          "actual": 102,
+          "expected": 102,
+          "rel_err": 0.0
+        },
+        {
+          "key": "2024",
+          "actual": 88,
+          "expected": 88,
+          "rel_err": 0.0
+        }
+      ]
+    },
+    {
+      "id": "gold_127",
+      "query": "2017-2024 年整体行政处罚数量逐年变化？",
+      "facet": "year",
+      "n_keys_actual": 8,
+      "n_keys_expected": 8,
+      "exact_bucket_hits": 8,
+      "exact_bucket_rate": 1.0,
+      "mean_rel_err": 0.0,
+      "ranking_accuracy": null,
+      "peak_year_correct": true,
+      "per_key": [
+        {
+          "key": "2017",
+          "actual": 299,
+          "expected": 299,
+          "rel_err": 0.0
+        },
+        {
+          "key": "2018",
+          "actual": 332,
+          "expected": 332,
+          "rel_err": 0.0
+        },
+        {
+          "key": "2019",
+          "actual": 349,
+          "expected": 349,
+          "rel_err": 0.0
+        },
+        {
+          "key": "2020",
+          "actual": 407,
+          "expected": 407,
+          "rel_err": 0.0
+        },
+        {
+          "key": "2021",
+          "actual": 415,
+          "expected": 415,
+          "rel_err": 0.0
+        },
+        {
+          "key": "2022",
+          "actual": 380,
+          "expected": 380,
+          "rel_err": 0.0
+        },
+        {
+          "key": "2023",
+          "actual": 466,
+          "expected": 466,
+          "rel_err": 0.0
+        },
+        {
+          "key": "2024",
+          "actual": 534,
+          "expected": 534,
+          "rel_err": 0.0
+        }
+      ]
+    },
+    {
+      "id": "gold_128",
+      "query": "2015-2024 年内幕交易案件历年数据？",
+      "facet": "year",
+      "n_keys_actual": 10,
+      "n_keys_expected": 10,
+      "exact_bucket_hits": 10,
+      "exact_bucket_rate": 1.0,
+      "mean_rel_err": 0.0,
+      "ranking_accuracy": null,
+      "peak_year_correct": true,
+      "per_key": [
+        {
+          "key": "2015",
+          "actual": 9,
+          "expected": 9,
+          "rel_err": 0.0
+        },
+        {
+          "key": "2016",
+          "actual": 14,
+          "expected": 14,
+          "rel_err": 0.0
+        },
+        {
+          "key": "2017",
+          "actual": 25,
+          "expected": 25,
+          "rel_err": 0.0
+        },
+        {
+          "key": "2018",
+          "actual": 33,
+          "expected": 33,
+          "rel_err": 0.0
+        },
+        {
+          "key": "2019",
+          "actual": 29,
+          "expected": 29,
+          "rel_err": 0.0
+        },
+        {
+          "key": "2020",
+          "actual": 31,
+          "expected": 31,
+          "rel_err": 0.0
+        },
+        {
+          "key": "2021",
+          "actual": 31,
+          "expected": 31,
+          "rel_err": 0.0
+        },
+        {
+          "key": "2022",
+          "actual": 13,
+          "expected": 13,
+          "rel_err": 0.0
+        },
+        {
+          "key": "2023",
+          "actual": 20,
+          "expected": 20,
+          "rel_err": 0.0
+        },
+        {
+          "key": "2024",
+          "actual": 41,
+          "expected": 41,
+          "rel_err": 0.0
+        }
+      ]
+    },
+    {
+      "id": "gold_129",
+      "query": "近 3 年证监会市场禁入类处罚主要集中在哪些违规类型？",
+      "facet": "violation_type",
+      "n_keys_actual": 8,
+      "n_keys_expected": 8,
+      "exact_bucket_hits": 8,
+      "exact_bucket_rate": 1.0,
+      "mean_rel_err": 0.0,
+      "ranking_accuracy": 1.0,
+      "peak_year_correct": null,
+      "per_key": [
+        {
+          "key": "其他",
+          "actual": 319,
+          "expected": 319,
+          "rel_err": 0.0
+        },
+        {
+          "key": "占用公司资产",
+          "actual": 38,
+          "expected": 38,
+          "rel_err": 0.0
+        },
+        {
+          "key": "推迟披露",
+          "actual": 95,
+          "expected": 95,
+          "rel_err": 0.0
+        },
+        {
+          "key": "操纵股价",
+          "actual": 17,
+          "expected": 17,
+          "rel_err": 0.0
+        },
+        {
+          "key": "虚假记载(误导性陈述)",
+          "actual": 273,
+          "expected": 273,
+          "rel_err": 0.0
+        },
+        {
+          "key": "虚列资产",
+          "actual": 29,
+          "expected": 29,
+          "rel_err": 0.0
+        },
+        {
+          "key": "虚构利润",
+          "actual": 205,
+          "expected": 205,
+          "rel_err": 0.0
+        },
+        {
+          "key": "重大遗漏",
+          "actual": 143,
+          "expected": 143,
+          "rel_err": 0.0
+        }
+      ]
+    },
+    {
+      "id": "gold_130",
+      "query": "近 5 年哪些年度的违规买卖股票案件数量最高？",
+      "facet": "year",
+      "n_keys_actual": 5,
+      "n_keys_expected": 5,
+      "exact_bucket_hits": 5,
+      "exact_bucket_rate": 1.0,
+      "mean_rel_err": 0.0,
+      "ranking_accuracy": null,
+      "peak_year_correct": true,
+      "per_key": [
+        {
+          "key": "2021",
+          "actual": 22,
+          "expected": 22,
+          "rel_err": 0.0
+        },
+        {
+          "key": "2022",
+          "actual": 17,
+          "expected": 17,
+          "rel_err": 0.0
+        },
+        {
+          "key": "2023",
+          "actual": 36,
+          "expected": 36,
+          "rel_err": 0.0
+        },
+        {
+          "key": "2024",
+          "actual": 39,
+          "expected": 39,
+          "rel_err": 0.0
+        },
+        {
+          "key": "2025",
+          "actual": 17,
+          "expected": 17,
+          "rel_err": 0.0
+        }
+      ]
+    }
+  ]
+}

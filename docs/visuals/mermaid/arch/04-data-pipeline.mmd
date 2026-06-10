@@ -1,0 +1,38 @@
+%%{init: {"theme":"dark"}}%%
+flowchart TD
+    RAW[(📥 证监会处罚信息表.xlsx<br/>14,740 原始行)]
+    RAW --> CLN[🧹 清洗去重<br/>schema 对齐]
+    CLN --> SPLIT1{📐 粒度切分}
+
+    SPLIT1 -->|聚合 EventID| EVT[(📁 event_corpus.jsonl<br/>4,233 事件级文档)]
+    SPLIT1 -->|保留当事人粒度| PTY[(👥 party_rows.jsonl<br/>14,740 当事人样本)]
+
+    EVT --> CHUNK[✂️ 300-500 字切片<br/>chunking]
+    CHUNK --> CHK[(🧩 event_chunks.jsonl<br/>29,314 chunks)]
+
+    %% 切分：EventID + 时间
+    EVT --> TSPLIT[⏳ EventID + 时间三切<br/>Train 1994-2021<br/>Val 2022-2023<br/>Test 2024-2025]
+    TSPLIT --> TRAIN[(train.event_ids.txt)]
+    TSPLIT --> VAL[(val.event_ids.txt)]
+    TSPLIT --> TEST[(test.event_ids.txt)]
+
+    %% 4 衍生集
+    EVT --> D1[🔍 rag_qa_train.jsonl<br/>5,360 条 8 类 QA]
+    PTY --> D2[🏷️ macbert_multilabel.jsonl<br/>14,740 多标签]
+    CHK --> D3[💾 chunk_embeddings_bge.npy<br/>512 维 × 29,314]
+    TEST --> D4[🎯 gold_50.jsonl<br/>人工标注金标]
+
+    %% 红线：PunishmentMeasure 不回流
+    PTY -.❌ 绝不进模型 input.-> BLOCK[🚫 PunishmentMeasure<br/>仅 reference 字段]
+
+    classDef raw fill:#374151,stroke:#9ca3af,color:#fff
+    classDef derived fill:#1e3a8a,stroke:#60a5fa,color:#fff
+    classDef train fill:#064e3b,stroke:#34d399,color:#fff
+    classDef guard fill:#7f1d1d,stroke:#f87171,color:#fff
+    class RAW,CLN raw
+    class EVT,PTY,CHK,TSPLIT,CHUNK derived
+    class TRAIN,VAL,TEST,D1,D2,D3,D4 train
+    class BLOCK guard
+```
+
+> **说明**：数据流水线全景。核心从 14,740 行原始 Excel 派生出 4,233 事件级 + 14,740 当事人 + 29,314 chunks 三级粒度。EventID+时间双重切分（Train 94-21 / Val 22-23 / Test 24-25）严格防泄漏。4 大衍生集：①rag_qa_train（5,360 条 8 类 QA）②macbert_multilabel（14,740 多标签）③chunk_embeddings_bge（29,314×512 向量）④gold_50（人工金标）。红线：PunishmentMeasure 字段**绝不进模型 input**，只能进 reference，由 `quality_checker.py` 自动断言。

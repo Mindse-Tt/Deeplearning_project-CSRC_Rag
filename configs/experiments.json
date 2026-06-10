@@ -1,0 +1,26 @@
+{
+  "retrieval_baselines": [
+    "bm25",
+    "dense",
+    "hybrid",
+    "hybrid_reranker"
+  ],
+  "prediction_baselines": [
+    "tfidf_logistic_regression",
+    "chinese_roberta",
+    "chinese_macbert"
+  ],
+  "ablations": [
+    "chunk_size",
+    "metadata_filter",
+    "reranker",
+    "activity_only_vs_activity_plus_law",
+    "rag_vs_no_rag",
+    "fine_tune_vs_no_fine_tune"
+  ],
+  "metrics": {
+    "retrieval": ["Recall@5", "MRR", "nDCG@10"],
+    "prediction": ["Micro-F1", "Macro-F1", "HammingLoss", "SubsetAccuracy"],
+    "rag": ["CitationHitRate", "LawGroundingRate", "HallucinationRate"]
+  }
+}

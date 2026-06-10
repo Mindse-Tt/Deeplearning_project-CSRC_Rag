@@ -1,0 +1,58 @@
+%%{init: {"theme":"dark"}}%%
+flowchart TD
+    T1[📐 数据切分<br/>split_by_event.py]
+    T2[🧬 bge 索引构建<br/>build_dense_index_bge.py]
+    T3[🎯 意图 7 类种子<br/>intents_v2.json]
+    T4[🎯 意图分类器 v2 训练<br/>Macro-F1 ≥ 0.92]
+    T5[📦 synonyms.json ≥200 对]
+    T6[📦 rewriter.py 共指+同义]
+    T7[🔎 Hybrid + RRF 跑通<br/>Recall@5 ≥ 0.70]
+    T8[⚡ bge-reranker 接入<br/>Recall@5 ≥ 0.85]
+    T9[🧠 Prompt 四模板定稿<br/>宽/中/严]
+    T10[📚 rag_qa_train 5,360 条造齐]
+    T11[🎯 50 条金标标注<br/>κ ≥ 0.6]
+    T12[🏋️ QLoRA 训练 fp16<br/>3 epoch 早停]
+    T13[🔀 LoRA 合并到 responder]
+    T14[📊 G0-G4 五组生成对照]
+    T15[📊 7 组消融矩阵]
+    T16[📝 论文 + PPT + Demo]
+
+    %% 并行前置
+    T1 --> T7
+    T2 --> T7
+    T3 --> T4
+    T5 --> T6
+    T6 --> T7
+    T7 --> T8
+    T4 --> T10
+    T8 --> T9
+    T9 --> T10
+
+    %% 训练链
+    T10 --> T11
+    T10 --> T12
+    T11 --> T14
+    T12 --> T13
+    T13 --> T14
+
+    %% 评估链
+    T14 --> T15
+    T15 --> T16
+    T13 --> T15
+
+    %% 关键路径高亮
+    T10 -.关键路径.-> T12
+    T12 -.关键路径.-> T14
+
+    classDef ready fill:#064e3b,stroke:#34d399,color:#fff
+    classDef block fill:#78350f,stroke:#fbbf24,color:#fff
+    classDef crit fill:#7f1d1d,stroke:#f87171,color:#fff
+    classDef out fill:#4c1d95,stroke:#a78bfa,color:#fff
+    class T1,T2,T3,T5 ready
+    class T4,T6,T7,T8,T9 ready
+    class T10,T11,T12,T13 crit
+    class T14,T15 block
+    class T16 out
+```
+
+> **说明**：16 个核心任务的 DAG。绿色=D0-D2 可立即并行启动的前置任务（切分/索引/意图种子/同义词）。红色=关键路径上的阻塞任务（QA 造数据→训练→LoRA 合并），任一节点延迟 1 天全链路跳日。黄色=等待前置的评估任务。箭头方向是"依赖→被阻塞"。关键观察：T10（QA 数据 5,360 条）是最大的汇合节点，阻塞 T11/T12/T14 三条下游；优先并行 T1+T2+T3+T5，这 4 条 D0-D2 就能并行跑完。

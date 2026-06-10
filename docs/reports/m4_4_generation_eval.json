@@ -1,0 +1,4748 @@
+{
+  "summary": {
+    "G0": {
+      "n": 50,
+      "event_id_hit_rate": 0.0,
+      "format_compliance_rate": 0.0,
+      "hallucinated_number_rate": 0.18,
+      "avg_answer_chars": 155.6,
+      "avg_latency_s": 8.918
+    },
+    "G1": {
+      "n": 50,
+      "event_id_hit_rate": 0.0,
+      "format_compliance_rate": 0.0,
+      "hallucinated_number_rate": 0.1,
+      "avg_answer_chars": 239.4,
+      "avg_latency_s": 15.464
+    },
+    "G2": {
+      "n": 50,
+      "event_id_hit_rate": 0.0,
+      "format_compliance_rate": 0.0,
+      "hallucinated_number_rate": 0.08,
+      "avg_answer_chars": 166.6,
+      "avg_latency_s": 11.183
+    },
+    "G3": {
+      "n": 50,
+      "event_id_hit_rate": 0.28,
+      "format_compliance_rate": 0.76,
+      "hallucinated_number_rate": 0.02,
+      "avg_answer_chars": 165.7,
+      "avg_latency_s": 17.409
+    }
+  },
+  "subset_ids": [
+    "gold_076",
+    "gold_008",
+    "gold_002",
+    "gold_083",
+    "gold_053",
+    "gold_051",
+    "gold_015",
+    "gold_009",
+    "gold_095",
+    "gold_007",
+    "gold_079",
+    "gold_090",
+    "gold_070",
+    "gold_006",
+    "gold_073",
+    "gold_063",
+    "gold_003",
+    "gold_096",
+    "gold_085",
+    "gold_014",
+    "gold_092",
+    "gold_068",
+    "gold_074",
+    "gold_081",
+    "gold_071",
+    "gold_013",
+    "gold_086",
+    "gold_062",
+    "gold_078",
+    "gold_064",
+    "gold_094",
+    "gold_001",
+    "gold_060",
+    "gold_021",
+    "gold_102",
+    "gold_099",
+    "gold_024",
+    "gold_020",
+    "gold_022",
+    "gold_108",
+    "gold_017",
+    "gold_103",
+    "gold_105",
+    "gold_109",
+    "gold_110",
+    "gold_031",
+    "gold_030",
+    "gold_026",
+    "gold_035",
+    "gold_029"
+  ],
+  "details": {
+    "G0": [
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 35,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G0",
+        "gold_id": "gold_076",
+        "query": "谭光华因违规买卖股票被证监会行政处罚的案件详情？",
+        "answer": "对不起，我无法提供您所要求的信息。如果您有其他问题需要咨询，请告诉我。",
+        "latency_s": 3.336,
+        "retrieved_event_ids": []
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 134,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G0",
+        "gold_id": "gold_008",
+        "query": "2023 年控股股东或高管操纵股价被罚的代表性案例有哪些？",
+        "answer": "对不起，我无法提供2023年控股股东或高管操纵股价被罚的代表性案例的具体信息。这些案件通常由证监会、SEC（美国证券交易委员会）等监管机构进行调查和处罚，以维护市场的公平性和透明度。如果您需要了解其他与股票市场相关的法律问题或政策信息，请告诉我，我会尽力为您提供帮助。",
+        "latency_s": 6.96,
+        "retrieved_event_ids": []
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 192,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G0",
+        "gold_id": "gold_002",
+        "query": "2022 年证监会查处的董事长因内幕交易被罚款的案件有哪些？",
+        "answer": "2022 年，证监会对一些在任或离任的董事、监事和高级管理人员进行了纪律处分，其中包括因内幕交易被罚款的案例。\n\n具体案例包括：\n1. 中国平安保险股份有限公司董事长张勇因内幕交易被罚款。\n2. 中国工商银行董事长陈德文因内幕交易被罚款。\n3. 中国建设银行董事长李永才因内幕交易被罚款。\n\n这些案件表明了监管机构对于内幕交易行为的严惩力度，并且通过法律手段维护了市场的公平竞争环境。",
+        "latency_s": 10.478,
+        "retrieved_event_ids": []
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 68,
+        "hallucinated_numbers": [
+          "20万元"
+        ],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G0",
+        "gold_id": "gold_083",
+        "query": "湖北九有投资股份有限公司因虚构利润被证监会处罚的案件是什么？",
+        "answer": "湖北九有投资股份有限公司因虚假陈述案，中国证监会决定对该公司作出行政处罚，并处以20万元罚款。该案件由湖北省高级人民法院审理并作出判决。",
+        "latency_s": 3.739,
+        "retrieved_event_ids": []
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 80,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G0",
+        "gold_id": "gold_053",
+        "query": "邱仲敏因内幕交易被证监会行政处罚的案件详情？",
+        "answer": "对不起，我无法提供关于具体案件的详细信息，因为这可能涉及法律和法规保护的信息。如果您需要了解其他类型的股票、基金或期货等金融产品，我可以为您提供相关问题的答案。",
+        "latency_s": 3.84,
+        "retrieved_event_ids": []
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 36,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G0",
+        "gold_id": "gold_051",
+        "query": "夏传武因内幕交易被证监会行政处罚的案件详情？",
+        "answer": "对不起，我无法提供您所要求的信息。如果您有其他问题需要帮助，请随时提问。",
+        "latency_s": 2.13,
+        "retrieved_event_ids": []
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 398,
+        "hallucinated_numbers": [],
+        "cited_laws": [
+          "关于加强股权激励相关工作的通知",
+          "关于进一步加强对上市公司董事监事高级管理人员履行职责情况的检查的通知"
+        ],
+        "laws_in_evidence": [],
+        "condition": "G0",
+        "gold_id": "gold_015",
+        "query": "上市公司监事或职工监事利用未公开信息交易被处罚的案例有哪些？",
+        "answer": "为了防止内幕交易和市场操纵，我国对上市公司的董事、监事、高管等高级管理人员实施了严格的监管制度。在实践中，存在一些典型案例：\n\n1. 2019年6月，中国证监会发布了《关于加强股权激励相关工作的通知》，要求公司监事及职工监事应严格遵守法律法规，不得利用未公开信息进行股票交易。\n\n2. 在2018年4月，中国证监会发布了一则行政处罚决定书，指出某上市公司的监事在任职期间内，利用其掌握的信息，通过买卖股票等方式从事内幕交易，严重扰乱了证券交易秩序。\n\n3. 2017年5月，中国证监会发布的《关于进一步加强对上市公司董事监事高级管理人员履行职责情况的检查的通知》中，明确指出，如果董事、监事、高级管理人员利用未公开信息进行股票交易，将面临罚款。\n\n这些案例表明，在我国，对于违反规定的行为，不仅会受到法律制裁，还可能面临其他形式的纪律处分。因此，任何员工都应当遵守法律法规，维护市场的公平与透明。",
+        "latency_s": 20.626,
+        "retrieved_event_ids": []
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 373,
+        "hallucinated_numbers": [],
+        "cited_laws": [
+          "证券法",
+          "证券法",
+          "证券法"
+        ],
+        "laws_in_evidence": [],
+        "condition": "G0",
+        "gold_id": "gold_009",
+        "query": "2023 年上市公司控股股东因违规买卖本公司股票被处罚的案例有哪些？",
+        "answer": "2023 年，有多个公司因为控股股东在交易中存在违规行为而受到行政处罚。以下是一些典型案例：\n\n1. **上海新阳**：因在 2022 年 6 月 8 日至 9 月 7 日间，通过大宗交易方式，买入和卖出本公司股票共计 5,400 股，违反了《证券法》相关规定。\n\n2. **浙江金辉**：在 2022 年 6 月 16 日至 9 月 20 日间，通过大宗交易方式，买入和卖出本公司股票共计 5,000 股，违反了《证券法》相关规定。\n\n3. **江苏天马**：在 2022 年 6 月 16 日至 9 月 20 日间，通过大宗交易方式，买入和卖出本公司股票共计 5,000 股，违反了《证券法》相关规定。\n\n这些案例表明，在 2023 年，控股股东在交易中的行为可能涉及操纵市场、内幕交易等违法行为，需要依法进行处理。投资者应关注相关法律法规，",
+        "latency_s": 24.232,
+        "retrieved_event_ids": []
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 36,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G0",
+        "gold_id": "gold_095",
+        "query": "汤丽君因内幕交易被证监会行政处罚的案件详情？",
+        "answer": "对不起，我无法提供您所要求的信息。如果您有其他问题需要帮助，请随时提问。",
+        "latency_s": 1.88,
+        "retrieved_event_ids": []
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 55,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G0",
+        "gold_id": "gold_007",
+        "query": "2022 年涉及操纵股价且罚款金额超过百万的案例有哪些？",
+        "answer": "很抱歉，由于涉及到个人隐私和法律问题，我无法提供您所要求的信息。建议您咨询专业的律师或监管机构以获取准确信息。",
+        "latency_s": 2.923,
+        "retrieved_event_ids": []
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 99,
+        "hallucinated_numbers": [
+          "3亿"
+        ],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G0",
+        "gold_id": "gold_079",
+        "query": "韵升控股集团有限公司因违规买卖股票被证监会处罚的案件是什么？",
+        "answer": "韵升控股集团有限公司因违规买卖股票被证监会处罚的案件是：中国证监会于2019年5月对韵升控股集团有限公司作出行政处罚决定，罚款人民币3亿元。该决定涉及的违法行为包括但不限于内幕交易、操纵市场等行为。",
+        "latency_s": 5.262,
+        "retrieved_event_ids": []
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 97,
+        "hallucinated_numbers": [
+          "3,476.8万元"
+        ],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G0",
+        "gold_id": "gold_090",
+        "query": "宁夏宁河民族化工股份有限公司因占用公司资产被证监会处罚的案件是什么？",
+        "answer": "宁夏宁河民族化工股份有限公司因占用公司资产被证监会处罚的案件是“2019年5月28日，中国证监会决定对宁夏宁河民族化工股份有限公司采取责令关闭措施”。该决定涉及的金额为人民币3,476.8万元。",
+        "latency_s": 5.898,
+        "retrieved_event_ids": []
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 113,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G0",
+        "gold_id": "gold_070",
+        "query": "山东地矿股份有限公司因推迟披露被证监会处罚的案件是什么？",
+        "answer": "山东地矿股份有限公司因推迟披露被证监会处罚的案件是“2019年重大违法再审”案件。在2019年，证监会对山东地矿股份有限公司作出行政处罚决定，责令其改正违法行为，并处以罚款。该案件涉及公司未能及时披露信息导致投资者损失的问题。",
+        "latency_s": 6.551,
+        "retrieved_event_ids": []
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 36,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G0",
+        "gold_id": "gold_006",
+        "query": "2025 年以来上市公司因推迟披露且存在占用公司资产行为被处罚的案例有哪些？",
+        "answer": "对不起，我无法提供您所要求的信息。如果您有其他问题需要帮助，请随时提问。",
+        "latency_s": 1.893,
+        "retrieved_event_ids": []
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 251,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G0",
+        "gold_id": "gold_073",
+        "query": "孔繁波（董事长）因推迟披露被证监会处罚的案件情况如何？",
+        "answer": "孔繁波（董事长）因推迟披露被证监会处罚的情况，具体涉及的是中国证监会对他的行政处罚决定。根据中国的法律法规和监管规定，公司董事、监事、高级管理人员在履行职责时，必须及时向董事会报告重大事项，并确保信息的及时公开透明。如果公司在信息披露方面存在延迟或隐瞒行为，可能会受到相应的处罚。\n\n对于孔繁波（董事长）因推迟披露被证监会处罚的情况，具体情况需要参考中国证监会的相关公告以及法律程序。通常情况下，这属于对公司内部管理问题的处理，而不是直接针对个人的违法行为。因此，建议关注相关公司的后续行动和政策变化。",
+        "latency_s": 12.082,
+        "retrieved_event_ids": []
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 339,
+        "hallucinated_numbers": [
+          "50万元"
+        ],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G0",
+        "gold_id": "gold_063",
+        "query": "陈苏益（董事长）因虚假记载被证监会处罚的案件情况如何？",
+        "answer": "陈苏益（董事长）因虚假记载被证监会处罚的情况是，2019年3月，中国证监会依法对陈苏益（董事长）作出行政处罚决定，责令其改正，并处以罚款人民币50万元。这起案件涉及的主要问题包括：虚假记载、信息披露不及时以及未按规定披露信息等。\n\n具体来说：\n\n1. 虚假记载：指公司或个人在财务报告或其他公开文件中隐瞒事实，误导投资者。\n2. 信息披露不及时：指公司在定期报告和临时公告中未能及时披露重要信息。\n3. 未按规定披露信息：指公司或个人未按照规定的时间和方式披露重要的信息。\n\n因此，这起案件表明了陈苏益（董事长）在信息披露方面存在严重的问题，可能影响到公司的信誉和投资者的信心。但请注意，以上信息基于您提供的资料，实际情况可能会有所不同。建议进一步了解最新的法律法规及政策变化。",
+        "latency_s": 18.746,
+        "retrieved_event_ids": []
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 43,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G0",
+        "gold_id": "gold_003",
+        "query": "控股股东或实际控制人涉嫌内幕交易、被没收违法所得并罚款的案例有哪些？",
+        "answer": "对不起，我无法提供与案件相关的详细信息。建议您咨询专业的法律机构获取准确的信息和帮助。",
+        "latency_s": 2.141,
+        "retrieved_event_ids": []
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 47,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G0",
+        "gold_id": "gold_096",
+        "query": "杨小桃因内幕交易被证监会行政处罚的案件详情？",
+        "answer": "对不起，我无法提供您所要求的信息。建议您咨询专业的法律或金融顾问获取准确、及时和个性化的帮助。",
+        "latency_s": 2.68,
+        "retrieved_event_ids": []
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 111,
+        "hallucinated_numbers": [
+          "3亿"
+        ],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G0",
+        "gold_id": "gold_085",
+        "query": "江苏中利集团股份有限公司因虚构利润被证监会处罚的案件是什么？",
+        "answer": "江苏中利集团股份有限公司因虚假陈述而被证监会处罚，具体案件是：中国证监会于2017年5月对江苏中利集团股份有限公司作出行政处罚决定，罚款人民币3亿元。该处罚决定涉及的主要问题包括公司信息披露不准确、未按规定披露重大事项等。",
+        "latency_s": 6.402,
+        "retrieved_event_ids": []
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 36,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G0",
+        "gold_id": "gold_014",
+        "query": "2025 年第一季度上市公司被处以 2000 万元以上罚款的大额案件有哪些？",
+        "answer": "对不起，我无法提供您所要求的信息。如果您有其他问题需要帮助，请随时提问。",
+        "latency_s": 2.438,
+        "retrieved_event_ids": []
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 40,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G0",
+        "gold_id": "gold_092",
+        "query": "刘学勤（董事）因重大遗漏被证监会处罚的案件情况如何？",
+        "answer": "对不起，我无法提供您所要求的信息。建议您咨询专业的法律或监管机构以获取准确信息。",
+        "latency_s": 2.523,
+        "retrieved_event_ids": []
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 138,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G0",
+        "gold_id": "gold_068",
+        "query": "江苏阳光股份有限公司因推迟披露被证监会处罚的案件是什么？",
+        "answer": "江苏阳光股份有限公司因推迟披露被证监会处罚的案件是“2017年3月1日，中国证监会决定对江苏阳光股份有限公司采取责令改正措施”。这起案件涉及公司未能及时披露重大事项，导致市场对公司股票价格产生影响。在案件中，中国证监会要求公司进行整改，并于2017年3月1日作出行政处罚决定。",
+        "latency_s": 8.455,
+        "retrieved_event_ids": []
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 36,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G0",
+        "gold_id": "gold_074",
+        "query": "耿毅英（监事会主席）因违规买卖股票被证监会处罚的案件情况如何？",
+        "answer": "对不起，我无法提供您所要求的信息。如果您有其他问题需要帮助，请随时提问。",
+        "latency_s": 2.096,
+        "retrieved_event_ids": []
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 86,
+        "hallucinated_numbers": [
+          "574.6万元"
+        ],
+        "cited_laws": [
+          "关于对恒宝股份有限公司采取责令关闭措施的决定"
+        ],
+        "laws_in_evidence": [],
+        "condition": "G0",
+        "gold_id": "gold_081",
+        "query": "恒宝股份有限公司因虚构利润被证监会处罚的案件是什么？",
+        "answer": "恒宝股份有限公司因虚构利润被证监会处罚的案件是《关于对恒宝股份有限公司采取责令关闭措施的决定》。该决定由中国证监会于2019年3月作出，涉及违法所得为人民币574.6万元。",
+        "latency_s": 5.751,
+        "retrieved_event_ids": []
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 44,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G0",
+        "gold_id": "gold_071",
+        "query": "王禹皓（董事长）因推迟披露被证监会处罚的案件情况如何？",
+        "answer": "对不起，我无法提供您所要求的信息。建议您咨询专业的法律或金融顾问以获取准确和最新的信息。",
+        "latency_s": 2.968,
+        "retrieved_event_ids": []
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 95,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G0",
+        "gold_id": "gold_013",
+        "query": "2010 年前后早期上市公司信息披露违规被市场禁入的重大案例有哪些？",
+        "answer": "对不起，我无法提供关于2010年之前或更早的案件信息。这些案件通常涉及中国证券市场的监管政策和程序，而不是特定公司的行为。建议您查阅最新的法律法规、司法记录或者咨询法律专家以获取准确的信息。",
+        "latency_s": 5.524,
+        "retrieved_event_ids": []
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 46,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G0",
+        "gold_id": "gold_086",
+        "query": "黄宁杰（总裁）因操纵股价被证监会处罚的案件情况如何？",
+        "answer": "很抱歉，我无法提供您所要求的信息。建议向相关监管机构或司法机关咨询以获取最新的、准确的情况。",
+        "latency_s": 3.208,
+        "retrieved_event_ids": []
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 96,
+        "hallucinated_numbers": [
+          "50万元"
+        ],
+        "cited_laws": [
+          "中国证券监督管理委员会行政处罚决定书"
+        ],
+        "laws_in_evidence": [],
+        "condition": "G0",
+        "gold_id": "gold_062",
+        "query": "暴风集团股份有限公司因虚假记载被证监会处罚的案件是什么？",
+        "answer": "暴风集团股份有限公司因虚假记载被证监会处罚，具体案件是《中国证券监督管理委员会行政处罚决定书》（[2019]第3号），该决定书认定该公司存在操纵市场、内幕交易等行为，并处以罚款人民币50万元。",
+        "latency_s": 6.201,
+        "retrieved_event_ids": []
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 45,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G0",
+        "gold_id": "gold_078",
+        "query": "卢宪斌（监事）因违规买卖股票被证监会处罚的案件情况如何？",
+        "answer": "对不起，我无法提供关于具体案例或个人的详细信息。如果您有其他问题需要帮助解答，请随时提问。",
+        "latency_s": 2.55,
+        "retrieved_event_ids": []
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 60,
+        "hallucinated_numbers": [
+          "50万元"
+        ],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G0",
+        "gold_id": "gold_064",
+        "query": "江苏紫金电子集团有限公司因虚假记载被证监会处罚的案件是什么？",
+        "answer": "江苏紫金电子集团有限公司因虚假记载被证监会处罚的案件是2019年4月，中国证监会对该公司作出行政处罚决定，罚款50万元。",
+        "latency_s": 3.995,
+        "retrieved_event_ids": []
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 36,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G0",
+        "gold_id": "gold_094",
+        "query": "郑飚因内幕交易被证监会行政处罚的案件详情？",
+        "answer": "对不起，我无法提供您所要求的信息。如果您有其他问题需要帮助，请随时提问。",
+        "latency_s": 2.323,
+        "retrieved_event_ids": []
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 385,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G0",
+        "gold_id": "gold_001",
+        "query": "上市公司独立董事利用内幕信息买入自家股票的典型案例有哪些？请列出至少两个并说明处罚方式。",
+        "answer": "案例一：\n2019年，中国证监会对某上市公司及其董事、监事和高级管理人员进行了行政处罚。在该案件中，公司独立董事利用其个人账户买卖本公司股票的行为被认定为内幕交易行为，并且情节严重。\n\n处罚方式：\n1. 中国证监会决定暂停该公司股票交易，直至其改正。\n2. 对于直接负责的主管人员和其他责任人员，处以罚款。\n\n案例二：\n2020年，中国证监会对另一家上市公司及其董事、监事和高级管理人员进行了行政处罚。在该案件中，公司独立董事利用其个人账户买卖本公司股票的行为也被认定为内幕交易行为，并且情节严重。\n\n处罚方式：\n1. 中国证监会决定暂停该公司股票交易，直至其改正。\n2. 对于直接负责的主管人员和其他责任人员，处以罚款。\n\n请注意，这些建议是基于一般情况下的案例，具体情况需要根据实际情况进行判断和处理。同时，任何违法行为都应当依法依规进行处理，维护市场的公平与秩序。",
+        "latency_s": 22.089,
+        "retrieved_event_ids": []
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 186,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G0",
+        "gold_id": "gold_060",
+        "query": "浙江维康药业股份有限公司因虚假记载被证监会处罚的案件是什么？",
+        "answer": "浙江维康药业股份有限公司因虚假记载被证监会处罚的案件是2018年4月，由中国证监会作出行政处罚决定书。该案件涉及的主要问题包括：信息披露不真实、财务数据造假等。在该案中，公司存在虚假记载和误导性陈述行为，导致投资者损失，并且公司的治理结构存在问题。因此，公司被处以罚款并限制其股票交易期限。请注意，以上信息基于您提供的资料，实际情况可能有所不同，请以官方渠道获取最新信息。",
+        "latency_s": 11.035,
+        "retrieved_event_ids": []
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 508,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G0",
+        "gold_id": "gold_021",
+        "query": "2005 年《证券法》第六十三条关于信息披露真实性的要求，在近年虚假记载案件中如何被援引？",
+        "answer": "在近年来的虚假记载案件中，信息披露的真实性和完整性是被广泛引用和援引的重要标准之一。以下是一些关键点：\n\n1. **信息披露的真实性**：指公司或投资者应披露的信息是否真实、准确地反映了公司的财务状况、经营情况和其他重要信息。\n\n2. **信息披露的完整性**：指公司在披露信息时是否完整地提供了所有必要的文件和资料，包括但不限于公司章程、股东名册、董事会决议等。\n\n3. **信息披露的及时性**：指公司在披露信息后是否及时向市场公开，并且信息披露的内容是否与实际情况相符。\n\n4. **信息披露的准确性**：指公司在披露信息时是否能够提供准确的数据和信息，避免误导投资者。\n\n5. **信息披露的透明度**：指公司在信息披露过程中是否保持了透明度，是否存在任何可能影响投资者决策的信息泄露。\n\n6. **信息披露的可比性**：指公司在披露信息时是否能够与其他公司进行比较，以评估其业绩表现。\n\n7. **信息披露的持续性**：指公司在披露信息后的一定时间范围内是否继续履行其信息披露义务。\n\n这些要素构成了信息披露真实性和完整性的要求。通过这些要求，可以有效防止虚假记载的发生，维护市场的公平竞争环境。在实践中，",
+        "latency_s": 26.587,
+        "retrieved_event_ids": []
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 234,
+        "hallucinated_numbers": [],
+        "cited_laws": [
+          "证券法",
+          "证券法"
+        ],
+        "laws_in_evidence": [],
+        "condition": "G0",
+        "gold_id": "gold_102",
+        "query": "王仕宏操纵股价案援引了《证券法》哪一条？",
+        "answer": "根据《证券法》，王仕宏操纵股价案的适用范围包括上市公司、股票及其衍生品种等，以及发行股票或者公司债券的主体。因此，该案件主要涉及的是上市公司的行为。具体来说，《证券法》第14条和第15条规定了对内幕信息知情人的限制措施。\n\n在本案中，王仕宏可能通过内幕交易或泄露内幕信息来影响市场价格，从而达到操纵股价的目的。因此，法律上可能会采取限制性措施，如禁止内幕信息知情人与他人进行证券交易活动，或者要求其提供必要的文件和资料。这些规定旨在保护投资者利益，防止欺诈行为的发生。",
+        "latency_s": 13.763,
+        "retrieved_event_ids": []
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 228,
+        "hallucinated_numbers": [],
+        "cited_laws": [
+          "证券法",
+          "证券法",
+          "证券法"
+        ],
+        "laws_in_evidence": [],
+        "condition": "G0",
+        "gold_id": "gold_099",
+        "query": "吕兴平内幕交易案援引了《证券法》哪一条？",
+        "answer": "根据《证券法》，内幕交易是指证券交易市场中，内幕信息的提供者、内幕信息的知悉者和投资者利用该信息进行股票交易的行为。这一行为违反了《证券法》第20条关于内幕交易的规定。\n\n具体条款如下：\n\n1. 第二百零一条：内幕信息的提供者、内幕信息的知悉者和投资者利用该信息进行股票交易的行为是违法的。\n2. 第二百一十条：任何单位和个人利用内幕信息进行股票交易的，由证监会依照有关法律法规的规定予以处罚。\n\n因此，吕兴平内幕交易案涉及的是《证券法》中的内幕交易规定。",
+        "latency_s": 13.983,
+        "retrieved_event_ids": []
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 414,
+        "hallucinated_numbers": [],
+        "cited_laws": [
+          "中国注册会计师审计准则",
+          "中国注册会计师审计准则"
+        ],
+        "laws_in_evidence": [],
+        "condition": "G0",
+        "gold_id": "gold_024",
+        "query": "《中国注册会计师审计准则》第 1101 号、第 1301 号在会计师事务所被处罚案件中如何被援引？",
+        "answer": "在中国，会计师事务所被处罚案件中的引用通常遵循以下步骤：\n\n1. **了解背景信息**：首先需要详细了解相关案件的背景信息，包括但不限于案件的性质、涉及的金额和时间范围等。\n\n2. **查阅法律法规**：根据《中国注册会计师审计准则》第 1101 号、第 1301 号的规定，可以查找相关的法律法规条文或案例进行参考。\n\n3. **咨询专业意见**：如果无法找到直接适用的条款，可以寻求专业的会计师事务所或律师的意见，以确保法律适用的准确性。\n\n4. **申请复核**：在某些情况下，会计师事务所在收到处罚决定后，可能需要向原处罚机关提出复核申请，以确认处罚是否符合法律规定。\n\n5. **后续跟进**：一旦收到复核结果，应按照相关规定进行后续处理，如整改、纠正违法行为等。\n\n以上是针对《中国注册会计师审计准则》第 1101 号、第 1301 号在会计师事务所被处罚案件中如何被援引的基本指导。具体情况还需结合实际操作来确定。",
+        "latency_s": 23.821,
+        "retrieved_event_ids": []
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 413,
+        "hallucinated_numbers": [],
+        "cited_laws": [
+          "证券法"
+        ],
+        "laws_in_evidence": [],
+        "condition": "G0",
+        "gold_id": "gold_020",
+        "query": "2019 修订《证券法》第五十五条第一款第一项、第三项在操纵市场处罚中的典型适用有哪些案例？",
+        "answer": "2019年修订的《证券法》第五十五条第一款第一项和第三项，对操纵市场行为的认定标准进行了调整。以下是典型的适用案例：\n\n1. 案例一：某公司通过频繁买卖股票，试图影响股价，导致其他投资者无法卖出股票而形成虚假交易。\n   - 法院判决：该行为构成内幕交易罪。\n\n2. 案例二：某个人投资者利用其控制的账户进行大量买入操作，试图影响股票价格，最终导致股票价格下跌。\n   - 法院判决：该行为构成操纵市场罪。\n\n3. 案例三：某公司通过频繁买卖股票，试图影响股价，导致其他投资者无法卖出股票而形成虚假交易。\n   - 法院判决：该行为构成内幕交易罪。\n\n4. 案例四：某个人投资者利用其控制的账户进行大量买入操作，试图影响股票价格，最终导致股票价格下跌。\n   - 法院判决：该行为构成操纵市场罪。\n\n5. 案例五：某公司通过频繁买卖股票，试图影响股价，导致其他投资者无法卖出股票而形成虚假交易。\n   - 法院判决：该行为构成",
+        "latency_s": 24.792,
+        "retrieved_event_ids": []
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 400,
+        "hallucinated_numbers": [],
+        "cited_laws": [
+          "证券法",
+          "证券法",
+          "证券法"
+        ],
+        "laws_in_evidence": [],
+        "condition": "G0",
+        "gold_id": "gold_022",
+        "query": "《证券法》第六十七条关于重大事件披露义务的规定，在 2023-2024 年处罚中如何被援引？",
+        "answer": "在 2023-2024 年度，行政处罚可以依据《证券法》第六十七条的规定进行处罚。具体来说，如果公司存在未及时、真实、准确地披露信息的行为，或者信息披露文件存在虚假记载、误导性陈述或重大遗漏等情形的，根据该条规定，将对相关责任人员处以罚款。因此，答案是：在 2023-2024 年度，行政处罚可以依据《证券法》第六十七条的规定进行处罚。具体来说，如果公司存在未及时、真实、准确地披露信息的行为，或者信息披露文件存在虚假记载、误导性陈述或重大遗漏等情形的，根据该条规定，将对相关责任人员处以罚款。因此，答案是：在 2023-2024 年度，行政处罚可以依据《证券法》第六十七条的规定进行处罚。具体来说，如果公司存在未及时、真实、准确地披露信息的行为，或者信息披露文件存在虚假记载、误导性陈述或重大遗漏等情形的，根据该条规定，将对相关责任人员处以罚款。因此，答案是：在 2023-2024 年度，行政处罚",
+        "latency_s": 24.32,
+        "retrieved_event_ids": []
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 90,
+        "hallucinated_numbers": [],
+        "cited_laws": [
+          "证券法",
+          "证券法"
+        ],
+        "laws_in_evidence": [],
+        "condition": "G0",
+        "gold_id": "gold_108",
+        "query": "姜涛推迟披露案援引了《证券法》哪一条？",
+        "answer": "根据《证券法》，姜涛推迟披露案的援引条款是：公司应当及时、公平地披露信息，不得预先泄露或者提前披露信息。因此，本案中，公司（姜涛）并未违反《证券法》第14条关于信息披露义务的规定。",
+        "latency_s": 5.745,
+        "retrieved_event_ids": []
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 457,
+        "hallucinated_numbers": [],
+        "cited_laws": [
+          "证券法"
+        ],
+        "laws_in_evidence": [],
+        "condition": "G0",
+        "gold_id": "gold_017",
+        "query": "2005 年《证券法》第七十三条、第七十六条分别规制什么？各举一个被适用的案件。",
+        "answer": "2005年《证券法》第七十三条和第七十六条分别规定了对证券公司、证券投资咨询机构、期货经纪公司的行为进行监管，以及在特定情形下，对证券公司、证券投资咨询机构、期货经纪公司及其从业人员实施行政处罚。\n\n1. 第七十三条：禁止证券公司、证券投资咨询机构、期货经纪公司及其从业人员从事下列行为：\n   (一) 未经批准擅自设立、收购或者合并证券公司、证券投资咨询机构、期货经纪公司；\n   (二) 以欺骗手段或者其他不正当手段获取业务资格；\n   (三) 擅自接受客户委托，办理委托事项；\n   (四) 违反规定为客户提供虚假信息、误导性信息等影响证券交易价格或者交易量的行为。\n   \n2. 第七十六条：违反本法规定，有下列行为之一的，由国务院证券监督管理机构依照有关法律、行政法规的规定予以处罚：\n\n   (一) 未按照规定报送文件、资料、报告、报表、财务会计报告和其他书面材料；\n\n   (二) 未按照规定履行信息披露义务；\n\n   (三) 未按照规定建立并执行客户交易台账制度；\n\n   (四) 未按照规定建立并",
+        "latency_s": 25.15,
+        "retrieved_event_ids": []
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 36,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G0",
+        "gold_id": "gold_103",
+        "query": "张志坚虚构利润案援引了《证券法》哪一条？",
+        "answer": "对不起，我无法提供您所要求的信息。如果您有其他问题需要帮助，请随时提问。",
+        "latency_s": 2.236,
+        "retrieved_event_ids": []
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 10,
+        "hallucinated_numbers": [],
+        "cited_laws": [
+          "证券法"
+        ],
+        "laws_in_evidence": [],
+        "condition": "G0",
+        "gold_id": "gold_105",
+        "query": "李国富虚假记载案援引了《证券法》哪一条？",
+        "answer": "《证券法》第21条。",
+        "latency_s": 1.073,
+        "retrieved_event_ids": []
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 10,
+        "hallucinated_numbers": [],
+        "cited_laws": [
+          "证券法"
+        ],
+        "laws_in_evidence": [],
+        "condition": "G0",
+        "gold_id": "gold_109",
+        "query": "高光荣违规买卖股票案援引了《证券法》哪一条？",
+        "answer": "《证券法》第20条。",
+        "latency_s": 1.126,
+        "retrieved_event_ids": []
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 45,
+        "hallucinated_numbers": [],
+        "cited_laws": [
+          "证券法"
+        ],
+        "laws_in_evidence": [],
+        "condition": "G0",
+        "gold_id": "gold_110",
+        "query": "高玲违规买卖股票案援引了《证券法》哪一条？",
+        "answer": "《证券法》第21条，是关于内幕交易、泄露内幕信息和非法向他人提供内幕信息的法律责任的规定。",
+        "latency_s": 3.223,
+        "retrieved_event_ids": []
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 267,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G0",
+        "gold_id": "gold_031",
+        "query": "独立董事疏于履职、在内幕信息公开前买入本公司股票，参考案例会被如何处罚？",
+        "answer": "根据中国证监会的相关规定，独立董事的职责是维护公司和全体股东的利益，因此，在内幕信息尚未公开之前，任何董事不得进行与公司的利益冲突行为，包括但不限于购买或持有本公司股票的行为。对于这种行为，如果被指为违反了相关法律法规，可能会受到相应的纪律处分或者行政处罚。\n\n具体处罚措施可能包括：警告、罚款、暂停任职等。此外，还可能对直接负责的董事、监事、经理和其他高级管理人员给予纪律处分或其他形式的惩戒。\n\n请注意，以上信息基于一般情况下的法律框架，具体情况需要遵循最新的法律法规以及相关的司法解释。建议咨询专业的法律顾问以获取更准确的信息。",
+        "latency_s": 13.241,
+        "retrieved_event_ids": []
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 146,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G0",
+        "gold_id": "gold_030",
+        "query": "某上市公司控股股东占用公司资金数亿元且未及时披露，参考近年案例，公司与主要责任人预计会被如何处罚？",
+        "answer": "依据我国相关法律法规，控股股东占用公司资金数亿元且未及时披露的，将被处以罚款，并可能对直接负责的董事、监事、经理和其他责任人员进行处分。具体处罚措施包括但不限于：罚款、警告、限制或禁止转让部分股权等。此外，控股股东还可能面临其他法律后果，如刑事责任。建议您咨询专业律师获取更详细的信息和指导。",
+        "latency_s": 8.108,
+        "retrieved_event_ids": []
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 236,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G0",
+        "gold_id": "gold_026",
+        "query": "某上市公司董事在内幕信息公开前使用他人账户买入本公司股票，获利仅 1000 元左右，参考类似案例，预计会被如何处罚？",
+        "answer": "根据中国证监会的相关规定，董事在内幕信息敏感期内使用他人账户买卖公司股票的行为属于内幕交易行为。对于此类行为，市场监督管理部门通常会采取以下措施：\n\n1. 罚款：如果情节严重或构成犯罪，将对相关责任人处以罚款。\n2. 警告：警告是首次监管措施之一。\n\n具体处罚依据可能包括但不限于：\n- 罚款金额和时间限制；\n- 警告期限及内容；\n- 可能的其他形式的行政处罚。\n\n请注意，以上信息基于一般情况下的分析，并不适用于所有具体情况。建议咨询法律专业人士获取最准确的信息和指导。",
+        "latency_s": 13.018,
+        "retrieved_event_ids": []
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 201,
+        "hallucinated_numbers": [
+          "30万元",
+          "60万元",
+          "5万元",
+          "20万元"
+        ],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G0",
+        "gold_id": "gold_035",
+        "query": "上市公司连续多年虚构利润累计 10 亿元以上，最终被立案处罚，公司层面预计会被罚多少、主要责任人会被如何处理？",
+        "answer": "根据中国证监会的规定，上市公司连续三年以上（含）未按照规定公开披露信息的，或者在重大事件发生后，不及时报告和公告的，将被处以30万元以上60万元以下的罚款，并对直接负责的主管人员和其他直接责任人员给予警告，并可以处5万元以上20万元以下的罚款。\n\n对于公司的主要负责人，除了可能面临警告之外，还可能面临更高的罚款额度。具体金额会根据案件的具体情况来确定。建议您咨询专业的法律顾问或律师获取更详细的信息。",
+        "latency_s": 10.858,
+        "retrieved_event_ids": []
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 215,
+        "hallucinated_numbers": [],
+        "cited_laws": [
+          "刑法"
+        ],
+        "laws_in_evidence": [],
+        "condition": "G0",
+        "gold_id": "gold_029",
+        "query": "某投资者集中资金连续买卖某股票操纵其价格获利 1000 万元以上，预计会被如何处罚？",
+        "answer": "根据中国证监会的规定，投资者在证券交易中进行交易活动时，应当遵守法律法规和自律规则，不得从事内幕交易、泄露内幕信息或者利用获取的内幕信息从事与该内幕信息有关的证券业务等行为。对于操纵市场行为，根据《刑法》第三百二十二条的规定，构成操纵金融市场的罪行，最高可判处三年以下有期徒刑或拘役，并处以罚金。\n\n但是，请注意，这只是一个基本的法律框架，具体到案件处理需要依据具体的案情和法律规定来确定。建议您咨询专业的律师，获得更详细的指导。",
+        "latency_s": 11.876,
+        "retrieved_event_ids": []
+      }
+    ],
+    "G1": [
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 348,
+        "hallucinated_numbers": [],
+        "cited_laws": [
+          "证券法"
+        ],
+        "laws_in_evidence": [
+          "证券法"
+        ],
+        "condition": "G1",
+        "gold_id": "gold_076",
+        "query": "谭光华因违规买卖股票被证监会行政处罚的案件详情？",
+        "answer": "根据提供的信息，谭光华因违规买卖股票被证监会行政处罚的案件详情如下：\n\n案例1：\n  EventID=40111147\n  标题:中国证券监督委员会广东监管局行政处罚决定书(谭光华)〔2020〕5号\n  公告日期:2020-04-27\n  违规情节:违反2005年《证券法》第四十七条的规定。\n\n案例2：\n  EventID=401803\n  标题:中国证监会行政处罚决定书（曹伟娟）\n  公告日期:2012-01-13\n  违规情节:经查明,曹伟娟和惠丰化纤存在以下违法事实:2010年6月1日起,开立于中信金通证券杭州市心南路营业部的项某富、项某淇、惠丰化纤、曹伟娟、沈某账户,以及开立于财通证券杭州文化路营业部的莫某某、倪某某账户等7个账户,持续交易“*ST光华”股票,截至2010年12月",
+        "latency_s": 24.646,
+        "retrieved_event_ids": [
+          "40111147",
+          "401803",
+          "50145610",
+          "50141486",
+          "40104238"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 123,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G1",
+        "gold_id": "gold_008",
+        "query": "2023 年控股股东或高管操纵股价被罚的代表性案例有哪些？",
+        "answer": "案例1和案例2是典型的控股股东或高管操纵股价的行为，而案例3和案例4则是实际控制人、前任高级管理人员在内幕信息知悉后进行的操纵行为。案例5则是在内幕信息知悉后实施的操纵行为。这些案例都涉及到操纵股价的行为，但具体的事实情况需要通过法律程序来确认。",
+        "latency_s": 6.961,
+        "retrieved_event_ids": [
+          "40148572",
+          "40137042",
+          "40134451",
+          "40146482",
+          "40146002"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 137,
+        "hallucinated_numbers": [],
+        "cited_laws": [
+          "证券法",
+          "证券法"
+        ],
+        "laws_in_evidence": [
+          "证券法",
+          "证券法"
+        ],
+        "condition": "G1",
+        "gold_id": "gold_002",
+        "query": "2022 年证监会查处的董事长因内幕交易被罚款的案件有哪些？",
+        "answer": "2022 年证监会查处的董事长因内幕交易被罚款的案件有:\n\n案例 1 和案例 2\n\n案例 1 的违规情节为违反《证券法》第五十条、第五十三条第一款的规定。\n案例 2 的违规情节为违反《证券法》第五十条、第五十三条的规定。\n\n这些案例都属于内幕交易行为，因此需要进行罚款处罚。",
+        "latency_s": 7.902,
+        "retrieved_event_ids": [
+          "40123812",
+          "40125002",
+          "40121566",
+          "40117688",
+          "40117697"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 31,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G1",
+        "gold_id": "gold_083",
+        "query": "湖北九有投资股份有限公司因虚构利润被证监会处罚的案件是什么？",
+        "answer": "湖北九有投资股份有限公司因虚构利润被证监会处罚的案件是案例1。",
+        "latency_s": 2.154,
+        "retrieved_event_ids": [
+          "50113127",
+          "50111624",
+          "40109041",
+          "50109035",
+          "40110885"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 180,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G1",
+        "gold_id": "gold_053",
+        "query": "邱仲敏因内幕交易被证监会行政处罚的案件详情？",
+        "answer": "根据提供的事件编号和违法事实内容，可以提取以下关键信息：\n\n1. **违规情节**：包括但不限于内幕交易的行为。\n2. **参与人**：包括邱仲敏、缪玲红、邵林平、李琳杰、覃炳辉、胡海波、曹琏琏。\n3. **违法行为**：内幕交易行为。\n4. **违法后果**：罚款或行政处罚。\n\n为了提供更详细的答案，请您提供更多关于案件的具体情况或要求进一步了解相关细节。",
+        "latency_s": 9.771,
+        "retrieved_event_ids": [
+          "4011579",
+          "404694",
+          "40152764",
+          "404252",
+          "4011612"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 369,
+        "hallucinated_numbers": [],
+        "cited_laws": [
+          "证券法",
+          "证券法",
+          "证券法",
+          "证券法"
+        ],
+        "laws_in_evidence": [
+          "证券法",
+          "证券法",
+          "证券法",
+          "证券法"
+        ],
+        "condition": "G1",
+        "gold_id": "gold_051",
+        "query": "夏传武因内幕交易被证监会行政处罚的案件详情？",
+        "answer": "夏传武因内幕交易被证监会行政处罚的案件详情如下：\n\n案例1：\n  EventID=4035499\n  标题:中国证监会行政处罚决定书(夏雪)\n  公告日期:2016-04-28\n  违规情节:违反了《证券法》第七十三条、第七十六条第一款关于禁止内幕交易的规定，构成《证券法》第二百零二条所述内幕交易行为。\n\n案例2：\n  EventID=404694\n  标题:中国证监会行政处罚决定书（熊绍咏、曾俊生、林溪彬）\n  公告日期:2012-12-13\n  违规情节:熊绍咏、曾俊生、林溪彬违反了《证券法》第七十三条、第七十六条关于禁止内幕交易的规定，构成了《证券法》第二百零二条所述内幕交易行为。\n\n案例3：\n  EventID=404252\n  标题:中国证监会行政处罚决定书（李琳杰、覃炳辉）\n  公告日期:2012-12-26\n  违",
+        "latency_s": 25.015,
+        "retrieved_event_ids": [
+          "4035499",
+          "404694",
+          "404252",
+          "4065704",
+          "4055499"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 414,
+        "hallucinated_numbers": [],
+        "cited_laws": [
+          "证券法"
+        ],
+        "laws_in_evidence": [
+          "证券法"
+        ],
+        "condition": "G1",
+        "gold_id": "gold_015",
+        "query": "上市公司监事或职工监事利用未公开信息交易被处罚的案例有哪些？",
+        "answer": "根据检索到的案例，以下是一些典型案例：\n\n1. **案例1**： \n   - **违规情节**: 未在规定的期限内披露信息。\n   - **违法事实**: 未在规定的期限内披露信息。\n\n2. **案例2**：\n   - **违规情节**: 未在规定的期限内披露信息。\n   - **违法事实**: 未在规定的期限内披露信息。\n\n3. **案例3**：\n   - **违规情节**: 未在规定的期限内披露信息。\n   - **违法事实**: 未在规定的期限内披露信息。\n\n4. **案例4**：\n   - **违规情节**: 未在规定的期限内披露信息。\n   - **违法事实**: 未在规定的期限内披露信息。\n\n5. **案例5**：\n   - **违规情节**: 未在规定的期限内披露信息。\n   - **违法事实**: 未在规定的期限内披露信息。\n\n这些案例均涉及到未在规定的期限内披露信息的行为，符合《证券法》的相关规定。",
+        "latency_s": 19.976,
+        "retrieved_event_ids": [
+          "4070583",
+          "4050698",
+          "40107846",
+          "40172443",
+          "4019372"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 375,
+        "hallucinated_numbers": [],
+        "cited_laws": [
+          "行政处罚决定书"
+        ],
+        "laws_in_evidence": [
+          "行政处罚决定书"
+        ],
+        "condition": "G1",
+        "gold_id": "gold_009",
+        "query": "2023 年上市公司控股股东因违规买卖本公司股票被处罚的案例有哪些？",
+        "answer": "根据您提供的信息，以下是2023年上市公司控股股东因违规买卖本公司股票被处罚的案例：\n\n案例1：\n  EventID=40136205\n  标题: 关于控股股东、实际控制人收到《行政处罚决定书》的公告\n  公告日期:2023-04-29\n  违规情节:956股,占广汇物流总股本的0.54%。上述短线交易决策和操作均由控股股东作出,累计成交金额为1.25亿元。控股股东交易公司股票存在卖出后六个月内买入、买入后六个月内又卖出的情形。(三)控股股东违规减持公司股票上述账户于2020年9月16日至2021年6月28日以集中竞价交易方式持续卖出广汇物流股票,累计卖出53,172,934股,匹配的买入金额182,306,482.77元,匹配的卖出金额213,491,175.95元。我局认为,金昇实业借用他人证券账户买\n\n案例2：\n  EventID=4",
+        "latency_s": 23.605,
+        "retrieved_event_ids": [
+          "40136205",
+          "40140722",
+          "40136203",
+          "40136204",
+          "40148805"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 383,
+        "hallucinated_numbers": [],
+        "cited_laws": [
+          "证券法",
+          "证券法",
+          "证券法",
+          "证券法"
+        ],
+        "laws_in_evidence": [
+          "证券法",
+          "证券法",
+          "证券法",
+          "证券法"
+        ],
+        "condition": "G1",
+        "gold_id": "gold_095",
+        "query": "汤丽君因内幕交易被证监会行政处罚的案件详情？",
+        "answer": "根据提供的事件信息和案例线索,以下是对汤丽君因内幕交易被证监会行政处罚的详细回答:\n\n案例1:\n  谭淑智在2013年1月23日被中国证监会行政处罚决定书,主要违法事实为:谭淑智违反了《证券法》第七十三条、第七十六条第一款的规定,构成内幕交易行为。\n\n案例2:\n  谷永芳在2013年1月23日被中国证监会行政处罚决定书,主要违法事实为:谷永芳违反了《证券法》第七十三条、第七十六条第一款的规定,构成内幕交易行为。\n\n案例3:\n  邓惠文在2014年8月29日被中国证监会行政处罚决定书,主要违法事实为:邓惠文违反了《证券法》第七十六条的规定,构成内幕交易行为。\n\n案例4:\n  姚锦聪、王仲鸣、陈狄奇、陈述在2014年8月29日被中国证监会行政处罚决定书,主要违法事实为:上述四人违反了《证券法》第七十六条的规定,构成内幕交易行为。\n\n案例5:\n  王仲鸣、陈狄奇",
+        "latency_s": 23.546,
+        "retrieved_event_ids": [
+          "40149802",
+          "404654",
+          "40152764",
+          "4015774",
+          "4011579"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 95,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G1",
+        "gold_id": "gold_007",
+        "query": "2022 年涉及操纵股价且罚款金额超过百万的案例有哪些？",
+        "answer": "案例1和案例2：中国证监会行政处罚决定书（龚严冰、龚艺荣）\n案例3：中国证监会行政处罚决定书（宜华集团、刘绍喜等6名责任主体）\n案例4：中国证监会行政处罚决定书（林永贤、陈宪生、孙磊、徐骏）",
+        "latency_s": 6.409,
+        "retrieved_event_ids": [
+          "50122086",
+          "40108676",
+          "40124002",
+          "50121246",
+          "50120247"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 31,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G1",
+        "gold_id": "gold_079",
+        "query": "韵升控股集团有限公司因违规买卖股票被证监会处罚的案件是什么？",
+        "answer": "韵升控股集团有限公司因违规买卖股票被证监会处罚的案件是案例4。",
+        "latency_s": 2.031,
+        "retrieved_event_ids": [
+          "50108573",
+          "50113430",
+          "401710",
+          "40200562",
+          "40179642"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 48,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G1",
+        "gold_id": "gold_090",
+        "query": "宁夏宁河民族化工股份有限公司因占用公司资产被证监会处罚的案件是什么？",
+        "answer": "宁夏宁河民族化工股份有限公司因占用公司资产被证监会处罚的案件是案例1中的事件编号 401841。",
+        "latency_s": 3.117,
+        "retrieved_event_ids": [
+          "401841",
+          "50108811",
+          "401515",
+          "50148086",
+          "40108760"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 33,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G1",
+        "gold_id": "gold_070",
+        "query": "山东地矿股份有限公司因推迟披露被证监会处罚的案件是什么？",
+        "answer": "山东地矿股份有限公司因推迟披露被证监会处罚的案件是案例1中的事件。",
+        "latency_s": 2.197,
+        "retrieved_event_ids": [
+          "40110591",
+          "40109640",
+          "40108773",
+          "40108998",
+          "50108697"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 394,
+        "hallucinated_numbers": [],
+        "cited_laws": [
+          "行政处罚事先告知书",
+          "中华人民共和国证券法",
+          "证券法",
+          "证券法",
+          "行政处罚决定书",
+          "证券法",
+          "证券法",
+          "证券法"
+        ],
+        "laws_in_evidence": [
+          "行政处罚事先告知书",
+          "中华人民共和国证券法",
+          "证券法",
+          "证券法",
+          "行政处罚决定书",
+          "证券法",
+          "证券法",
+          "证券法"
+        ],
+        "condition": "G1",
+        "gold_id": "gold_006",
+        "query": "2025 年以来上市公司因推迟披露且存在占用公司资产行为被处罚的案例有哪些？",
+        "answer": "以下是2025年以来，上市公司因推迟披露且存在占用公司资产行为而被处罚的案例：\n\n案例1：\n  EventID=40204682\n  标题:关于公司及相关责任人收到《行政处罚事先告知书》的公告\n  公告日期:2025-08-04\n  违规情节:违反了《中华人民共和国证券法》(以下简称《证券法》)第七十八条第一款、第八十条第一款和第二款第三项的规定,违反了《证券法》第八十二条第三款的规定。\n案例2：\n  EventID=40183285\n  标题:关于公司及相关当事人收到《行政处罚决定书》的公告\n  公告日期:2025-01-02\n  违规情节:违反了《证券法》第七十八条第一款、第八十条第一款及第二款第三项的相关规定,违反了《证券法》第七十八条第二款、第七十九条的相关规定,违反了《证券法》第八十二条第三款的规定。\n案例3：\n  EventID=40207050\n  标题:关于收到",
+        "latency_s": 23.591,
+        "retrieved_event_ids": [
+          "40204682",
+          "40183285",
+          "40207050",
+          "40188004",
+          "40192003"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 397,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G1",
+        "gold_id": "gold_073",
+        "query": "孔繁波（董事长）因推迟披露被证监会处罚的案件情况如何？",
+        "answer": "根据您提供的案例信息，孔繁波作为董事长因推迟披露被证监会处罚的案件情况如下：\n\n1. **案例1**：2003年4月21日，中国证监会行政处罚决定书（南华西及相关人员），处罚内容包括：\n   - 在2001年3月3日前未能及时披露的违规行为；\n   - 知道并签署相关文件，但未及时披露的行为。\n\n2. **案例2**：2012年6月27日，中国证监会行政处罚决定书（宁波富邦、郑锦浩、华声康等7名责任人），处罚内容包括：\n   - 知道并签署相关文件，但未及时披露的行为。\n\n3. **案例3**：2021年6月4日，中国证监会行政处罚决定书（赵奕清），处罚内容包括：\n   - 知道并签署相关文件，但未及时披露的行为。\n\n4. **案例4**：2006年11月29日，中国证监会行政处罚决定书（和光商务及吴力、黄勇、毕春斌），处罚内容包括：\n   - 知道并签署相关文件，但未及时披露的行为",
+        "latency_s": 25.054,
+        "retrieved_event_ids": [
+          "40774",
+          "401942",
+          "40111981",
+          "401500",
+          "40109363"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 369,
+        "hallucinated_numbers": [
+          "10万元"
+        ],
+        "cited_laws": [
+          "股票条例",
+          "股票条例"
+        ],
+        "laws_in_evidence": [
+          "股票条例",
+          "股票条例"
+        ],
+        "condition": "G1",
+        "gold_id": "gold_063",
+        "query": "陈苏益（董事长）因虚假记载被证监会处罚的案件情况如何？",
+        "answer": "根据检索到的案例,陈苏益作为龙力生物董事长,因虚假记载被证监会处罚。具体情况如下:\n\n案例1:\n  事件编号:40109363\n  事件描述:2017年12月至2018年,龙力生物涉及大量诉讼、仲裁案件,公司未及时履行临时信息披露义务,未及时披露的重大诉讼、仲裁金额合计为284327.56万元。\n  裁决结果:2019年1月13日,中国证监会决定对陈苏益给予公开谴责处分,并处以罚款人民币10万元。\n\n案例2:\n  事件编号:401737\n  事件描述:2009年4月7日,龙力生物违反了《股票条例》第五十七条的规定,构成《股票条例》第七十四条第一款第(二)项所述\"在股票发行、交易过程中,作出虚假、严重误导性陈述或者遗漏重大信息的\"行为。\n  裁决结果:2019年1月13日,中国证监会决定对陈苏益给予公开谴责处分,并处以罚款人民币1",
+        "latency_s": 25.107,
+        "retrieved_event_ids": [
+          "40109363",
+          "401737",
+          "40201162",
+          "40108998",
+          "4010573"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 370,
+        "hallucinated_numbers": [],
+        "cited_laws": [
+          "行政处罚决定书",
+          "行政处罚及市场禁入事先告知书",
+          "证券法"
+        ],
+        "laws_in_evidence": [
+          "行政处罚决定书",
+          "行政处罚及市场禁入事先告知书",
+          "证券法"
+        ],
+        "condition": "G1",
+        "gold_id": "gold_003",
+        "query": "控股股东或实际控制人涉嫌内幕交易、被没收违法所得并罚款的案例有哪些？",
+        "answer": "以下是中国证监会处罚案例：\n\n案例1：\n  EventID=4051500\n  标题:关于实际控制人收到中国证券监督管理委员会《行政处罚决定书》的公告\n  公告日期:2017-12-27\n  违规情节:张艺林先生于2016年2月涉嫌内幕交易海南瑞泽新型建材股份有限公司股票，中国证券监督管理委员会拟对张艺林先生处以60万元罚款。\n\n案例2：\n  EventID=4056104\n  标题:关于公司控股股东、实际控制人收到中国证监会《行政处罚及市场禁入事先告知书》的公告\n  公告日期:2018-08-17\n  违规情节:的购置资产的决定”，构成《证券法》第七十五条第二款第(一)项所述内幕信息。内幕信息形成于2016年6月12日,终止于2017年2月25日。二、孙洁晓、郑某某、蒋某璐涉嫌内幕交易“春兴精工”1.孙洁晓、郑某某是本案内幕信息",
+        "latency_s": 24.479,
+        "retrieved_event_ids": [
+          "4051500",
+          "4056104",
+          "40157290",
+          "4066223",
+          "4082282"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 338,
+        "hallucinated_numbers": [],
+        "cited_laws": [
+          "证券法"
+        ],
+        "laws_in_evidence": [
+          "证券法"
+        ],
+        "condition": "G1",
+        "gold_id": "gold_096",
+        "query": "杨小桃因内幕交易被证监会行政处罚的案件详情？",
+        "answer": "根据提供的证据和法律法规，可以总结以下几点：\n\n1. **内幕信息**：2017年6月2日中午休市期间公开的《证券法》第七十五条第二款第(八)项的内幕信息。\n   \n2. **违规情节**：\n   - 2017年6月2日8点05分，杨小桃在奋达科技文印处泄露内幕信息。\n   - 2017年6月2日8点05分，杨小桃在奋达科技文印处泄露内幕信息。\n   - 2017年6月2日8点05分，杨小桃在奋达科技文印处泄露内幕信息。\n   - 2017年6月2日8点05分，杨小桃在奋达科技文印处泄露内幕信息。\n   - 2017年6月2日8点05分，杨小桃在奋达科技文印处泄露内幕信息。\n   - 2017年6月2日8点05分，杨小桃在奋达科技文印处泄露内幕信息。\n   - 201",
+        "latency_s": 24.941,
+        "retrieved_event_ids": [
+          "40111272",
+          "4015774",
+          "40152764",
+          "407253",
+          "401428"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 31,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G1",
+        "gold_id": "gold_085",
+        "query": "江苏中利集团股份有限公司因虚构利润被证监会处罚的案件是什么？",
+        "answer": "江苏中利集团股份有限公司因虚构利润被证监会处罚的案件是案例1。",
+        "latency_s": 2.126,
+        "retrieved_event_ids": [
+          "50147248",
+          "40192609",
+          "401484",
+          "40109781",
+          "40110456"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 119,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G1",
+        "gold_id": "gold_014",
+        "query": "2025 年第一季度上市公司被处以 2000 万元以上罚款的大额案件有哪些？",
+        "answer": "案例1和案例2都是由证监会对上市公司实施的行政处罚，属于大额罚款案件。案例3和案例4是公司内部的纪律处分，不属于证监会处罚范围。案例5是公司内部的纪律处分，不属于证监会处罚范围。因此，答案为：\n\n案例1和案例2\n\n案例3和案例4\n\n案例5",
+        "latency_s": 7.068,
+        "retrieved_event_ids": [
+          "40206722",
+          "40203082",
+          "40200091",
+          "40200729",
+          "40188773"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 302,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G1",
+        "gold_id": "gold_092",
+        "query": "刘学勤（董事）因重大遗漏被证监会处罚的案件情况如何？",
+        "answer": "刘学勤（董事）因重大遗漏被证监会处罚的案件情况如下：\n\n1. 在三联商社2004年未按照有关规定披露信息及对2004年年度报告信息披露存在重大遗漏行为直接负责的主管人员为张继升；\n2. 对2004年年度报告信息披露存在重大遗漏行为负有责任的其他责任人员为王新民、周永生、陈志勇、朱建平、杨德明、孙振飞、张金良、赵文波、徐晓红、李玉祥、李俊杰、王辉、张伟、黄忠、李军、李成、李云、李芳、李强、李小兵、李雪、李静、李丽、李敏、李超、李刚、李广、李慧、李勇、李涛、李旭、李江、李浩、李军、李伟、李峰、李军、李伟、李军、李伟、李军、李伟、李军、李伟、李军、李伟、李军、李伟、李军、李伟、李军、李伟、李军、李伟、李",
+        "latency_s": 24.771,
+        "retrieved_event_ids": [
+          "401645",
+          "401860",
+          "40108998",
+          "40983",
+          "401873"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 41,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G1",
+        "gold_id": "gold_068",
+        "query": "江苏阳光股份有限公司因推迟披露被证监会处罚的案件是什么？",
+        "answer": "江苏阳光股份有限公司因推迟披露被证监会处罚，案件编号为事件ID 50127389。",
+        "latency_s": 3.111,
+        "retrieved_event_ids": [
+          "40108759",
+          "50108578",
+          "50127389",
+          "50142206",
+          "40202802"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 337,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G1",
+        "gold_id": "gold_074",
+        "query": "耿毅英（监事会主席）因违规买卖股票被证监会处罚的案件情况如何？",
+        "answer": "耿毅英（监事会主席）因违规买卖股票被证监会处罚的案件情况如下：\n\n案例1：\n  事件编号：50152391\n  日期：2025年6月30日\n  背景材料：中国证券监督管理委员会江苏监管局行政处罚决定书(鸿达兴业)\n\n案例2：\n  事件编号：50108895\n  日期：2018年4月3日\n  背景材料：中国证监会行政处罚决定书(王爱英)\n\n案例3：\n  事件编号：40108527\n  日期：2021年11月22日\n  背景材料：中国证监会行政处罚决定书(耿志民)\n\n案例4：\n  事件编号：50124766\n  日期：2023年6月19日\n  背景材料：中国证监会行政处罚决定书(吴毅健)\n\n案例5：\n  事件编号：50108682\n  日期：2019年7月2日\n  背景",
+        "latency_s": 23.708,
+        "retrieved_event_ids": [
+          "50152391",
+          "50108895",
+          "40108527",
+          "50124766",
+          "50108682"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 41,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G1",
+        "gold_id": "gold_081",
+        "query": "恒宝股份有限公司因虚构利润被证监会处罚的案件是什么？",
+        "answer": "恒宝股份有限公司因虚构利润被证监会处罚的案件是案例1中的事件编号40110043。",
+        "latency_s": 3.311,
+        "retrieved_event_ids": [
+          "40110043",
+          "40189292",
+          "40109208",
+          "50136650",
+          "4016533"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 386,
+        "hallucinated_numbers": [],
+        "cited_laws": [
+          "证券法"
+        ],
+        "laws_in_evidence": [
+          "证券法"
+        ],
+        "condition": "G1",
+        "gold_id": "gold_071",
+        "query": "王禹皓（董事长）因推迟披露被证监会处罚的案件情况如何？",
+        "answer": "根据检索到的案例,王禹皓作为公司的董事长,因未能及时披露重大诉讼、仲裁案件,被证监会处以罚款。具体情况如下:\n\n案例1:\n  EventID=40109407\n  标题:中国证券监督管理委员会北京监管局行政处罚决定书(王禹皓)\n  公告日期:2020-10-09\n  违规情节:违反了2005年《证券法》第六十七条的规定。\n\n案例2:\n  EventID=40109363\n  标题:中国证监会市场禁入决定书(程少博、高卫先、高立娟、刘维秀)\n\n案例3:\n  EventID=40111541\n  标题:中国证券监督管理委员会四川监管局行政处罚决定书【2020】11号\n\n案例4:\n  EventID=40108998\n  标题:中国证监会行政处罚决定书(山东龙力生物科技股份有限公司、程少博等18名责任主体)\n\n案例5:\n  EventID=401722\n  标题:中国",
+        "latency_s": 30.495,
+        "retrieved_event_ids": [
+          "40109407",
+          "40109363",
+          "40111541",
+          "40108998",
+          "401722"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 427,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G1",
+        "gold_id": "gold_013",
+        "query": "2010 年前后早期上市公司信息披露违规被市场禁入的重大案例有哪些？",
+        "answer": "2010 年前后，有以下几起上市公司信息披露违规被市场禁入的重大案例：\n\n1. **案例 1**：\n   - **事件 ID**: 401723\n   - **标题**: 中国证监会行政处罚决定书（上海科技、张杰等9名责任人员）,中国证监会市场禁入决定书（上海科技张杰、任建宏、胡良）\n   - **公告日期**: 2010-04-06\n   - **发布机构**: 中国证监会\n   - **处罚机构**: 中国证监会\n   - **违规类型**: 虚假记载(误导性陈述)、重大遗漏\n   - **当事人职位**: 董事、副总经理、总会计师、财务\n\n2. **案例 2**：\n   - **事件 ID**: 401120\n   - **标题**: 中国证监会行政处罚决定书（南京中北、郭试平等7名责任人员）,中国证监会市场禁入决定书（南京中北郭试平等4名责任人员）\n   - **公告日期**: 2010-03-19\n   - **发布机构**: 中国",
+        "latency_s": 26.977,
+        "retrieved_event_ids": [
+          "401723",
+          "401120",
+          "401006",
+          "401287",
+          "401805"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 332,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G1",
+        "gold_id": "gold_086",
+        "query": "黄宁杰（总裁）因操纵股价被证监会处罚的案件情况如何？",
+        "answer": "根据您提供的信息，黄宁杰（总裁）因操纵股价被证监会处罚的情况如下：\n\n案例1：\n  - 事件编号：40137563\n  - 调查日期：2023-05-19\n  - 被处罚主体：黄宁杰\n  - 案件名称：中国证监会行政处罚决定书(陈娜娜、杨杰、郑慧)\n\n案例2：\n  - 事件编号：50136766\n  - 调查日期：2024-07-16\n  - 被处罚主体：黄宁杰\n  - 案件名称：中国证监会行政处罚决定书(高飞、龙杰、尤立峰)\n\n案例3：\n  - 事件编号：50108416\n  - 调查日期：2019-11-14\n  - 被处罚主体：黄宁杰\n  - 案件名称：中国证监会行政处罚决定书(吕乐、陈志龙)\n\n案例4：\n  - 事件编号：4035334\n  - �",
+        "latency_s": 27.046,
+        "retrieved_event_ids": [
+          "40137563",
+          "50136766",
+          "50108416",
+          "4035334",
+          "4055467"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 227,
+        "hallucinated_numbers": [],
+        "cited_laws": [
+          "中华人民共和国证券法"
+        ],
+        "laws_in_evidence": [],
+        "condition": "G1",
+        "gold_id": "gold_062",
+        "query": "暴风集团股份有限公司因虚假记载被证监会处罚的案件是什么？",
+        "answer": "案例1：中国证监会行政处罚决定书(暴风集团股份有限公司、冯鑫、张丽娜、康茜),中国证监会市场禁入决定书(冯鑫)\n\n案例2：中国证监会行政处罚决定书(浙江第五季实业有限公司、吴联模)\n\n案例3：中国证监会行政处罚决定书(万家文化)\n\n案例4：中国证监会行政处罚决定书(潍坊北大青鸟华光科技股份有限公司、周燕军、许振东等15名责任人)\n\n案例5：中国证券监督管理委员会行政处罚决定书\n\n以上案例均显示了违规行为，并且都符合《中华人民共和国证券法》的相关条款。",
+        "latency_s": 12.46,
+        "retrieved_event_ids": [
+          "40105920",
+          "4062704",
+          "40108919",
+          "4024498",
+          "40200726"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 374,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G1",
+        "gold_id": "gold_078",
+        "query": "卢宪斌（监事）因违规买卖股票被证监会处罚的案件情况如何？",
+        "answer": "根据您提供的案例，卢宪斌（监事）因违规买卖股票被证监会处罚的案件情况如下：\n\n1. **事件编号**：401546\n   - **标题**：中国证监会行政处罚决定书（卢宪斌）\n   - **事件类型**：行政处罚决定书\n   - **日期**：2009年9月4日\n   - **违法事实**：\n     - 2008年8月6日至2009年2月12日，卢宪斌任祁连山公司第五届监事会监事。2008年11月6日，卢宪斌采用网上交易方式分两次买入“祁连山”股票13,900股、20,500股。2008年11月11日，卢宪斌采用网上交易委托方式卖出“祁连山”100股；11月12日，卢宪斌采用网上交易委托方式买入“祁连山”100股。\n\n2. **事件编号**：50146013\n   - **标题**：中国证券监督管理委员会行政处罚决定书1\n   - **",
+        "latency_s": 25.262,
+        "retrieved_event_ids": [
+          "401546",
+          "50146013",
+          "40108998",
+          "40152722",
+          "50110883"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 31,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G1",
+        "gold_id": "gold_064",
+        "query": "江苏紫金电子集团有限公司因虚假记载被证监会处罚的案件是什么？",
+        "answer": "江苏紫金电子集团有限公司因虚假记载被证监会处罚的案件是案例1。",
+        "latency_s": 2.371,
+        "retrieved_event_ids": [
+          "40178882",
+          "4051427",
+          "40885",
+          "40110447",
+          "40192609"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 379,
+        "hallucinated_numbers": [
+          "87,989元",
+          "87,989元"
+        ],
+        "cited_laws": [
+          "证券法"
+        ],
+        "laws_in_evidence": [
+          "证券法"
+        ],
+        "condition": "G1",
+        "gold_id": "gold_094",
+        "query": "郑飚因内幕交易被证监会行政处罚的案件详情？",
+        "answer": "根据提供的事件编号和违法事实内容,可以提取以下信息:\n\n1. 郑飚因内幕交易被证监会行政处罚的案件详情\n\n2. 案件详情包括:\n   - 被告人姓名：郑飚\n   - 举报时间：2016年2月7日\n   - 投资对象：王翔、郑飚\n   - 目标股票：\"岭南园林\"\n   - 股票数量：20,800股\n   - 成交价格：774,472元\n   - 销售金额：87,989元\n   - 资金来源：王翔和郑飚个人证券账户操作\n   - 交易亏损情况：亏损87,989元\n\n3. 该案件属于内幕交易的范畴,且符合《证券法》相关规定。\n\n4. 本案由证监会进行行政处罚,表明存在严重的违法行为。\n\n5. 通过上述分析,可以得出结论,郑飚因内幕交易被证监会行政处罚的事实清楚,证据充分,具有一定的法律效力。\n\n请注意,以上信息是基于您提供的事件编号和违法事实内容整理的,",
+        "latency_s": 26.37,
+        "retrieved_event_ids": [
+          "4068108",
+          "404252",
+          "4015774",
+          "4011579",
+          "4011612"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 111,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G1",
+        "gold_id": "gold_001",
+        "query": "上市公司独立董事利用内幕信息买入自家股票的典型案例有哪些？请列出至少两个并说明处罚方式。",
+        "answer": "案例1中的曹佩凤因内幕信息的利用而受到处罚。\n案例2中的曹佩凤因内幕信息的利用而受到处罚。\n案例3中的王健因内幕信息的利用而受到处罚。\n案例4中的王健因内幕信息的利用而受到处罚。\n案例5中的王健因内幕信息的利用而受到处罚。",
+        "latency_s": 6.984,
+        "retrieved_event_ids": [
+          "407252",
+          "40185522",
+          "4052060",
+          "40130168",
+          "4057790"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 43,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G1",
+        "gold_id": "gold_060",
+        "query": "浙江维康药业股份有限公司因虚假记载被证监会处罚的案件是什么？",
+        "answer": "浙江维康药业股份有限公司因虚假记载被证监会处罚的案件是案例1中的事件编号401109。",
+        "latency_s": 3.123,
+        "retrieved_event_ids": [
+          "401109",
+          "4081162",
+          "4062704",
+          "4089238",
+          "40108652"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 368,
+        "hallucinated_numbers": [],
+        "cited_laws": [
+          "证券法",
+          "证券法",
+          "证券法",
+          "证券法",
+          "证券法"
+        ],
+        "laws_in_evidence": [
+          "证券法",
+          "证券法",
+          "证券法",
+          "证券法",
+          "证券法"
+        ],
+        "condition": "G1",
+        "gold_id": "gold_021",
+        "query": "2005 年《证券法》第六十三条关于信息披露真实性的要求，在近年虚假记载案件中如何被援引？",
+        "answer": "根据上述案例，证监会对虚假记载案件中的违法行为进行了如下处理：\n\n案例1：\n  事件ID：401214\n  法条：《证券法》第五十九条\n  处罚情况：中国证监会对富庶、罗敏、吕俊、何霖等人员作出市场禁入的决定。\n  \n案例2：\n  事件ID：401181\n  法条：《证券法》第六十三条\n  处罚情况：中国证监会对重庆东源及相关人员作出市场禁入的决定。\n\n案例3：\n  事件ID：401055\n  法条：《证券法》第六十三条\n  处罚情况：中国证监会对四川天歌及相关人员作出市场禁入的决定。\n\n案例4：\n  事件ID：40665\n  法条：《证券法》第五十九条\n  处罚情况：中国证监会对湖南天一科技及相关人员作出市场禁入的决定。\n\n案例5：\n  事件ID：40997\n  法条：《证券法》第五十九条\n  处罚情况：中国证监会对大连北大",
+        "latency_s": 24.841,
+        "retrieved_event_ids": [
+          "401214",
+          "401181",
+          "401055",
+          "40665",
+          "40997"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 380,
+        "hallucinated_numbers": [],
+        "cited_laws": [
+          "证券法",
+          "证券法",
+          "证券法"
+        ],
+        "laws_in_evidence": [
+          "证券法",
+          "证券法",
+          "证券法"
+        ],
+        "condition": "G1",
+        "gold_id": "gold_102",
+        "query": "王仕宏操纵股价案援引了《证券法》哪一条？",
+        "answer": "根据提供的证据，可以得出以下结论：\n\n1. 第一百九十二条：操纵证券市场的行为包括但不限于：①在自己实际控制下的账户之间进行证券交易；②通过合谋或者利用其他手段控制被投资企业的股票或者其他衍生品；③以自己为交易对象，自买自卖；④以自己为交易对象，自动做市商或者代理机构进行交易。\n\n2. 《证券法》第七十七条：证券交易所、证券登记结算机构、证券公司、证券业协会应当对投资者买卖证券的行为进行监控，并将有关信息报送国务院期货监督管理部门、国务院证券监督管理机构或者其派出机构。\n\n3. 《证券法》第一百九十二条：操纵证券市场的行为是指，在自己实际控制下的账户之间进行证券交易，或者通过合谋或者利用其他手段控制被投资企业的股票或者其他衍生品，以自己为交易对象，自买自卖，以自己为交易对象，自动做市商或者代理机构进行交易。\n\n因此，答案是：《证券法》第一百九十二条。",
+        "latency_s": 20.484,
+        "retrieved_event_ids": [
+          "4055467",
+          "40186642",
+          "40146174",
+          "4082118",
+          "40124002"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 240,
+        "hallucinated_numbers": [],
+        "cited_laws": [
+          "证券法",
+          "证券法",
+          "证券法",
+          "证券法",
+          "证券法",
+          "证券法"
+        ],
+        "laws_in_evidence": [
+          "证券法",
+          "证券法",
+          "证券法",
+          "证券法",
+          "证券法",
+          "证券法"
+        ],
+        "condition": "G1",
+        "gold_id": "gold_099",
+        "query": "吕兴平内幕交易案援引了《证券法》哪一条？",
+        "answer": "根据提供的证据和案例，可以得出以下结论：\n\n1. 案件1：吕兴平内幕交易案\n   - 裁判依据：《证券法》第七十六条\n\n2. 案件2：董事长收到行政处罚决定书\n   - 裁判依据：《证券法》第七十六条\n\n3. 案件3：缪玲红、邵林平\n   - 裁判依据：《证券法》第七十三条、第七十六条\n\n4. 案件4：陈建平\n   - 裁判依据：《证券法》第七十三条、第七十六条\n\n5. 案件5：郭红莲\n   - 裁判依据：《证券法》第七十六条\n\n以上案例均符合《证券法》规定中的内幕交易行为。",
+        "latency_s": 16.49,
+        "retrieved_event_ids": [
+          "404010934",
+          "4058433",
+          "40152764",
+          "40152763",
+          "407253"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 385,
+        "hallucinated_numbers": [],
+        "cited_laws": [
+          "中国注册会计师审计准则",
+          "中国注册会计师审计准则第1231号——针对评估的重大错报风险采取的应对措施",
+          "中国注册会计师审计准则第1301号——审计证据",
+          "中国注册会计师审计准则",
+          "中国注册会计师审计准则第1211号——通过了解被审计单位及其环境识别和评估重大错报风险",
+          "中国注册会计师审计准则第1301号——审计证据"
+        ],
+        "laws_in_evidence": [
+          "中国注册会计师审计准则",
+          "中国注册会计师审计准则第1231号——针对评估的重大错报风险采取的应对措施",
+          "中国注册会计师审计准则第1301号——审计证据",
+          "中国注册会计师审计准则",
+          "中国注册会计师审计准则第1211号——通过了解被审计单位及其环境识别和评估重大错报风险",
+          "中国注册会计师审计准则第1301号——审计证据"
+        ],
+        "condition": "G1",
+        "gold_id": "gold_024",
+        "query": "《中国注册会计师审计准则》第 1101 号、第 1301 号在会计师事务所被处罚案件中如何被援引？",
+        "answer": "根据您提供的案例信息，以下是对《中国注册会计师审计准则》第 1101 号、第 1301 号在会计师事务所被处罚案件中的应用：\n\n案例1：\n   - 事件编号：50154566\n   - 事件类型：违规行为\n   - 事件描述：违反了《中国注册会计师审计准则第1231号——针对评估的重大错报风险采取的应对措施》（2019年修订）第八条和第十条，《中国注册会计师审计准则第1301号——审计证据》（2016年修订）第十条。\n   - 法律依据：《中国注册会计师审计准则》第 1101 号、第 1301 号\n\n案例2：\n   - 事件编号：50108467\n   - 事件类型：违规行为\n   - 事件描述：不符合《中国注册会计师审计准则第1211号——通过了解被审计单位及其环境识别和评估重大错报风险》第九条，《中国注册会计师审计准则第1301号——审计证据》第十条的规定",
+        "latency_s": 24.514,
+        "retrieved_event_ids": [
+          "50154566",
+          "50108467",
+          "50154528",
+          "50108350",
+          "50146489"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 205,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G1",
+        "gold_id": "gold_020",
+        "query": "2019 修订《证券法》第五十五条第一款第一项、第三项在操纵市场处罚中的典型适用有哪些案例？",
+        "answer": "案例1：中国证券监督管理委员会广东监管局行政处罚决定书〔2019〕11号（蔡汝洪）\n案例2：中国证券监督管理委员会深圳监管局行政处罚决定书〔2019〕6号（蔡汝洪）\n案例3：中国证券监督管理委员会深圳监管局行政处罚决定书〔2019〕6号（蔡汝洪）\n案例4：中国证券监督管理委员会深圳监管局行政处罚决定书〔2019〕6号（蔡汝洪）\n案例5：中国证券监督管理委员会深圳监管局行政处罚决定书〔2019〕6号（蔡汝洪）",
+        "latency_s": 12.514,
+        "retrieved_event_ids": [
+          "50112187",
+          "50110878",
+          "50110876",
+          "50113128",
+          "4064509"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 413,
+        "hallucinated_numbers": [],
+        "cited_laws": [
+          "行政处罚决定书",
+          "证券法"
+        ],
+        "laws_in_evidence": [
+          "行政处罚决定书",
+          "证券法"
+        ],
+        "condition": "G1",
+        "gold_id": "gold_022",
+        "query": "《证券法》第六十七条关于重大事件披露义务的规定，在 2023-2024 年处罚中如何被援引？",
+        "answer": "在2023-2024年的处罚中，证监会对以下案件进行了援引：\n\n案例1：\n  EventID=50127806\n  标题:中国证券监督管理委员会福建监管局行政处罚决定书〔2023〕8号(章琦)\n\n案例2：\n  EventID=40140646\n  标题:关于公司、公司控股股东及相关人员收到中国证券监督管理委员会行政处罚事先告知书的公告\n\n案例3：\n  EventID=40135923\n  标题:关于收到中国证券监督管理委员会《行政处罚决定书》的公告\n\n案例4：\n  EventID=40150362\n  标题:行政处罚决定书〔2023〕2号\n\n案例5：\n  EventID=50126711\n  标题:中国证券监督管理委员会上海监管局行政处罚决定书沪〔2023〕35号\n\n这些案例都涉及到重大事件的披露义务，符合《证券法》第六十七条关于重大事件的披露义务的规定。因此，证监会通过这些案例进行援引来维护投资者利益，并保障市场",
+        "latency_s": 25.537,
+        "retrieved_event_ids": [
+          "50127806",
+          "40140646",
+          "40135923",
+          "40150362",
+          "50126711"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 311,
+        "hallucinated_numbers": [],
+        "cited_laws": [
+          "证券法",
+          "证券法",
+          "上市公司信息披露管理办法",
+          "证券法",
+          "证券法",
+          "证券法",
+          "上市公司信息披露管理办法",
+          "证券法",
+          "证券法",
+          "证券法",
+          "证券法",
+          "证券法"
+        ],
+        "laws_in_evidence": [
+          "证券法",
+          "证券法",
+          "上市公司信息披露管理办法",
+          "证券法",
+          "证券法",
+          "证券法",
+          "上市公司信息披露管理办法",
+          "证券法",
+          "证券法",
+          "证券法",
+          "证券法",
+          "证券法"
+        ],
+        "condition": "G1",
+        "gold_id": "gold_108",
+        "query": "姜涛推迟披露案援引了《证券法》哪一条？",
+        "answer": "案例1:违反了《证券法》第六十七条第一款、第二款第八项规定,违反了《证券法》第六十七条第一款、第二款第十二项、《上市公司信息披露管理办法》(证监会令第40号)第四十八条规定,违反了《证券法》第六十三条规定。\n\n案例2:违反了《证券法》第六十七条第一款、第二款第八项规定,违反了《证券法》第六十七条第一款、第二款第十二项、《上市公司信息披露管理办法》(证监会令第40号)第四十八条规定,违反了《证券法》第六十三条规定。\n\n案例3:违反了《证券法》第六十七条第一款、第二款第三项、第八项及第十二项的规定,违反了《证券法》第六十三条、2019年《证券法》第七十八条第二款的规定。\n\n案例4:违反了《证券法》第八十条第三款的规定。",
+        "latency_s": 19.489,
+        "retrieved_event_ids": [
+          "40115158",
+          "40109653",
+          "4070109",
+          "40123082",
+          "40202802"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 82,
+        "hallucinated_numbers": [],
+        "cited_laws": [
+          "证券法",
+          "证券法"
+        ],
+        "laws_in_evidence": [
+          "证券法",
+          "证券法"
+        ],
+        "condition": "G1",
+        "gold_id": "gold_017",
+        "query": "2005 年《证券法》第七十三条、第七十六条分别规制什么？各举一个被适用的案件。",
+        "answer": "2005年《证券法》第七十三条：禁止内幕信息知情人利用内幕信息从事与内幕信息无关的活动；\n\n2005年《证券法》第七十六条：禁止内幕信息知情人利用内幕信息买卖证券。",
+        "latency_s": 5.744,
+        "retrieved_event_ids": [
+          "401214",
+          "401190",
+          "40489",
+          "401884",
+          "401018"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 53,
+        "hallucinated_numbers": [],
+        "cited_laws": [
+          "证券法",
+          "证券法"
+        ],
+        "laws_in_evidence": [
+          "证券法",
+          "证券法"
+        ],
+        "condition": "G1",
+        "gold_id": "gold_103",
+        "query": "张志坚虚构利润案援引了《证券法》哪一条？",
+        "answer": "根据检索证据,张志坚虚构利润案的违法事实是:《证券法》第一百七十七条、《证券法》第一百九十三条规定的行为。",
+        "latency_s": 3.686,
+        "retrieved_event_ids": [
+          "401626",
+          "40112330",
+          "4072667",
+          "404734",
+          "4068585"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 260,
+        "hallucinated_numbers": [],
+        "cited_laws": [
+          "重组办法",
+          "证券法",
+          "证券法"
+        ],
+        "laws_in_evidence": [
+          "重组办法",
+          "证券法",
+          "证券法"
+        ],
+        "condition": "G1",
+        "gold_id": "gold_105",
+        "query": "李国富虚假记载案援引了《证券法》哪一条？",
+        "answer": "根据提供的事件ID和法律条文,可以找到以下内容:\n\n案例5:\n  EventID=40109366\n  标题:中国证监会市场禁入决定书(李文国、杨战武、刘斌、徐莘栋、秦理)\n  公告日期:2021-01-06\n  违规情节:财务资料、情况说明,相关人员询问笔录,相关司法裁判文书,司法鉴定意见等证据证明,足以认定。重大资产重组阶段,年富供应链作为重组标的,系《重组办法》第四条规定的“有关各方”,2005年《证券法》第一百九十三条第一款规定的“其他信息披露义务人”。\n\n因此,最终答案是:《证券法》第一百九十三条第一款。",
+        "latency_s": 16.304,
+        "retrieved_event_ids": [
+          "408015",
+          "40150204",
+          "401423",
+          "40151130",
+          "40109366"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 455,
+        "hallucinated_numbers": [],
+        "cited_laws": [
+          "行政处罚事先告知书",
+          "证券法",
+          "中国证券监督管理委员会海南监管局行政处罚决定书(北京郎鉴企业管理咨询中心(普通合伙)及其责任人员)",
+          "证券法",
+          "中国证券监督管理委员会海南监管局行政处罚决定书(北京郎鉴企业管理咨询中心(普通合伙)及其责任人员)",
+          "证券法",
+          "中国证券监督管理委员会安徽监管局行政处罚决定书〔2017〕5号",
+          "证券法",
+          "中国证监会行政处罚决定书(文炳荣、文宝财)",
+          "证券法"
+        ],
+        "laws_in_evidence": [
+          "行政处罚事先告知书",
+          "证券法",
+          "中国证券监督管理委员会海南监管局行政处罚决定书(北京郎鉴企业管理咨询中心(普通合伙)及其责任人员)",
+          "证券法",
+          "中国证券监督管理委员会海南监管局行政处罚决定书(北京郎鉴企业管理咨询中心(普通合伙)及其责任人员)",
+          "证券法",
+          "中国证券监督管理委员会安徽监管局行政处罚决定书〔2017〕5号",
+          "证券法",
+          "中国证监会行政处罚决定书(文炳荣、文宝财)",
+          "证券法"
+        ],
+        "condition": "G1",
+        "gold_id": "gold_109",
+        "query": "高光荣违规买卖股票案援引了《证券法》哪一条？",
+        "answer": "根据提供的事件编号，我们首先找到符合要求的案例进行分析：\n\n案例1：《关于公司控股股东、实际控制人收到中国证券监督管理委员会《行政处罚事先告知书》的公告》，这是关于高光荣违规买卖股票案，属于《证券法》第四十七条第一款（内幕交易）的行为。\n\n案例2：《中国证券监督管理委员会海南监管局行政处罚决定书(北京郎鉴企业管理咨询中心(普通合伙)及其责任人员)》，这是关于高光荣违规买卖股票案，属于《证券法》第四十七条第一款（内幕交易）的行为。\n\n案例3：《中国证券监督管理委员会海南监管局行政处罚决定书(北京郎鉴企业管理咨询中心(普通合伙)及其责任人员)》，这是关于高光荣违规买卖股票案，属于《证券法》第四十七条第一款（内幕交易）的行为。\n\n案例4：《中国证券监督管理委员会安徽监管局行政处罚决定书〔2017〕5号》，这是关于高光荣违规买卖股票案，属于《证券法》第四十七条第一款（内幕交易）的行为。\n\n案例5：《中国证监会行政处罚决定书(文炳荣、文宝财)》，这是关于高光荣违规买卖股票案，属于《证券法》第四十七条第一款（",
+        "latency_s": 25.379,
+        "retrieved_event_ids": [
+          "40190445",
+          "40111177",
+          "40203043",
+          "50110891",
+          "50109119"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 162,
+        "hallucinated_numbers": [],
+        "cited_laws": [
+          "证券法",
+          "证券法",
+          "证券法",
+          "证券法",
+          "证券法",
+          "证券法"
+        ],
+        "laws_in_evidence": [
+          "证券法",
+          "证券法",
+          "证券法",
+          "证券法",
+          "证券法",
+          "证券法"
+        ],
+        "condition": "G1",
+        "gold_id": "gold_110",
+        "query": "高玲违规买卖股票案援引了《证券法》哪一条？",
+        "answer": "案例1:《证券法》第三十八条及第八十六条第二款\n\n案例2:《证券法》第三十八条及第八十六条第二款\n\n案例3:《证券法》第三十八条及第八十六条第二款\n\n案例4:《证券法》第四十七条\n\n案例5:《证券法》第四十七条\n\n以上四个案例都符合《证券法》对内幕交易和操纵市场行为的定义，因此可以认定高玲的行为属于内幕交易和操纵市场行为。",
+        "latency_s": 9.668,
+        "retrieved_event_ids": [
+          "40110528",
+          "40111270",
+          "50108453",
+          "40110501",
+          "50111212"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 364,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G1",
+        "gold_id": "gold_031",
+        "query": "独立董事疏于履职、在内幕信息公开前买入本公司股票，参考案例会被如何处罚？",
+        "answer": "根据案例分析,以下是对\"独立董事疏于履职、在内幕信息公开前买入本公司股票\"这一违规行为进行的处罚建议:\n\n1. 责令改正：责令上市公司改正，并处以一定金额的罚款。\n\n2. 罚款金额：根据案件事实，可以确定罚款金额。例如，如果案件事实清楚，且违法情节严重，可能需要判处更高的罚款金额。\n\n3. 法律后果：除了罚款外，还可能面临其他法律后果，如纪律处分、刑事处罚等。\n\n4. 参考案例：以上案例中的处罚，都是基于内幕信息的知情人或非法获取内幕信息者，对公司造成重大影响，因此具有一定的警示作用。\n\n5. 建议：应加强投资者教育，提高投资者风险意识；建立健全内幕信息保密制度，防止内幕信息泄露；加强对董事、监事、高级管理人员的培训，提升其职业道德水平。\n\n请注意，这些建议仅供参考，具体情况需依据实际案件处理结果来制定具体的处罚措施。",
+        "latency_s": 20.826,
+        "retrieved_event_ids": [
+          "4058462",
+          "401949",
+          "40159644",
+          "40116918",
+          "50112168"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 224,
+        "hallucinated_numbers": [
+          "10%",
+          "30%"
+        ],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G1",
+        "gold_id": "gold_030",
+        "query": "某上市公司控股股东占用公司资金数亿元且未及时披露，参考近年案例，公司与主要责任人预计会被如何处罚？",
+        "answer": "根据案例分析，如果控股股东或实际控制人在接到相关罚单后，可能会面临以下几种处理：\n\n1. 负责人：可能被处以罚款，包括但不限于10%-30%的罚款。\n2. 监事会：可能被要求提交书面检查，并接受纪律处分。\n3. 纪律处分：包括警告、记过、降级直至开除等。\n4. 法规限制：可能被禁止进入某些特定的行业或领域，如证券市场、金融交易等领域。\n\n请注意，以上信息是基于您提供的案例进行的推测，实际情况可能会有所不同。建议咨询法律专业人士获取更准确的指导。",
+        "latency_s": 15.706,
+        "retrieved_event_ids": [
+          "40126732",
+          "40124013",
+          "40192003",
+          "40134449",
+          "40187083"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 241,
+        "hallucinated_numbers": [
+          "1000元"
+        ],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G1",
+        "gold_id": "gold_026",
+        "query": "某上市公司董事在内幕信息公开前使用他人账户买入本公司股票，获利仅 1000 元左右，参考类似案例，预计会被如何处罚？",
+        "answer": "根据案例分析，如果被要求进行罚款，可能会面临以下几种情形：\n\n1. 责令停止违法行为：如违规行为仍在继续或存在重大风险，可能需要暂停其股票交易或其他业务活动。\n\n2. 罚款金额：根据案件事实，罚款金额通常不会低于1000元人民币，但具体情况需参照相关法律法规执行。\n\n3. 长期限制市场进入：对于严重违反规定的行为，可能需要长期限制投资者对公司的股票交易权限，直到案件调查结束并作出相应处理。\n\n请注意，以上内容基于您提供的案例背景，实际情况可能会有所不同，请以最新的法律政策为准。",
+        "latency_s": 13.54,
+        "retrieved_event_ids": [
+          "40111878",
+          "401",
+          "40107846",
+          "4058462",
+          "4014139"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 165,
+        "hallucinated_numbers": [
+          "10亿",
+          "20亿",
+          "10万元",
+          "100万元"
+        ],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G1",
+        "gold_id": "gold_035",
+        "query": "上市公司连续多年虚构利润累计 10 亿元以上，最终被立案处罚，公司层面预计会被罚多少、主要责任人会被如何处理？",
+        "answer": "根据案例信息,上市公司被罚款10亿元至20亿元,主要负责人将受到警告处分,并处以10万元至100万元的罚款。主要责任人在接到处罚决定后,应当立即停止相关行为,配合调查工作,如实提供情况和资料,接受调查人员的询问,并签署书面承诺。同时,公司还可能面临其他相应的行政处罚措施。建议公司加强内部管理,规范财务行为,避免类似事件再次发生。",
+        "latency_s": 9.787,
+        "retrieved_event_ids": [
+          "40136808",
+          "4051220",
+          "4018092",
+          "40109846",
+          "40154202"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 44,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G1",
+        "gold_id": "gold_029",
+        "query": "某投资者集中资金连续买卖某股票操纵其价格获利 1000 万元以上，预计会被如何处罚？",
+        "answer": "根据案例信息,投资者集中资金连续买卖某股票操纵其价格获利1000万元以上,将被处以罚款。",
+        "latency_s": 2.985,
+        "retrieved_event_ids": [
+          "40108676",
+          "40186642",
+          "50121647",
+          "4083719",
+          "50128585"
+        ]
+      }
+    ],
+    "G2": [
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 12,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G2",
+        "gold_id": "gold_076",
+        "query": "谭光华因违规买卖股票被证监会行政处罚的案件详情？",
+        "answer": "中兴财光华是否勤勉尽责；",
+        "latency_s": 1.494,
+        "retrieved_event_ids": [
+          "40111147",
+          "401803",
+          "50145610",
+          "50141486",
+          "40104238"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 252,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G2",
+        "gold_id": "gold_008",
+        "query": "2023 年控股股东或高管操纵股价被罚的代表性案例有哪些？",
+        "answer": "案例5：\n  EventID=40146002\n  标题:中国证券监督管理委员会江苏监管局行政处罚决定书(胡卫林、许孝男、曹芸)\n  公告日期:2023-11-01\n  违规情节:%,有78个交易日的成交占比超过30%，有41个交易日的成交占比超过40%，2018年8月17日成交占比最高，达到79.28%。账户组申买数量占市场申买量比重超过20%的有95个交易日，峰值达82.99%；账户组申卖量占市场申卖量比重超过20%的有49个交易日，峰值达65.54%。 (2)通过对倒、拉抬等方式交易“扬子新”",
+        "latency_s": 18.361,
+        "retrieved_event_ids": [
+          "40148572",
+          "40137042",
+          "40134451",
+          "40146482",
+          "40146002"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 39,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G2",
+        "gold_id": "gold_002",
+        "query": "2022 年证监会查处的董事长因内幕交易被罚款的案件有哪些？",
+        "answer": "2022 年证监会查处的董事长因内幕交易被罚款的案件有：案例 1 和案例 2。",
+        "latency_s": 3.002,
+        "retrieved_event_ids": [
+          "40123812",
+          "40125002",
+          "40121566",
+          "40117688",
+          "40117697"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 45,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G2",
+        "gold_id": "gold_083",
+        "query": "湖北九有投资股份有限公司因虚构利润被证监会处罚的案件是什么？",
+        "answer": "湖北九有投资股份有限公司因虚构利润被证监会处罚的案件是案例1，事件编号为50113127。",
+        "latency_s": 3.328,
+        "retrieved_event_ids": [
+          "50113127",
+          "50111624",
+          "40109041",
+          "50109035",
+          "40110885"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 5,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G2",
+        "gold_id": "gold_053",
+        "query": "邱仲敏因内幕交易被证监会行政处罚的案件详情？",
+        "answer": "证据不足。",
+        "latency_s": 0.663,
+        "retrieved_event_ids": [
+          "4011579",
+          "404694",
+          "40152764",
+          "404252",
+          "4011612"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 5,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G2",
+        "gold_id": "gold_051",
+        "query": "夏传武因内幕交易被证监会行政处罚的案件详情？",
+        "answer": "证据不足。",
+        "latency_s": 0.519,
+        "retrieved_event_ids": [
+          "4035499",
+          "404694",
+          "404252",
+          "4065704",
+          "4055499"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 96,
+        "hallucinated_numbers": [],
+        "cited_laws": [
+          "证券法",
+          "证券法",
+          "证券法",
+          "证券法",
+          "证券法"
+        ],
+        "laws_in_evidence": [
+          "证券法",
+          "证券法",
+          "证券法",
+          "证券法",
+          "证券法"
+        ],
+        "condition": "G2",
+        "gold_id": "gold_015",
+        "query": "上市公司监事或职工监事利用未公开信息交易被处罚的案例有哪些？",
+        "answer": "案例1：《证券法》第六十三条；案例2：《证券法》第六十八条第三款；案例3：《证券法》第五十条、第五十三条第一款；案例4：《证券法》第五十条和第五十三条第一款；案例5：《证券法》第一百九十三条。",
+        "latency_s": 6.417,
+        "retrieved_event_ids": [
+          "4070583",
+          "4050698",
+          "40107846",
+          "40172443",
+          "4019372"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 367,
+        "hallucinated_numbers": [],
+        "cited_laws": [
+          "行政处罚决定书"
+        ],
+        "laws_in_evidence": [
+          "行政处罚决定书"
+        ],
+        "condition": "G2",
+        "gold_id": "gold_009",
+        "query": "2023 年上市公司控股股东因违规买卖本公司股票被处罚的案例有哪些？",
+        "answer": "案例1:\n  EventID=40136205\n  标题:关于控股股东、实际控制人收到《行政处罚决定书》的公告\n  公告日期:2023-04-29\n  违规情节:956股,占广汇物流总股本的0.54%。上述短线交易决策和操作均由控股股东作出,累计成交金额为1.25亿元。控股股东交易公司股票存在卖出后六个月内买入、买入后六个月内又卖出的情形。(三)控股股东违规减持公司股票上述账户于2020年9月16日至2021年6月28日以集中竞价交易方式持续卖出广汇物流股票,累计卖出53,17\n案例2:\n  EventID=40140722\n  标题:关于控股股东收到行政处罚决定书的公告\n  公告日期:2023-07-31\n  违规情节:8年6月1日至2019年12月2日,金昇实业作为卓郎智能的控股股东,通过上述6人证券账户将持有的卓郎智能",
+        "latency_s": 28.708,
+        "retrieved_event_ids": [
+          "40136205",
+          "40140722",
+          "40136203",
+          "40136204",
+          "40148805"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 131,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G2",
+        "gold_id": "gold_095",
+        "query": "汤丽君因内幕交易被证监会行政处罚的案件详情？",
+        "answer": "案例1:中国证券监督管理委员会内蒙古监管局行政处罚决定书\n案例2:中国证监会行政处罚决定书（谭淑智）\n案例3:中国证监会行政处罚决定书（缪玲红、邵林平）\n案例4:中国证监会行政处罚决定书（陈狄奇、姚锦聪、王仲鸣、陈述）\n案例5:中国证监会行政处罚决定书（邓惠文）",
+        "latency_s": 8.825,
+        "retrieved_event_ids": [
+          "40149802",
+          "404654",
+          "40152764",
+          "4015774",
+          "4011579"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 149,
+        "hallucinated_numbers": [],
+        "cited_laws": [
+          "行政处罚决定书"
+        ],
+        "laws_in_evidence": [
+          "行政处罚决定书"
+        ],
+        "condition": "G2",
+        "gold_id": "gold_007",
+        "query": "2022 年涉及操纵股价且罚款金额超过百万的案例有哪些？",
+        "answer": "案例1:中国证监会行政处罚决定书(龚严冰、龚艺荣)\n案例2:关于持股5%以上股东收到中国证监会《行政处罚决定书》的公告\n案例3:中国证监会行政处罚决定书(宜华集团、刘绍喜等6名责任主体)\n案例4:中国证监会行政处罚决定书(林永贤、陈宪生、孙磊、徐骏)\n案例5:中国证监会行政处罚决定书(唐隆、朱卫)",
+        "latency_s": 11.007,
+        "retrieved_event_ids": [
+          "50122086",
+          "40108676",
+          "40124002",
+          "50121246",
+          "50120247"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 31,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G2",
+        "gold_id": "gold_079",
+        "query": "韵升控股集团有限公司因违规买卖股票被证监会处罚的案件是什么？",
+        "answer": "韵升控股集团有限公司因违规买卖股票被证监会处罚的案件是案例4。",
+        "latency_s": 2.252,
+        "retrieved_event_ids": [
+          "50108573",
+          "50113430",
+          "401710",
+          "40200562",
+          "40179642"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 236,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G2",
+        "gold_id": "gold_090",
+        "query": "宁夏宁河民族化工股份有限公司因占用公司资产被证监会处罚的案件是什么？",
+        "answer": "案例1:中国证监会行政处罚决定书（民族化工及相关人员），中国证监会市场禁入决定书（周振德、孙文育等5名责任人员）\n案例2:中国证监会行政处罚决定书（奔腾集团、张郁达、田永林）\n案例3:中国证监会行政处罚决定书（沧州化工、周振德等11名责任人）,中国证监会市场禁入决定书（周振德、孙文育等5名责任人员）\n案例4:中国证监会行政处罚决定书（宁夏监管局行政处罚决定书〔2025〕1号）\n案例5:中国证监会行政处罚决定书（江苏澄星磷化工股份有限公司、李兴、周忠明等20名责任人员）",
+        "latency_s": 17.077,
+        "retrieved_event_ids": [
+          "401841",
+          "50108811",
+          "401515",
+          "50148086",
+          "40108760"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 29,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G2",
+        "gold_id": "gold_070",
+        "query": "山东地矿股份有限公司因推迟披露被证监会处罚的案件是什么？",
+        "answer": "山东地矿股份有限公司因推迟披露被证监会处罚的案件是案例1。",
+        "latency_s": 2.512,
+        "retrieved_event_ids": [
+          "40110591",
+          "40109640",
+          "40108773",
+          "40108998",
+          "50108697"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 87,
+        "hallucinated_numbers": [],
+        "cited_laws": [
+          "行政处罚事先告知书",
+          "行政处罚事先告知书"
+        ],
+        "laws_in_evidence": [
+          "行政处罚事先告知书",
+          "行政处罚事先告知书"
+        ],
+        "condition": "G2",
+        "gold_id": "gold_006",
+        "query": "2025 年以来上市公司因推迟披露且存在占用公司资产行为被处罚的案例有哪些？",
+        "answer": "案例4:关于公司及相关当事人收到中国证监会吉林监管局《行政处罚事先告知书》的公告\n\n案例5:关于公司及控股股东收到中国证券监督管理委员会浙江监管局《行政处罚事先告知书》的公告",
+        "latency_s": 5.382,
+        "retrieved_event_ids": [
+          "40204682",
+          "40183285",
+          "40207050",
+          "40188004",
+          "40192003"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 5,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G2",
+        "gold_id": "gold_073",
+        "query": "孔繁波（董事长）因推迟披露被证监会处罚的案件情况如何？",
+        "answer": "证据不足。",
+        "latency_s": 0.956,
+        "retrieved_event_ids": [
+          "40774",
+          "401942",
+          "40111981",
+          "401500",
+          "40109363"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 142,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G2",
+        "gold_id": "gold_063",
+        "query": "陈苏益（董事长）因虚假记载被证监会处罚的案件情况如何？",
+        "answer": "根据检索证据，案例1显示龙力生物因虚假记载被证监会处罚。案例2显示龙力生物因虚假记载被证监会处罚。案例3显示龙力生物因虚假记载被证监会处罚。案例4显示龙力生物因虚假记载被证监会处罚。案例5显示龙力生物因虚假记载被证监会处罚。因此，可以得出结论：陈苏益（董事长）因虚假记载被证监会处罚。",
+        "latency_s": 10.245,
+        "retrieved_event_ids": [
+          "40109363",
+          "401737",
+          "40201162",
+          "40108998",
+          "4010573"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 288,
+        "hallucinated_numbers": [],
+        "cited_laws": [
+          "行政处罚决定书",
+          "行政处罚及市场禁入事先告知书",
+          "行政处罚事先告知书",
+          "行政处罚决定书",
+          "行政处罚决定书"
+        ],
+        "laws_in_evidence": [
+          "行政处罚决定书",
+          "行政处罚及市场禁入事先告知书",
+          "行政处罚事先告知书",
+          "行政处罚决定书",
+          "行政处罚决定书"
+        ],
+        "condition": "G2",
+        "gold_id": "gold_003",
+        "query": "控股股东或实际控制人涉嫌内幕交易、被没收违法所得并罚款的案例有哪些？",
+        "answer": "案例1：事件ID为4051500，标题为关于实际控制人收到中国证券监督管理委员会《行政处罚决定书》的公告；\n\n案例2：事件ID为4056104，标题为关于公司控股股东、实际控制人收到中国证监会《行政处罚及市场禁入事先告知书》的公告；\n\n案例3：事件ID为40157290，标题为关于控股股东收到中国证券监督管理委员会《行政处罚事先告知书》的公告；\n\n案例4：事件ID为4066223，标题为关于实际控制人收到中国证券监督管理委员会《行政处罚决定书》的公告；\n\n案例5：事件ID为4082282，标题为关于控股股东暨实际控制人收到中国证券监督管理委员会《行政处罚决定书》的公告。",
+        "latency_s": 21.0,
+        "retrieved_event_ids": [
+          "4051500",
+          "4056104",
+          "40157290",
+          "4066223",
+          "4082282"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 372,
+        "hallucinated_numbers": [
+          "10万元",
+          "10万元"
+        ],
+        "cited_laws": [
+          "证券法",
+          "倡议书公告"
+        ],
+        "laws_in_evidence": [
+          "证券法",
+          "倡议书公告"
+        ],
+        "condition": "G2",
+        "gold_id": "gold_096",
+        "query": "杨小桃因内幕交易被证监会行政处罚的案件详情？",
+        "answer": "根据检索证据,可以得出以下结论:\n\n案例1:\n  EventID=40111272;违法事实:格有显著影响的其他重要信息\",属于《证券法》第七十五条第二款第(八)项规定的内幕信息,《倡议书公告》的内容与董事长肖某提出的公司内部员工增持公司股票倡议的内容一致。该内幕信息不晚于2017年6月1日17点形成,于2017年6月2日中午休市期间公开。二、杨小桃泄露内幕信息2017年6月2日8点05分,杨小桃在奋达科技文印有限公司进行电话咨询,询问是否能购买“浙江东方”股票。随后,杨小桃通过其本人微信银行账号向“浙江东方”股票账户转账10万元人民币。2017年6月2日8点05分,杨小桃在奋达科技文印有限公司进行电话咨询,询问是否能购买“浙江东方”股票。随后,杨小桃通过其本人微信银行账号向“浙江东方”股票账户转账10万元人民币。2017年6月2日8",
+        "latency_s": 27.973,
+        "retrieved_event_ids": [
+          "40111272",
+          "4015774",
+          "40152764",
+          "407253",
+          "401428"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 477,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G2",
+        "gold_id": "gold_085",
+        "query": "江苏中利集团股份有限公司因虚构利润被证监会处罚的案件是什么？",
+        "answer": "中国证券监督管理委员会行政处罚决定书\n事件ID：50147248\n标题：中国证券监督管理委员会行政处罚决定书\n公告日期：2025-02-05\n违规情节：未经审查擅自对外提供信息线索，泄露内幕信息；未按规定进行信息披露，未及时披露重大事项；未按规定履行信息披露义务，未及时披露重大事项；未按规定履行信息披露义务，未及时披露重大事项；未按规定履行信息披露义务，未及时披露重大事项；未按规定履行信息披露义务，未及时披露重大事项；未按规定履行信息披露义务，未及时披露重大事项；未按规定履行信息披露义务，未及时披露重大事项；未按规定履行信息披露义务，未及时披露重大事项；未按规定履行信息披露义务，未及时披露重大事项；未按规定履行信息披露义务，未及时披露重大事项；未按规定履行信息披露义务，未及时披露重大事项；未按规定履行信息披露义务，未及时披露重大事项；未按规定履行信息披露义务，未及时披露重大事项；未按规定履行信息披露义务，未及时披露重大事项；未按规定履行信息披露义务，未及时披露重大事项；未按规定履行信息披露义务，未及时披露重大事项；未按规定履行信息披露义务，",
+        "latency_s": 25.283,
+        "retrieved_event_ids": [
+          "50147248",
+          "40192609",
+          "401484",
+          "40109781",
+          "40110456"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 95,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G2",
+        "gold_id": "gold_014",
+        "query": "2025 年第一季度上市公司被处以 2000 万元以上罚款的大额案件有哪些？",
+        "answer": "案例1和案例2都属于重大遗漏、其他违法行为，且均由公司控股股东负责。案例3和案例4也都是因控股股东违反规定而受到处罚。因此，这些案例中的处罚金额可能较大。建议进一步了解具体的处罚内容和金额。",
+        "latency_s": 5.903,
+        "retrieved_event_ids": [
+          "40206722",
+          "40203082",
+          "40200091",
+          "40200729",
+          "40188773"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 380,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G2",
+        "gold_id": "gold_092",
+        "query": "刘学勤（董事）因重大遗漏被证监会处罚的案件情况如何？",
+        "answer": "根据检索证据，刘学勤（董事）因重大遗漏被证监会处罚的案件情况如下：\n\n案例1：\n  EventID=401645\n  标题:中国证监会行政处罚决定书（三联商社、张继升等6名责任人员）\n  公告日期:2008-04-08\n  违规情节:员的谈话笔录等证据在案证实，证据确实、充分，足以认定。\n根据各董事在通过相关定期报告的董事会决议签字情况、以及在三联商社或者关联企业任职、履行职责等情况，我会认定：1、对三联商社2004年未按照有关规定披露信息及对2004年年度报告信息披露存在重大遗漏行为直接负责的主管人员为张继升；对2004年年度报告信息披露存在重大遗漏行为直接负责的主管人员为张继升；\n\n案例2：\n  EventID=401860\n  标题:中国证券监督管理委员会行政处罚决定书（宏智科技及相关人员）\n  公告日期:2004-10-08\n  违规情节:，",
+        "latency_s": 25.858,
+        "retrieved_event_ids": [
+          "401645",
+          "401860",
+          "40108998",
+          "40983",
+          "401873"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 360,
+        "hallucinated_numbers": [],
+        "cited_laws": [
+          "刑事判决书",
+          "刑事判决书"
+        ],
+        "laws_in_evidence": [
+          "刑事判决书",
+          "刑事判决书"
+        ],
+        "condition": "G2",
+        "gold_id": "gold_068",
+        "query": "江苏阳光股份有限公司因推迟披露被证监会处罚的案件是什么？",
+        "answer": "案例5:中国证券监督管理委员会江苏监管局行政处罚决定书(陆克平)\n\n事件编号:40202802\n\n违法事实:经查明,陆克平存在以下违法事实:2020年9月30日、2021年8月18日、2023年7月13日,陆克平因涉嫌内幕交易罪先后被泰州市公安局直属分局、泰州医药高新技术产业开发区人民检察院、泰州市中级人民法院采取取保候审的刑事强制措施。2023年10月10日,陆克平收到泰州市中级人民法院《刑事判决书》((2023)苏12刑事实认定:2020年9月30日、2021年8月18日、2023年7月13日,陆克平因涉嫌内幕交易罪先后被泰州市公安局直属分局、泰州医药高新技术产业开发区人民检察院、泰州市中级人民法院采取取保候审的刑事强制措施。2023年10月10日,陆克平收到泰州市中级人民法院《刑事判决书》((2023)苏",
+        "latency_s": 26.636,
+        "retrieved_event_ids": [
+          "40108759",
+          "50108578",
+          "50127389",
+          "50142206",
+          "40202802"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 116,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G2",
+        "gold_id": "gold_074",
+        "query": "耿毅英（监事会主席）因违规买卖股票被证监会处罚的案件情况如何？",
+        "answer": "案例1：中国证监会行政处罚决定书(鸿达兴业)\n案例2：中国证监会行政处罚决定书(王爱英)\n案例3：中国证监会行政处罚决定书(耿志民)\n案例4：中国证监会行政处罚决定书(吴毅健)\n案例5：中国证监会行政处罚决定书(吴毅健)\n\n证据不足",
+        "latency_s": 6.793,
+        "retrieved_event_ids": [
+          "50152391",
+          "50108895",
+          "40108527",
+          "50124766",
+          "50108682"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 173,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G2",
+        "gold_id": "gold_081",
+        "query": "恒宝股份有限公司因虚构利润被证监会处罚的案件是什么？",
+        "answer": "案例1：中国证券监督管理委员会江苏监管局行政处罚决定书(曹志新)\n案例2：中国证券监督管理委员会行政处罚决定书\n案例3：中国证监会行政处罚决定书(河北华安会计师事务所有限公司、齐正华、李钰等5名责任人)\n案例4：中国证监会行政处罚决定书(恒信玺利及其责任人员)\n案例5：中国证监会行政处罚决定书(河北宝硕股份有限公司、周山、闫海清等10名责任人)",
+        "latency_s": 10.602,
+        "retrieved_event_ids": [
+          "40110043",
+          "40189292",
+          "40109208",
+          "50136650",
+          "4016533"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 4,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G2",
+        "gold_id": "gold_071",
+        "query": "王禹皓（董事长）因推迟披露被证监会处罚的案件情况如何？",
+        "answer": "证据不足",
+        "latency_s": 0.724,
+        "retrieved_event_ids": [
+          "40109407",
+          "40109363",
+          "40111541",
+          "40108998",
+          "401722"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 288,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G2",
+        "gold_id": "gold_013",
+        "query": "2010 年前后早期上市公司信息披露违规被市场禁入的重大案例有哪些？",
+        "answer": "案例1:中国证监会行政处罚决定书（上海科技、张杰等9名责任人员）,中国证监会市场禁入决定书（上海科技张杰、任建宏、胡良）\n案例2:中国证监会行政处罚决定书（南京中北、郭试平等7名责任人员）,中国证监会市场禁入决定书（南京中北郭试平等4名责任人员）\n案例3:中国证监会行政处罚决定书（科苑集团、吴立平、周润南）,中国证监会市场禁入决定书（科苑集团汪德荣、孙连峰、周润南）\n案例4:中国证监会行政处罚决定书（聚友网络、陈健等10名责任人员）,中国证监会市场禁入决定书（陈健）\n案例5:中国证监会行政处罚决定书（东盛科技、郭家学等15名责任人员）,中国证监会市场禁入决定书（郭家学）",
+        "latency_s": 20.807,
+        "retrieved_event_ids": [
+          "401723",
+          "401120",
+          "401006",
+          "401287",
+          "401805"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 20,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G2",
+        "gold_id": "gold_086",
+        "query": "黄宁杰（总裁）因操纵股价被证监会处罚的案件情况如何？",
+        "answer": "中国证监会行政处罚决定书(王仕宏、陈杰)",
+        "latency_s": 1.749,
+        "retrieved_event_ids": [
+          "40137563",
+          "50136766",
+          "50108416",
+          "4035334",
+          "4055467"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 261,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G2",
+        "gold_id": "gold_062",
+        "query": "暴风集团股份有限公司因虚假记载被证监会处罚的案件是什么？",
+        "answer": "案例1：中国证监会行政处罚决定书(暴风集团股份有限公司、冯鑫、张丽娜、康茜),中国证监会市场禁入决定书(冯鑫)\n\n案例2：中国证监会行政处罚决定书(浙江第五季实业有限公司、吴联模)\n\n案例3：中国证监会行政处罚决定书(万家文化)\n\n案例4：中国证监会行政处罚决定书(潍坊北大青鸟华光科技股份有限公司、周燕军、许振东等15名责任人)\n\n案例5：中国证券监督管理委员会行政处罚决定书\n\n案例6：中国证监会行政处罚决定书(中国证券业协会违规行为处理决定书)\n\n案例7：中国证监会行政处罚决定书(中国证券业协会违规行为处理决定书)",
+        "latency_s": 14.578,
+        "retrieved_event_ids": [
+          "40105920",
+          "4062704",
+          "40108919",
+          "4024498",
+          "40200726"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 310,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G2",
+        "gold_id": "gold_078",
+        "query": "卢宪斌（监事）因违规买卖股票被证监会处罚的案件情况如何？",
+        "answer": "案例1：经查明，卢宪斌存在如下违法违规行为：2008年8月6日至2009年2月12日，卢宪斌任祁连山公司第五届监事会监事。2008年11月6日，卢宪斌采用网上交易方式分两次买入“祁连山”股票13,900股、20,500股。2008年11月11日，卢宪斌采用网上交易委托方式卖出“祁连山”100股；11月12日，卢宪斌采用网上交易委托方式买入“祁连山”100股；2008年11月12日，卢宪斌采用网上交易委托方式卖出“祁连山”100股；2008年11月12日，卢宪斌采用网上交易委托方式买入“祁连山”100股；2008年11月12日，卢宪斌采用网上交易委托方式买入“祁连山”100股；2008年11月12日，卢宪斌采用网上",
+        "latency_s": 25.682,
+        "retrieved_event_ids": [
+          "401546",
+          "50146013",
+          "40108998",
+          "40152722",
+          "50110883"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 407,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G2",
+        "gold_id": "gold_064",
+        "query": "江苏紫金电子集团有限公司因虚假记载被证监会处罚的案件是什么？",
+        "answer": "根据检索证据，江苏紫金电子集团有限公司因虚假记载被证监会处罚的案件是案例1。案例1的违法事实是：公司、浙江赣祥商贸有限公司、苏州佳金贸易有限公司、南京坤茂电子科技有限公司、合肥博翰电子科技有限公司、南京方矩实业有限公司、南京荥炜电子实业有限公司、南京亦仝电子科技有限公司、南京宁攀贸易有限公司、南\n案例2的违法事实是：公司、山东雅百特、四创电子等公司在材料购销过程中没有进行实物流转，山东雅百特在伪造四创电子收货单据时伪造了四创电子的合同专用章。四创电子向山东雅百特支付的货款来源于李某松控制或安排的上海森涌、上海远盼和熠循新能源,该三家公司的资金来源于山东雅百特等公司。上述交易只有资金往来,没有真实的货物流转,四创电子收取过账金额。案例3的违法事实是：横国际报表。2000年纵横国际将尚未取得法定权属的深圳南星电子有限公司(以下简称“南星电子”)当年利润计入合并利润,虚构利润1280万元。纵横国际第三届董事会",
+        "latency_s": 25.555,
+        "retrieved_event_ids": [
+          "40178882",
+          "4051427",
+          "40885",
+          "40110447",
+          "40192609"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 5,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G2",
+        "gold_id": "gold_094",
+        "query": "郑飚因内幕交易被证监会行政处罚的案件详情？",
+        "answer": "证据不足。",
+        "latency_s": 0.73,
+        "retrieved_event_ids": [
+          "4068108",
+          "404252",
+          "4015774",
+          "4011579",
+          "4011612"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 211,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G2",
+        "gold_id": "gold_001",
+        "query": "上市公司独立董事利用内幕信息买入自家股票的典型案例有哪些？请列出至少两个并说明处罚方式。",
+        "answer": "案例1中的曹佩凤属于内幕信息的知情人，且在内幕信息公开前，不能买卖该公司的证券，因此构成内幕交易行为。案例2中的曹佩凤属于内幕信息的知情人，且在内幕信息公开前，不能买卖该公司的证券，因此构成内幕交易行为。案例3中的曹佩凤属于内幕信息的知情人，且在内幕信息公开前，不能买卖该公司的证券，因此构成内幕交易行为。案例4中的王健不属于内幕信息的知情人，因此不存在违法行为。案例5中的王健不属于内幕信息的知情人，因此不存在违法行为。",
+        "latency_s": 13.217,
+        "retrieved_event_ids": [
+          "407252",
+          "40185522",
+          "4052060",
+          "40130168",
+          "4057790"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 31,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G2",
+        "gold_id": "gold_060",
+        "query": "浙江维康药业股份有限公司因虚假记载被证监会处罚的案件是什么？",
+        "answer": "浙江维康药业股份有限公司因虚假记载被证监会处罚的案件是案例1。",
+        "latency_s": 2.438,
+        "retrieved_event_ids": [
+          "401109",
+          "4081162",
+          "4062704",
+          "4089238",
+          "40108652"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 357,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G2",
+        "gold_id": "gold_021",
+        "query": "2005 年《证券法》第六十三条关于信息披露真实性的要求，在近年虚假记载案件中如何被援引？",
+        "answer": "案例1：中国证监会行政处罚决定书（重庆实业及富庶、罗敏、吕俊、何霖等人员）,关于对富庶、罗敏实施市场禁入的决定；\n\n案例2：中国证监会行政处罚决定书（重庆东源及相关人员）,关于对富庶、罗敏实施市场禁入的决定；\n\n案例3：中国证监会行政处罚决定书（四川天歌及相关人员）,关于对富庶、罗敏实施市场禁入的决定；\n\n案例4：中国证监会行政处罚决定书（湖南天一科技及彭深根、黄奇、邓植林、吴加政、毛晖、欧阳纯宝、李员明、李智、姚晓义），关于对富庶、罗敏实施市场禁入的决定；\n\n案例5：中国证监会行政处罚决定书（大连北大科技及相关人员）,关于对富庶、罗敏实施市场禁入的决定；\n\n案例4：中国证监会行政处罚决定书（湖南天一科技及彭深根、黄奇、邓植林、吴加政、毛晖、欧阳纯宝、李员明、李智、姚晓义），关于对富庶、罗敏实施市场禁入的",
+        "latency_s": 26.273,
+        "retrieved_event_ids": [
+          "401214",
+          "401181",
+          "401055",
+          "40665",
+          "40997"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 170,
+        "hallucinated_numbers": [],
+        "cited_laws": [
+          "证券法",
+          "证券法",
+          "证券法",
+          "证券法",
+          "证券法"
+        ],
+        "laws_in_evidence": [
+          "证券法",
+          "证券法",
+          "证券法",
+          "证券法",
+          "证券法"
+        ],
+        "condition": "G2",
+        "gold_id": "gold_102",
+        "query": "王仕宏操纵股价案援引了《证券法》哪一条？",
+        "answer": "案例1：违背了《证券法》第七十七条第（一）项、第（二）项和第（四）项的规定；\n\n案例2：违背了《证券法》第一百九十二条所述操纵证券市场的行为；\n\n案例3：违背了《证券法》第二百五十三条所述操纵证券市场的行为；\n\n案例4：违背了《证券法》第二百五十四条所述操纵证券市场的行为；\n\n案例5：违背了《证券法》第二百五十五条所述操纵证券市场的行为。",
+        "latency_s": 10.727,
+        "retrieved_event_ids": [
+          "4055467",
+          "40186642",
+          "40146174",
+          "4082118",
+          "40124002"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 70,
+        "hallucinated_numbers": [],
+        "cited_laws": [
+          "证券法",
+          "证券法",
+          "证券法",
+          "证券法",
+          "证券法"
+        ],
+        "laws_in_evidence": [
+          "证券法",
+          "证券法",
+          "证券法",
+          "证券法",
+          "证券法"
+        ],
+        "condition": "G2",
+        "gold_id": "gold_099",
+        "query": "吕兴平内幕交易案援引了《证券法》哪一条？",
+        "answer": "案例1：《证券法》第十七条；案例2：《证券法》第十七条；案例3：《证券法》第十七条；案例4：《证券法》第十七条；案例5：《证券法》第十七条。",
+        "latency_s": 5.216,
+        "retrieved_event_ids": [
+          "404010934",
+          "4058433",
+          "40152764",
+          "40152763",
+          "407253"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 179,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G2",
+        "gold_id": "gold_024",
+        "query": "《中国注册会计师审计准则》第 1101 号、第 1301 号在会计师事务所被处罚案件中如何被援引？",
+        "answer": "案例1:中国证监会行政处罚决定书(中天运会计师事务所、杨锡刚、张友富)\n\n案例2:中国证监会行政处罚决定书(中兴财所、刘永、李铁庆、赵海宾)\n\n案例3:中国证监会行政处罚决定书(中天运会计师事务所、杨锡刚、张友富)\n\n案例4:中国证监会行政处罚决定书(中兴财所、刘永、李铁庆、赵海宾)\n\n案例5:中国证监会行政处罚决定书(中天运会计师事务所、杨锡刚、张友富)",
+        "latency_s": 12.045,
+        "retrieved_event_ids": [
+          "50154566",
+          "50108467",
+          "50154528",
+          "50108350",
+          "50146489"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 189,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G2",
+        "gold_id": "gold_020",
+        "query": "2019 修订《证券法》第五十五条第一款第一项、第三项在操纵市场处罚中的典型适用有哪些案例？",
+        "answer": "案例1：中国证券监督管理委员会广东监管局行政处罚决定书〔2019〕11号(蔡汝洪)\n\n案例2：中国证券监督管理委员会深圳监管局行政处罚决定书〔2019〕6号\n\n案例3：中国证券监督管理委员会深圳监管局行政处罚决定书〔2019〕6号\n\n案例4：中国证券监督管理委员会深圳监管局行政处罚决定书〔2019〕6号\n\n案例5：中国证券监督管理委员会深圳监管局行政处罚决定书〔2019〕6号",
+        "latency_s": 11.904,
+        "retrieved_event_ids": [
+          "50112187",
+          "50110878",
+          "50110876",
+          "50113128",
+          "4064509"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 179,
+        "hallucinated_numbers": [],
+        "cited_laws": [
+          "行政处罚决定书"
+        ],
+        "laws_in_evidence": [
+          "行政处罚决定书"
+        ],
+        "condition": "G2",
+        "gold_id": "gold_022",
+        "query": "《证券法》第六十七条关于重大事件披露义务的规定，在 2023-2024 年处罚中如何被援引？",
+        "answer": "案例1:中国证券监督管理委员会福建监管局行政处罚决定书〔2023〕8号(章琦)\n\n案例2:关于公司、公司控股股东及相关人员收到中国证券监督管理委员会行政处罚事先告知书的公告\n\n案例3:关于收到中国证券监督管理委员会《行政处罚决定书》的公告\n\n案例4:行政处罚决定书〔2023〕2号\n\n案例5:中国证券监督管理委员会上海监管局行政处罚决定书沪〔2023〕35号",
+        "latency_s": 10.591,
+        "retrieved_event_ids": [
+          "50127806",
+          "40140646",
+          "40135923",
+          "40150362",
+          "50126711"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 311,
+        "hallucinated_numbers": [],
+        "cited_laws": [
+          "证券法",
+          "证券法",
+          "上市公司信息披露管理办法",
+          "证券法",
+          "证券法",
+          "证券法",
+          "上市公司信息披露管理办法",
+          "证券法",
+          "证券法",
+          "证券法",
+          "证券法",
+          "证券法"
+        ],
+        "laws_in_evidence": [
+          "证券法",
+          "证券法",
+          "上市公司信息披露管理办法",
+          "证券法",
+          "证券法",
+          "证券法",
+          "上市公司信息披露管理办法",
+          "证券法",
+          "证券法",
+          "证券法",
+          "证券法",
+          "证券法"
+        ],
+        "condition": "G2",
+        "gold_id": "gold_108",
+        "query": "姜涛推迟披露案援引了《证券法》哪一条？",
+        "answer": "案例1:违反了《证券法》第六十三条第一款、第二款第八项规定，违反了《证券法》第六十七条第一款、第二款第十二项、《上市公司信息披露管理办法》(证监会令第40号)第四十八条规定，违反了《证券法》第六十三条规定。\n\n案例2:违反了《证券法》第六十七条第一款、第二款第八项规定，违反了《证券法》第六十七条第一款、第二款第十二项、《上市公司信息披露管理办法》(证监会令第40号)第四十八条规定，违反了《证券法》第六十三条规定。\n\n案例3:违反了《证券法》第六十七条第一款、第二款第三项、第八项及第十二项的规定，违反了《证券法》第六十三条、2019年《证券法》第七十八条第二款的规定。\n\n案例4:违反了《证券法》第八十条第三款的规定。",
+        "latency_s": 18.727,
+        "retrieved_event_ids": [
+          "40115158",
+          "40109653",
+          "4070109",
+          "40123082",
+          "40202802"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 4,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G2",
+        "gold_id": "gold_017",
+        "query": "2005 年《证券法》第七十三条、第七十六条分别规制什么？各举一个被适用的案件。",
+        "answer": "证据不足",
+        "latency_s": 1.081,
+        "retrieved_event_ids": [
+          "401214",
+          "401190",
+          "40489",
+          "401884",
+          "401018"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 4,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G2",
+        "gold_id": "gold_103",
+        "query": "张志坚虚构利润案援引了《证券法》哪一条？",
+        "answer": "证据不足",
+        "latency_s": 0.58,
+        "retrieved_event_ids": [
+          "401626",
+          "40112330",
+          "4072667",
+          "404734",
+          "4068585"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 34,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G2",
+        "gold_id": "gold_105",
+        "query": "李国富虚假记载案援引了《证券法》哪一条？",
+        "answer": "案例2：中国证监会行政处罚决定书（荣华实业、张严德等20名责任人员）",
+        "latency_s": 2.47,
+        "retrieved_event_ids": [
+          "408015",
+          "40150204",
+          "401423",
+          "40151130",
+          "40109366"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 25,
+        "hallucinated_numbers": [],
+        "cited_laws": [
+          "中华人民共和国证券法"
+        ],
+        "laws_in_evidence": [],
+        "condition": "G2",
+        "gold_id": "gold_109",
+        "query": "高光荣违规买卖股票案援引了《证券法》哪一条？",
+        "answer": "案例4：《中华人民共和国证券法》第四十七条第一款。",
+        "latency_s": 1.867,
+        "retrieved_event_ids": [
+          "40190445",
+          "40111177",
+          "40203043",
+          "50110891",
+          "50109119"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 101,
+        "hallucinated_numbers": [],
+        "cited_laws": [
+          "证券法",
+          "证券法",
+          "证券法",
+          "证券法",
+          "证券法"
+        ],
+        "laws_in_evidence": [
+          "证券法",
+          "证券法",
+          "证券法",
+          "证券法",
+          "证券法"
+        ],
+        "condition": "G2",
+        "gold_id": "gold_110",
+        "query": "高玲违规买卖股票案援引了《证券法》哪一条？",
+        "answer": "案例1:《证券法》第三十八条；\n\n案例2:《证券法》第八十六条第二款；\n\n案例3:《证券法》第三十八条及第八十六条第二款；\n\n案例4:《证券法》第四十七条；\n\n案例5:《证券法》第七十三条、第七十六条。",
+        "latency_s": 7.08,
+        "retrieved_event_ids": [
+          "40110528",
+          "40111270",
+          "50108453",
+          "40110501",
+          "50111212"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 448,
+        "hallucinated_numbers": [],
+        "cited_laws": [
+          "证券法",
+          "证券法",
+          "证券法",
+          "证券法",
+          "证券法"
+        ],
+        "laws_in_evidence": [
+          "证券法",
+          "证券法",
+          "证券法",
+          "证券法",
+          "证券法"
+        ],
+        "condition": "G2",
+        "gold_id": "gold_031",
+        "query": "独立董事疏于履职、在内幕信息公开前买入本公司股票，参考案例会被如何处罚？",
+        "answer": "根据案例5中的违法事实描述，可以判断其存在内幕信息。根据《证券法》第五十二条第三款：“内幕信息的知情人或者非法获取内幕信息的人员，在内幕信息公开前，不得买卖该证券”。因此，本案中，周国建作为内幕信息的知情人，其在内幕信息公开前买入本公司股票，构成内幕交易。根据《证券法》第一百九十三条，“证券内幕信息的知情人或者非法获取内幕信息的人员，在内幕信息公开前，不得买卖该证券”，因此，周国建在内幕信息公开前卖出本公司股票，构成内幕交易。根据《证券法》第一百九十五条，“证券内幕信息的知情人或者非法获取内幕信息的人员，在内幕信息公开后，仍应遵守本法第一百九十三条的规定。”因此，周国建在内幕信息公开后继续持有本公司股票，构成内幕交易。根据《证券法》第一百九十八条，“证券内幕信息的知情人或者非法获取内幕信息的人员，在内幕信息公开后，仍应遵守本法第一百九十三条的规定。”因此，周国建在内幕信息公开后继续持有本公司股票，构成内幕交易。根据《证券法》第一百九十九条，“证券内幕信息的知情人或者非法获取内幕信息的",
+        "latency_s": 24.728,
+        "retrieved_event_ids": [
+          "4058462",
+          "401949",
+          "40159644",
+          "40116918",
+          "50112168"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 92,
+        "hallucinated_numbers": [
+          "10万元",
+          "10万元",
+          "10万元"
+        ],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G2",
+        "gold_id": "gold_030",
+        "query": "某上市公司控股股东占用公司资金数亿元且未及时披露，参考近年案例，公司与主要责任人预计会被如何处罚？",
+        "answer": "依据案例信息,公司控股股东及实际控制人林艳和安排贺元被处以警告并处以10万元罚款;公司董事兼总经理张勇被处以警告并处以10万元罚款;公司监事兼副总经理李强被处以警告并处以10万元罚款。",
+        "latency_s": 6.508,
+        "retrieved_event_ids": [
+          "40126732",
+          "40124013",
+          "40192003",
+          "40134449",
+          "40187083"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 229,
+        "hallucinated_numbers": [
+          "10万元",
+          "1倍",
+          "5倍",
+          "30万元",
+          "10万元"
+        ],
+        "cited_laws": [
+          "中华人民共和国证券投资基金法"
+        ],
+        "laws_in_evidence": [],
+        "condition": "G2",
+        "gold_id": "gold_026",
+        "query": "某上市公司董事在内幕信息公开前使用他人账户买入本公司股票，获利仅 1000 元左右，参考类似案例，预计会被如何处罚？",
+        "answer": "依据案例1可知，对董事在内幕信息公开前使用他人账户买入本公司股票的行为进行处罚，可以参照案例2。根据案例2的规定，董事在内幕信息公开前使用他人账户买入本公司股票获利1084.38元（扣除交易费用），属于内幕信息形成后的一般行为，适用《中华人民共和国证券投资基金法》第六十二条第一款的规定，给予警告，并处以10万元以下的罚款；或者责令改正，没收违法所得，并处以违法所得1倍以上5倍以下的罚款，但最高不超过30万元。因此，被处罚的董事可能面临10万元以下的罚款。",
+        "latency_s": 14.034,
+        "retrieved_event_ids": [
+          "40111878",
+          "401",
+          "40107846",
+          "4058462",
+          "4014139"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 464,
+        "hallucinated_numbers": [
+          "10亿",
+          "10亿",
+          "10亿",
+          "10亿",
+          "10亿"
+        ],
+        "cited_laws": [
+          "中华人民共和国证券法"
+        ],
+        "laws_in_evidence": [],
+        "condition": "G2",
+        "gold_id": "gold_035",
+        "query": "上市公司连续多年虚构利润累计 10 亿元以上，最终被立案处罚，公司层面预计会被罚多少、主要责任人会被如何处理？",
+        "answer": "根据检索证据和法律规定,可以得出以下结论:\n\n案例1:上市公司冀中集团的行为属于虚构利润,违反了《中华人民共和国证券法》第一百九十三条的规定。根据该条款,公司及其股东应当按照国家有关规定进行信息披露,并及时纠正违法行为。因此,公司及其股东将面临罚款,罚款金额可能高达10亿元以上。\n\n案例2:中国证监会对冀中集团的处罚行为属于行政处分,包括责令改正、限制业务活动、暂停发行上市申请等措施。公司及其股东将面临罚款,罚款金额可能高达10亿元以上。\n\n案例3:中国证监会对上海富控的处罚行为属于行政处分,包括责令改正、限制业务活动、暂停发行上市申请等措施。公司及其股东将面临罚款,罚款金额可能高达10亿元以上。\n\n案例4:中国证监会对上海富控的处罚行为属于行政处分,包括责令改正、限制业务活动、暂停发行上市申请等措施。公司及其股东将面临罚款,罚款金额可能高达10亿元以上。\n\n案例5:中国证监会对融通贸易的处罚行为属于行政处分,包括责令改正、限制业务活动、暂停发行上市申请等措施。公司及其股东将面临罚款,罚款金额可能高达10亿元以上。",
+        "latency_s": 25.307,
+        "retrieved_event_ids": [
+          "40136808",
+          "4051220",
+          "4018092",
+          "40109846",
+          "40154202"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 44,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G2",
+        "gold_id": "gold_029",
+        "query": "某投资者集中资金连续买卖某股票操纵其价格获利 1000 万元以上，预计会被如何处罚？",
+        "answer": "依据上述案例,投资者集中资金连续买卖某股票操纵其价格获利1000万元以上,将被处以罚款。",
+        "latency_s": 3.757,
+        "retrieved_event_ids": [
+          "40108676",
+          "40186642",
+          "50121647",
+          "4083719",
+          "50128585"
+        ]
+      }
+    ],
+    "G3": [
+      {
+        "cited_event_ids": [
+          "40111147",
+          "50145610"
+        ],
+        "event_id_hit": true,
+        "format_ok": true,
+        "answer_len": 132,
+        "hallucinated_numbers": [],
+        "cited_laws": [
+          "证券法",
+          "证券法"
+        ],
+        "laws_in_evidence": [
+          "证券法",
+          "证券法"
+        ],
+        "condition": "G3",
+        "gold_id": "gold_076",
+        "query": "谭光华因违规买卖股票被证监会行政处罚的案件详情？",
+        "answer": "根据检索证据，此类谭光华因违规买卖股票类违规主要违反的法规为：违反2005年《证券法》第四十七条的规定。 [法条:《证券法》第四十七条]。参考案例见 [EventID=40111147];处罚类型为:其他、没收非法所得、罚款 [EventID=50145610]。",
+        "latency_s": 15.094,
+        "retrieved_event_ids": [
+          "40111147",
+          "401803",
+          "50145610",
+          "50141486",
+          "40104238"
+        ]
+      },
+      {
+        "cited_event_ids": [
+          "40148572"
+        ],
+        "event_id_hit": false,
+        "format_ok": true,
+        "answer_len": 125,
+        "hallucinated_numbers": [],
+        "cited_laws": [
+          "证券法",
+          "证券法"
+        ],
+        "laws_in_evidence": [
+          "证券法",
+          "证券法"
+        ],
+        "condition": "G3",
+        "gold_id": "gold_008",
+        "query": "2023 年控股股东或高管操纵股价被罚的代表性案例有哪些？",
+        "answer": "根据检索证据，此类控股股东或实际控制人违规主要违反的法规为：违反了2005年《证券法》第七十七条第一款第一项、第三项、第四项的规定。 [法条:《证券法》第七十七条第一款]。参考案例见 [EventID=40148572],具体条款适用以公告原文为准。",
+        "latency_s": 13.523,
+        "retrieved_event_ids": [
+          "40148572",
+          "40137042",
+          "40134451",
+          "40146482",
+          "40146002"
+        ]
+      },
+      {
+        "cited_event_ids": [
+          "40123812"
+        ],
+        "event_id_hit": false,
+        "format_ok": true,
+        "answer_len": 100,
+        "hallucinated_numbers": [],
+        "cited_laws": [
+          "证券法",
+          "证券法"
+        ],
+        "laws_in_evidence": [
+          "证券法",
+          "证券法"
+        ],
+        "condition": "G3",
+        "gold_id": "gold_002",
+        "query": "2022 年证监会查处的董事长因内幕交易被罚款的案件有哪些？",
+        "answer": "根据检索证据，此类违规主要违反的法规为：违反了《证券法》第五十条、第五十三条第一款的规定。 [法条:《证券法》第五十条]。参考案例见 [EventID=40123812],具体条款适用以公告原文为准。",
+        "latency_s": 10.422,
+        "retrieved_event_ids": [
+          "40123812",
+          "40125002",
+          "40121566",
+          "40117688",
+          "40117697"
+        ]
+      },
+      {
+        "cited_event_ids": [
+          "40110885",
+          "40110885"
+        ],
+        "event_id_hit": false,
+        "format_ok": true,
+        "answer_len": 184,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G3",
+        "gold_id": "gold_083",
+        "query": "湖北九有投资股份有限公司因虚构利润被证监会处罚的案件是什么？",
+        "answer": "根据检索证据，该湖北九有投资股份有限公司（以下简称九有股份）因虚构利润案违反的法规为：参考历史相似案例，「虚构利润」类违规在证监会处罚案例中常见法规为：[EventID=40110885]；具体条款适用以公告原文为准，以下引用 [EventID=40110885]；违规类型：虚构利润、虚假记载(误导性陈述)、其他；当事人：中勤万信会计师事务所(特殊普通合伙)、刘虹、",
+        "latency_s": 18.106,
+        "retrieved_event_ids": [
+          "50113127",
+          "50111624",
+          "40109041",
+          "50109035",
+          "40110885"
+        ]
+      },
+      {
+        "cited_event_ids": [
+          "4011612"
+        ],
+        "event_id_hit": false,
+        "format_ok": true,
+        "answer_len": 204,
+        "hallucinated_numbers": [],
+        "cited_laws": [
+          "证券法"
+        ],
+        "laws_in_evidence": [
+          "证券法"
+        ],
+        "condition": "G3",
+        "gold_id": "gold_053",
+        "query": "邱仲敏因内幕交易被证监会行政处罚的案件详情？",
+        "answer": "根据检索证据，此类邱仲敏因内幕交易被证监会行政处罚的案例共发现 5 条。其中最相似的是「中国证监会行政处罚决定书（邓惠文）」（2014-01-09），该案涉及的主体为邱仲敏。参考近似案情，「中国证监会行政处罚决定书（缪玲红、邵林…」（2012-12-13）类似违规情节为：违反了《证券法》第七十三条、第七十六条第一款的规定，构成了《证券… [EventID=4011612]。建议进一步核对案情细节再做参考。",
+        "latency_s": 21.677,
+        "retrieved_event_ids": [
+          "4011579",
+          "404694",
+          "40152764",
+          "404252",
+          "4011612"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 231,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G3",
+        "gold_id": "gold_051",
+        "query": "夏传武因内幕交易被证监会行政处罚的案件详情？",
+        "answer": "根据检索证据，此类夏传武因内幕交易被证监会行政处罚的案例共发现 5 条。其中最相似的是「中国证监会行政处罚决定书（夏雪）」（2016-04-28），该案涉及的主体为夏传武。参考近似案情，「中国证监会行政处罚决定书（李琳杰、覃炳辉）」（2012-12-26），该案涉及的主体为李琳杰、覃炳辉；「中国证监会行政处罚决定书(黄炳…」（2018-07-12），该案涉及的主体为黄炳文、钟琼。以上两案的具体条款适用细节及处罚程度需以证据中列出的 EventID 明显指出。",
+        "latency_s": 26.788,
+        "retrieved_event_ids": [
+          "4035499",
+          "404694",
+          "404252",
+          "4065704",
+          "4055499"
+        ]
+      },
+      {
+        "cited_event_ids": [
+          "40107843",
+          "4019372",
+          "4070583"
+        ],
+        "event_id_hit": false,
+        "format_ok": true,
+        "answer_len": 223,
+        "hallucinated_numbers": [],
+        "cited_laws": [
+          "证券法",
+          "证券法",
+          "证券法",
+          "证券法",
+          "证券法"
+        ],
+        "laws_in_evidence": [
+          "证券法",
+          "证券法",
+          "证券法",
+          "证券法",
+          "证券法"
+        ],
+        "condition": "G3",
+        "gold_id": "gold_015",
+        "query": "上市公司监事或职工监事利用未公开信息交易被处罚的案例有哪些？",
+        "answer": "根据检索证据，此类上市公司监事或职工监事利用未公开信息交易案件主要见于 [EventID=40107843]，违规情节描述：违反了《证券法》第五十条和第五十三条第一款的规定。 [EventID=4019372]，违反了《证券法》第六十三条的规定,构成了《证券法》第一百九十三条所述“未按照规定披露信息”的行为。 [EventID=4070583]，违反了《证券法》第六十三条的规定,构成了《证券法》第一百九十三条所述“未按照规定披露信息”的行为。",
+        "latency_s": 21.569,
+        "retrieved_event_ids": [
+          "4070583",
+          "4050698",
+          "40107846",
+          "40172443",
+          "4019372"
+        ]
+      },
+      {
+        "cited_event_ids": [
+          "40136204"
+        ],
+        "event_id_hit": false,
+        "format_ok": true,
+        "answer_len": 130,
+        "hallucinated_numbers": [],
+        "cited_laws": [
+          "证券法",
+          "证券法"
+        ],
+        "laws_in_evidence": [],
+        "condition": "G3",
+        "gold_id": "gold_009",
+        "query": "2023 年上市公司控股股东因违规买卖本公司股票被处罚的案例有哪些？",
+        "answer": "根据检索证据，此类违规主要违反的法规为：违反了2005年《证券法》第三十八条的规定。 [法条：《证券法》第三十八条]。参考案例见 [EventID=40136204];最终处罚程度需结合违规情节、主观故意、危害后果综合认定,具体金额与处分措施以证监会公告为准。",
+        "latency_s": 12.93,
+        "retrieved_event_ids": [
+          "40136205",
+          "40140722",
+          "40136203",
+          "40136204",
+          "40148805"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 103,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G3",
+        "gold_id": "gold_095",
+        "query": "汤丽君因内幕交易被证监会行政处罚的案件详情？",
+        "answer": "根据检索证据，此类汤丽君因内幕交易被证监会行政处罚的案例共发现 5 条。其中最相似的是「中国证监会行政处罚决定书（邓惠文）」（2014-01-09），该案涉及的主体为汤丽君。建议进一步核对案情细节再做参考。",
+        "latency_s": 12.325,
+        "retrieved_event_ids": [
+          "40149802",
+          "404654",
+          "40152764",
+          "4015774",
+          "4011579"
+        ]
+      },
+      {
+        "cited_event_ids": [
+          "50120247",
+          "40108676"
+        ],
+        "event_id_hit": true,
+        "format_ok": true,
+        "answer_len": 133,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G3",
+        "gold_id": "gold_007",
+        "query": "2022 年涉及操纵股价且罚款金额超过百万的案例有哪些？",
+        "answer": "根据检索证据，发现大量涉及操纵股价类违规的情节。其中最为相似的是「中国证监会行政处罚决定书(唐隆、朱卫…」（2022-12-14）[EventID=50120247][EventID=40108676],该案涉及的处罚类型包括：其他。建议进一步核对案情细节再做参考。",
+        "latency_s": 13.992,
+        "retrieved_event_ids": [
+          "50122086",
+          "40108676",
+          "40124002",
+          "50121246",
+          "50120247"
+        ]
+      },
+      {
+        "cited_event_ids": [
+          "50108573"
+        ],
+        "event_id_hit": false,
+        "format_ok": true,
+        "answer_len": 135,
+        "hallucinated_numbers": [],
+        "cited_laws": [
+          "证券法",
+          "证券法",
+          "证券法",
+          "证券法"
+        ],
+        "laws_in_evidence": [
+          "证券法",
+          "证券法",
+          "证券法",
+          "证券法"
+        ],
+        "condition": "G3",
+        "gold_id": "gold_079",
+        "query": "韵升控股集团有限公司因违规买卖股票被证监会处罚的案件是什么？",
+        "answer": "根据检索证据，此类韵升控股集团有限公司因违规买卖股票类违规主要违反的法规为：违反了2005年《证券法》第八十条、2019年《证券法》第五十八条的规定。 [法条:《证券法》第八十条;《证券法》第五十八条]。参考案例见 [EventID=50108573];处罚类型为其他。",
+        "latency_s": 14.273,
+        "retrieved_event_ids": [
+          "50108573",
+          "50113430",
+          "401710",
+          "40200562",
+          "40179642"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 156,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G3",
+        "gold_id": "gold_090",
+        "query": "宁夏宁河民族化工股份有限公司因占用公司资产被证监会处罚的案件是什么？",
+        "answer": "根据检索证据，此类宁夏宁河民族化工股份有限公司因占用公司资产被证监会处罚的处罚案例共发现5条。其中最相似的是「中国证监会行政处罚决定书(民族化工股份…」（2004-05-25），该案涉及的主体包括：宁夏宁河民族化工股份有限公司、张郁达、田永林。参考简单对比，给出几点分析：历史相似、违规类型相近、当事人角色对应。",
+        "latency_s": 15.26,
+        "retrieved_event_ids": [
+          "401841",
+          "50108811",
+          "401515",
+          "50148086",
+          "40108760"
+        ]
+      },
+      {
+        "cited_event_ids": [
+          "40110591",
+          "40108773"
+        ],
+        "event_id_hit": false,
+        "format_ok": true,
+        "answer_len": 194,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G3",
+        "gold_id": "gold_070",
+        "query": "山东地矿股份有限公司因推迟披露被证监会处罚的案件是什么？",
+        "answer": "根据检索证据，此类山东地矿股份有限公司因推迟披露被证监会处罚的处罚案例共发现 5 条。其中最相似的是「中国证监会行政处罚决定书(山东龙力生物科技股份有限公司、程少博等18名责...」（2021-01-13）[EventID=40110591][EventID=40108773]，该案涉及的当事人包括：山东地矿股份有限公司、张恩荣、张云三、朱士民、吕彦东。建议进一步核对案情细节再做参考。",
+        "latency_s": 20.059,
+        "retrieved_event_ids": [
+          "40110591",
+          "40109640",
+          "40108773",
+          "40108998",
+          "50108697"
+        ]
+      },
+      {
+        "cited_event_ids": [
+          "40204682",
+          "40183285"
+        ],
+        "event_id_hit": true,
+        "format_ok": true,
+        "answer_len": 194,
+        "hallucinated_numbers": [],
+        "cited_laws": [
+          "行政处罚事先告知书"
+        ],
+        "laws_in_evidence": [
+          "行政处罚事先告知书"
+        ],
+        "condition": "G3",
+        "gold_id": "gold_006",
+        "query": "2025 年以来上市公司因推迟披露且存在占用公司资产行为被处罚的案例有哪些？",
+        "answer": "根据检索证据，此类上市公司因推迟披露且存在占用公司资产行为被处罚的案例共发现 4 条。其中最相似的是「关于公司及相关当事人收到中国证监会吉林监管局《行政处罚事先告知书》的公...」（2025-01-02）[EventID=40204682][EventID=40183285],该案涉及的主体包括山东新潮能源股份有限公司、刘斌先生、Bing Zhou先生。建议进一步核对案情细节再做参考。",
+        "latency_s": 18.835,
+        "retrieved_event_ids": [
+          "40204682",
+          "40183285",
+          "40207050",
+          "40188004",
+          "40192003"
+        ]
+      },
+      {
+        "cited_event_ids": [
+          "40774",
+          "401942"
+        ],
+        "event_id_hit": true,
+        "format_ok": true,
+        "answer_len": 255,
+        "hallucinated_numbers": [],
+        "cited_laws": [
+          "证券法"
+        ],
+        "laws_in_evidence": [
+          "证券法"
+        ],
+        "condition": "G3",
+        "gold_id": "gold_073",
+        "query": "孔繁波（董事长）因推迟披露被证监会处罚的案件情况如何？",
+        "answer": "根据检索证据，此类孔繁波（董事长）因推迟披露被证监会处罚的案例共发现 4 条。其中最相似的是「中国证监会行政处罚决定书（南华西及相关人员）」（2003-04-21）[EventID=40774][EventID=401942]，该案涉及的主体包括：南华西公司董事(兼任集团公司董事),在集团公司有关占用南华西公司资金的董事会决议和在南华西公司通过1999年中期报告、1999年年度报告及2000年中期报告的董事会决议上签字的董事(指南华西公司… [法条:《证券法》第六十七条]。建议进一步核对案情细节再做参考。",
+        "latency_s": 28.52,
+        "retrieved_event_ids": [
+          "40774",
+          "401942",
+          "40111981",
+          "401500",
+          "40109363"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 136,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G3",
+        "gold_id": "gold_063",
+        "query": "陈苏益（董事长）因虚假记载被证监会处罚的案件情况如何？",
+        "answer": "根据检索证据，此类陈苏益（董事长）因虚假记载被证监会处罚的案例共发现 5 条。其中最相似的是「中国证监会行政处罚决定书(陈新),中国证监会市场禁入决定书(陈新)」（2013-02-19），该案涉及的主体包括陈新。但具体条款适用、处罚类型和处分力度需以证据中列出的内容为准。",
+        "latency_s": 15.375,
+        "retrieved_event_ids": [
+          "40109363",
+          "401737",
+          "40201162",
+          "40108998",
+          "4010573"
+        ]
+      },
+      {
+        "cited_event_ids": [
+          "4082282",
+          "4051500"
+        ],
+        "event_id_hit": false,
+        "format_ok": true,
+        "answer_len": 150,
+        "hallucinated_numbers": [],
+        "cited_laws": [
+          "证券法",
+          "证券法"
+        ],
+        "laws_in_evidence": [
+          "证券法",
+          "证券法"
+        ],
+        "condition": "G3",
+        "gold_id": "gold_003",
+        "query": "控股股东或实际控制人涉嫌内幕交易、被没收违法所得并罚款的案例有哪些？",
+        "answer": "根据检索证据，此类控股股东或实际控制人违规主要违反的法规为：违反2005年《证券法》第七十三条、第七十六条第一款的规定。 [法条:《证券法》第七十三条]。参考案例见 [EventID=4082282];处罚类型：其他、罚款、警告 [EventID=4051500]；处分方式：其他、没收非法所得、罚款",
+        "latency_s": 16.323,
+        "retrieved_event_ids": [
+          "4051500",
+          "4056104",
+          "40157290",
+          "4066223",
+          "4082282"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 95,
+        "hallucinated_numbers": [],
+        "cited_laws": [
+          "证券法"
+        ],
+        "laws_in_evidence": [
+          "证券法"
+        ],
+        "condition": "G3",
+        "gold_id": "gold_096",
+        "query": "杨小桃因内幕交易被证监会行政处罚的案件详情？",
+        "answer": "根据检索证据，此类杨小桃内幕交易类违规主要违反的法规为：参考历史相似案例，杨小桃内幕交易类违规主要违反的法规为：参考历史相似案例，杨小桃内幕交易类违规主要违反的法规为：《证券法》第七十六条。",
+        "latency_s": 10.475,
+        "retrieved_event_ids": [
+          "40111272",
+          "4015774",
+          "40152764",
+          "407253",
+          "401428"
+        ]
+      },
+      {
+        "cited_event_ids": [
+          "50147248",
+          "40192609"
+        ],
+        "event_id_hit": false,
+        "format_ok": true,
+        "answer_len": 202,
+        "hallucinated_numbers": [],
+        "cited_laws": [
+          "证券法"
+        ],
+        "laws_in_evidence": [
+          "证券法"
+        ],
+        "condition": "G3",
+        "gold_id": "gold_085",
+        "query": "江苏中利集团股份有限公司因虚构利润被证监会处罚的案件是什么？",
+        "answer": "根据检索证据，此类江苏中利集团股份有限公司因虚构利润被证监会处罚的案例共发现 5 条。其中最相似的是「中国证监会关于中国高科集团股份有限公司违反证券法规行为的处罚」（1999-05-20）[EventID=50147248][EventID=40192609]，该案涉及的主体包括江苏中利集团股份有限公司、天衡会计师事务所(特殊普通合伙… [法条:《证券法》第六十三条]。建议进一步核对案情细节再做参考。",
+        "latency_s": 20.722,
+        "retrieved_event_ids": [
+          "50147248",
+          "40192609",
+          "401484",
+          "40109781",
+          "40110456"
+        ]
+      },
+      {
+        "cited_event_ids": [
+          "40206722",
+          "40203082",
+          "40200091"
+        ],
+        "event_id_hit": false,
+        "format_ok": true,
+        "answer_len": 215,
+        "hallucinated_numbers": [
+          "2000 万元",
+          "2000万元"
+        ],
+        "cited_laws": [
+          "中华人民共和国证券法"
+        ],
+        "laws_in_evidence": [],
+        "condition": "G3",
+        "gold_id": "gold_014",
+        "query": "2025 年第一季度上市公司被处以 2000 万元以上罚款的大额案件有哪些？",
+        "answer": "根据检索证据，此类2025年第一季度上市公司被处以 2000 万元以上罚款的大额违规主要违反的法规为：[法条:《中华人民共和国证券法》(2014年11月1日起施行)]。参考证据显示，其中最多的是「中国证券监督管理委员会安徽监管局行政处罚决定书〔20…」[EventID=40206722][EventID=40203082][EventID=40200091]，共两条，罚款金额分别为2000万元。建议进一步核对违规细节再做参考。",
+        "latency_s": 22.556,
+        "retrieved_event_ids": [
+          "40206722",
+          "40203082",
+          "40200091",
+          "40200729",
+          "40188773"
+        ]
+      },
+      {
+        "cited_event_ids": [
+          "401873",
+          "401645"
+        ],
+        "event_id_hit": true,
+        "format_ok": true,
+        "answer_len": 204,
+        "hallucinated_numbers": [],
+        "cited_laws": [
+          "证券法",
+          "证券法"
+        ],
+        "laws_in_evidence": [
+          "证券法",
+          "证券法"
+        ],
+        "condition": "G3",
+        "gold_id": "gold_092",
+        "query": "刘学勤（董事）因重大遗漏被证监会处罚的案件情况如何？",
+        "answer": "根据检索证据，此类违规主要违反的法规为：违反了原《证券法》第六十二条关于“发生可能对上市公司股票交易价格产生较大影响、而投资者尚未得知的重大事件时，上市公司应当立即将有关该重大事件的情况向国务院证券监督管理机构和证券交易所提交临时报告，并予以公告，说明事件的实质”… [法条:《证券法》第六十二条]。参考案例见 [EventID=401873];处罚类型：其他、罚款、警告 [EventID=401645]。",
+        "latency_s": 19.785,
+        "retrieved_event_ids": [
+          "401645",
+          "401860",
+          "40108998",
+          "40983",
+          "401873"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 128,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G3",
+        "gold_id": "gold_068",
+        "query": "江苏阳光股份有限公司因推迟披露被证监会处罚的案件是什么？",
+        "answer": "根据检索证据，此类江苏阳光股份有限公司（现名江苏阳光集团股份有限公司）因推迟披露被证监会处罚的案例共发现 5 条。其中最相似的是「中国证监会行政处罚决定书(阳光集团)」（2024-08-30），该案涉及的主体为「阳光集团」。建议进一步核对案情细节再做参考。",
+        "latency_s": 13.05,
+        "retrieved_event_ids": [
+          "40108759",
+          "50108578",
+          "50127389",
+          "50142206",
+          "40202802"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 140,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G3",
+        "gold_id": "gold_074",
+        "query": "耿毅英（监事会主席）因违规买卖股票被证监会处罚的案件情况如何？",
+        "answer": "根据检索证据，此类耿毅英（监事会主席）因违规买卖股票被证监会处罚的处罚案例共发现5条。其中最相似的是「中国证监会行政处罚决定书(耿志民)」（2023-06-19），该案涉及的主体包括：吴毅健。但当前检索证据未列出违规类型字段，无法给出具体处罚程度。建议进一步核对案情细节再做参考。",
+        "latency_s": 16.582,
+        "retrieved_event_ids": [
+          "50152391",
+          "50108895",
+          "40108527",
+          "50124766",
+          "50108682"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 234,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G3",
+        "gold_id": "gold_081",
+        "query": "恒宝股份有限公司因虚构利润被证监会处罚的案件是什么？",
+        "answer": "根据检索证据，此类恒宝股份有限公司（现更名为恒宝股份）违规主要违反的法规为：参考历史相似案例，查询到类似违规的法规为：参考历史相似案例，其中最相似的是「中国证监会行政处罚决定书(恒信玺利及其责任人员…」（2024-06-25），违规情节为：经查明,恒信玺利存在以下违法事实:一、恒信玺利披露的2015年至2021年年度报告及2022年半年报存在虚假记载2015年至2022年上半年,恒信玺利通过修改银行对账单和银行回单的方式虚增银行存款,通过虚假采购的方式虚增存货,…",
+        "latency_s": 27.018,
+        "retrieved_event_ids": [
+          "40110043",
+          "40189292",
+          "40109208",
+          "50136650",
+          "4016533"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 136,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G3",
+        "gold_id": "gold_071",
+        "query": "王禹皓（董事长）因推迟披露被证监会处罚的案件情况如何？",
+        "answer": "根据检索证据，此类王禹皓（董事长）因推迟披露被证监会处罚的案例共发现 5 条。其中最相似的是「中国证券监督管理委员会北京监管局行政处罚决定书(王禹皓)」（2020-10-09），该案涉及的主体包括：王禹皓。但当前检索证据未单独列明违规类型，建议进一步核对案情细节再做参考。",
+        "latency_s": 15.394,
+        "retrieved_event_ids": [
+          "40109407",
+          "40109363",
+          "40111541",
+          "40108998",
+          "401722"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 151,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G3",
+        "gold_id": "gold_013",
+        "query": "2010 年前后早期上市公司信息披露违规被市场禁入的重大案例有哪些？",
+        "answer": "根据检索证据，发现大量与「2010 年前后早期上市公司信息披露违规」相关的处罚记录。其中最为相似的是「中国证监会行政处罚决定书（科苑集团、吴立平、周润南）,中国证监会市场禁入决定书（科苑集团汪德…」（2010-04-06），该案涉及的主体包括：科苑集团、吴立平、周润南。建议进一步核对案情细节再做参考。",
+        "latency_s": 16.731,
+        "retrieved_event_ids": [
+          "401723",
+          "401120",
+          "401006",
+          "401287",
+          "401805"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 140,
+        "hallucinated_numbers": [],
+        "cited_laws": [
+          "中华人民共和国证券法"
+        ],
+        "laws_in_evidence": [],
+        "condition": "G3",
+        "gold_id": "gold_086",
+        "query": "黄宁杰（总裁）因操纵股价被证监会处罚的案件情况如何？",
+        "answer": "根据检索证据，此类黄宁杰（总裁）因操纵股价被证监会处罚的案例共发现 4 条，具体条款适用以《中华人民共和国证券法》第八十六条第一款、第四十七条第一款、第七十七条第一款第（四）项为准。但当前检索证据未列出处罚机构、违规类型或主体职位字段，无法确认其细节。建议进一步核对案情细节再试。",
+        "latency_s": 15.687,
+        "retrieved_event_ids": [
+          "40137563",
+          "50136766",
+          "50108416",
+          "4035334",
+          "4055467"
+        ]
+      },
+      {
+        "cited_event_ids": [
+          "40105920"
+        ],
+        "event_id_hit": true,
+        "format_ok": true,
+        "answer_len": 170,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G3",
+        "gold_id": "gold_062",
+        "query": "暴风集团股份有限公司因虚假记载被证监会处罚的案件是什么？",
+        "answer": "根据检索证据，此类暴风集团股份有限公司因虚假记载被证监会处罚的主要违规为：数据、调整了折现率,原较高的盈利预测数据并未修改,最终评估值为24,811.90万元。暴风集团在2018年年度报告中就收购暴风智能形成的商誉,未充分考虑暴风智能面临资金紧张、业务停滞等减值迹象,未计提商誉减值准备,构成虚假记载。 [EventID=40105920]",
+        "latency_s": 17.537,
+        "retrieved_event_ids": [
+          "40105920",
+          "4062704",
+          "40108919",
+          "4024498",
+          "40200726"
+        ]
+      },
+      {
+        "cited_event_ids": [
+          "401546",
+          "50146013",
+          "40152722"
+        ],
+        "event_id_hit": true,
+        "format_ok": true,
+        "answer_len": 227,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G3",
+        "gold_id": "gold_078",
+        "query": "卢宪斌（监事）因违规买卖股票被证监会处罚的案件情况如何？",
+        "answer": "根据检索证据，此类卢宪斌（监事）因违规买卖股票被证监会处罚的案例共发现 4 条。其中最相似的是「中国证监会行政处罚决定书(山东龙力生物科技股份有限公司、程少……」（2021-01-13）[EventID=401546][EventID=50146013]，该案涉及的主体包括：卢宪斌（监事）、山东龙力生物科技股份有限公司、程少…；另见「中国证监会行政处罚决定书(谭存灵、陈斌、单凯)」[EventID=40152722]。建议进一步核对案情细节再做参考。",
+        "latency_s": 24.228,
+        "retrieved_event_ids": [
+          "401546",
+          "50146013",
+          "40108998",
+          "40152722",
+          "50110883"
+        ]
+      },
+      {
+        "cited_event_ids": [
+          "40178882",
+          "4051427"
+        ],
+        "event_id_hit": false,
+        "format_ok": true,
+        "answer_len": 186,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G3",
+        "gold_id": "gold_064",
+        "query": "江苏紫金电子集团有限公司因虚假记载被证监会处罚的案件是什么？",
+        "answer": "根据检索证据，此类江苏紫金电子集团有限公司因虚假记载被证监会处罚的案例共发现5条。其中最相似的是「中国证监会行政处罚决定书(江苏雅百特科技股份有限公司、陆永、顾彤莉等21名责任…」（2024-09-23）[EventID=40178882][EventID=4051427]，该案涉及的主体包括：江苏紫金电子集团有限公司、陆永、顾彤莉等人。建议进一步核对案情细节再做参考。",
+        "latency_s": 19.514,
+        "retrieved_event_ids": [
+          "40178882",
+          "4051427",
+          "40885",
+          "40110447",
+          "40192609"
+        ]
+      },
+      {
+        "cited_event_ids": [
+          "4068108",
+          "404252"
+        ],
+        "event_id_hit": true,
+        "format_ok": true,
+        "answer_len": 193,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G3",
+        "gold_id": "gold_094",
+        "query": "郑飚因内幕交易被证监会行政处罚的案件详情？",
+        "answer": "根据检索证据，此类郑飚因内幕交易被证监会行政处罚的案例共发现 5 条。其中最相似的是「中国证监会行政处罚决定书（王翔、郑飚）」（2019-12-11），该案涉及的主体为郑飚。参考近似案情，「中国证监会行政处罚决定书（李琳杰、覃炳辉）」（2012-12-26）[EventID=4068108][EventID=404252] 最相似，但具体细节无法给出。建议进一步核对案情细节再做参考。",
+        "latency_s": 21.713,
+        "retrieved_event_ids": [
+          "4068108",
+          "404252",
+          "4015774",
+          "4011579",
+          "4011612"
+        ]
+      },
+      {
+        "cited_event_ids": [
+          "40130168",
+          "4057790"
+        ],
+        "event_id_hit": false,
+        "format_ok": true,
+        "answer_len": 260,
+        "hallucinated_numbers": [],
+        "cited_laws": [
+          "证券法",
+          "证券法"
+        ],
+        "laws_in_evidence": [
+          "证券法",
+          "证券法"
+        ],
+        "condition": "G3",
+        "gold_id": "gold_001",
+        "query": "上市公司独立董事利用内幕信息买入自家股票的典型案例有哪些？请列出至少两个并说明处罚方式。",
+        "answer": "根据检索证据，此类上市公司独立董事利用内幕信息买卖自家股票类违规主要违反的法规为：违反了《证券法》第八十条“禁止法人非法利用他人账户从事证券交易”的规定,违反了《证券法》第七十三条“禁止证券交易内幕信息的知情人和非法获取内幕信息的人利用内幕信息从事证券交易活动”、第七十六条第一款“证券交易内幕信息的知情人和非法获取内幕信息的人,在内幕信息公开前,不得买卖该公司的证券,或者泄露该信息,或者建议他人买卖\n\n[EventID=40130168] 最终处罚类型为:其他、没收非法所得、罚款 [EventID=4057790]",
+        "latency_s": 24.067,
+        "retrieved_event_ids": [
+          "407252",
+          "40185522",
+          "4052060",
+          "40130168",
+          "4057790"
+        ]
+      },
+      {
+        "cited_event_ids": [
+          "4081162"
+        ],
+        "event_id_hit": false,
+        "format_ok": true,
+        "answer_len": 265,
+        "hallucinated_numbers": [],
+        "cited_laws": [
+          "上市公司信息披露管理办法"
+        ],
+        "laws_in_evidence": [
+          "上市公司信息披露管理办法"
+        ],
+        "condition": "G3",
+        "gold_id": "gold_060",
+        "query": "浙江维康药业股份有限公司因虚假记载被证监会处罚的案件是什么？",
+        "answer": "根据检索证据，此类浙江维康药业股份有限公司因虚假记载被证监会处罚的案例共发现5条。其中最相似的是「中国证监会行政处罚决定书(浙江第五季实业有限公司、吴联模…」（2019-06-06），该案涉及的主体包括：浙江第五季实业有限公司、吴联模、孙继林、辅仁药业、辅仁集团；违规情节为：违反了《上市公司信息披露管理办法》(证监会令第40号)第二条第一款关于“信息披露义务人应当真实、准确、完整、及时地披露信息,不得有虚假记载、误导性陈述或者重大遗漏”的规定。参考历史相似案例 [EventID=4081162];具体条款适用以公告原文为准。",
+        "latency_s": 27.653,
+        "retrieved_event_ids": [
+          "401109",
+          "4081162",
+          "4062704",
+          "4089238",
+          "40108652"
+        ]
+      },
+      {
+        "cited_event_ids": [
+          "401214"
+        ],
+        "event_id_hit": false,
+        "format_ok": true,
+        "answer_len": 209,
+        "hallucinated_numbers": [],
+        "cited_laws": [
+          "证券法",
+          "证券法",
+          "证券法",
+          "证券法"
+        ],
+        "laws_in_evidence": [
+          "证券法",
+          "证券法",
+          "证券法",
+          "证券法"
+        ],
+        "condition": "G3",
+        "gold_id": "gold_021",
+        "query": "2005 年《证券法》第六十三条关于信息披露真实性的要求，在近年虚假记载案件中如何被援引？",
+        "answer": "根据检索证据，此类虚假记载类违规主要违反的法规为：违反了《证券法》第五十九条“公司公告的股票或者公司债券的发行和上市文件，必须真实、准确、完整，不得有虚假记载、误导性陈述或者重大遗漏”的规定，构成《证券法》第一百七十七条所述“所披露的信息有虚假记载、误导性陈述或者有重大遗漏”的行为。 [法条:《证券法》第五十九条；《证券法》第一百七十七条]。参考案例见 [EventID=401214]，具体条款适用以公告原文为准。",
+        "latency_s": 21.54,
+        "retrieved_event_ids": [
+          "401214",
+          "401181",
+          "401055",
+          "40665",
+          "40997"
+        ]
+      },
+      {
+        "cited_event_ids": [
+          "4055467"
+        ],
+        "event_id_hit": true,
+        "format_ok": true,
+        "answer_len": 128,
+        "hallucinated_numbers": [],
+        "cited_laws": [
+          "证券法",
+          "证券法"
+        ],
+        "laws_in_evidence": [
+          "证券法",
+          "证券法"
+        ],
+        "condition": "G3",
+        "gold_id": "gold_102",
+        "query": "王仕宏操纵股价案援引了《证券法》哪一条？",
+        "answer": "根据检索证据，此类王仕宏操纵股价类违规主要违反的法规为：违反了《证券法》第七十七条第(一)项、第(二)项和第(四)项的规定。 [法条:《证券法》第七十七条第(一)项]。参考案例见 [EventID=4055467];处罚类型包括:其他、没收非法所得、罚款。",
+        "latency_s": 14.217,
+        "retrieved_event_ids": [
+          "4055467",
+          "40186642",
+          "40146174",
+          "4082118",
+          "40124002"
+        ]
+      },
+      {
+        "cited_event_ids": [
+          "404010934"
+        ],
+        "event_id_hit": false,
+        "format_ok": true,
+        "answer_len": 137,
+        "hallucinated_numbers": [],
+        "cited_laws": [
+          "证券法",
+          "证券法",
+          "证券法"
+        ],
+        "laws_in_evidence": [
+          "证券法",
+          "证券法",
+          "证券法"
+        ],
+        "condition": "G3",
+        "gold_id": "gold_099",
+        "query": "吕兴平内幕交易案援引了《证券法》哪一条？",
+        "answer": "根据检索证据，此类吕兴平内幕交易案主要违反的法规为：违反了《证券法》第七十三条、第七十六条第一款的规定,构成2005年《证券法》第二百零二条所述的内幕交易行为。 [法条:《证券法》第七十三条]。参考案例见 [EventID=404010934]，具体条款适用以公告原文为准。",
+        "latency_s": 15.84,
+        "retrieved_event_ids": [
+          "404010934",
+          "4058433",
+          "40152764",
+          "40152763",
+          "407253"
+        ]
+      },
+      {
+        "cited_event_ids": [
+          "50146489"
+        ],
+        "event_id_hit": false,
+        "format_ok": true,
+        "answer_len": 204,
+        "hallucinated_numbers": [],
+        "cited_laws": [
+          "中国注册会计师审计准则",
+          "中国注册会计师鉴证业务基本准则(2006年)"
+        ],
+        "laws_in_evidence": [
+          "中国注册会计师审计准则",
+          "中国注册会计师鉴证业务基本准则(2006年)"
+        ],
+        "condition": "G3",
+        "gold_id": "gold_024",
+        "query": "《中国注册会计师审计准则》第 1101 号、第 1301 号在会计师事务所被处罚案件中如何被援引？",
+        "answer": "参考历史相似案例，对《中国注册会计师审计准则》第 1101 号、第 1301 号在会计师事务所被处罚类行为进行检索。其中最具相关性的是「中国证监会行政处罚决定书〔2024〕29号」（2025-01-17），该案涉及的违规类型包括：不符合《中国注册会计师鉴证业务基本准则(2006年)》第二十八条、第三十四条，《中国注册会计师审计准则第1101… [EventID=50146489]。以上结论仅基于当前证据。",
+        "latency_s": 23.312,
+        "retrieved_event_ids": [
+          "50154566",
+          "50108467",
+          "50154528",
+          "50108350",
+          "50146489"
+        ]
+      },
+      {
+        "cited_event_ids": [
+          "50110876"
+        ],
+        "event_id_hit": false,
+        "format_ok": true,
+        "answer_len": 151,
+        "hallucinated_numbers": [],
+        "cited_laws": [
+          "证券法",
+          "证券法",
+          "信息披露办法"
+        ],
+        "laws_in_evidence": [
+          "证券法",
+          "证券法",
+          "信息披露办法"
+        ],
+        "condition": "G3",
+        "gold_id": "gold_020",
+        "query": "2019 修订《证券法》第五十五条第一款第一项、第三项在操纵市场处罚中的典型适用有哪些案例？",
+        "answer": "根据检索证据，此类违规主要违反的法规为：违反了《证券法》第七十三条、第七十六条第一款的规定。 [法条:《证券法》第七十三条;《信息披露办法》第五十八条第二款]。参考案例见 [EventID=50110876];最终处罚程度需结合违规情节、主观故意、危害后果综合认定,具体金额与处分措施以证监会公告为准。",
+        "latency_s": 15.047,
+        "retrieved_event_ids": [
+          "50112187",
+          "50110878",
+          "50110876",
+          "50113128",
+          "4064509"
+        ]
+      },
+      {
+        "cited_event_ids": [
+          "40140646"
+        ],
+        "event_id_hit": false,
+        "format_ok": true,
+        "answer_len": 152,
+        "hallucinated_numbers": [],
+        "cited_laws": [
+          "证券法",
+          "证券法"
+        ],
+        "laws_in_evidence": [
+          "证券法",
+          "证券法"
+        ],
+        "condition": "G3",
+        "gold_id": "gold_022",
+        "query": "《证券法》第六十七条关于重大事件披露义务的规定，在 2023-2024 年处罚中如何被援引？",
+        "answer": "根据检索证据，此类违规主要违反的法规为：《证券法》第六十七条关于重大事件披露义务的规定，在 2023-2024 年处罚中如何被援引？ [EventID=40140646] [法条:《证券法》第六十七条] [违规类型：推迟披露] [处罚类型：其他] [处罚程度：其他] [诉讼状态：已结] [关联单位：无]",
+        "latency_s": 16.507,
+        "retrieved_event_ids": [
+          "50127806",
+          "40140646",
+          "40135923",
+          "40150362",
+          "50126711"
+        ]
+      },
+      {
+        "cited_event_ids": [
+          "40115158"
+        ],
+        "event_id_hit": false,
+        "format_ok": true,
+        "answer_len": 168,
+        "hallucinated_numbers": [],
+        "cited_laws": [
+          "证券法",
+          "证券法",
+          "证券法",
+          "证券法",
+          "证券法"
+        ],
+        "laws_in_evidence": [
+          "证券法",
+          "证券法",
+          "证券法",
+          "证券法",
+          "证券法"
+        ],
+        "condition": "G3",
+        "gold_id": "gold_108",
+        "query": "姜涛推迟披露案援引了《证券法》哪一条？",
+        "answer": "根据检索证据，此类推迟披露类违规主要违反的法规为：违反了《证券法》第六十七条第一款、第二款第三项、第八项及第十二项的规定,违反了《证券法》第六十三条、2019年《证券法》第七十八条第二款的规定。 [法条:《证券法》第六十七条第一款;《证券法》第六十三条]。参考案例见 [EventID=40115158];处罚类型：其他；处罚方式：罚款",
+        "latency_s": 18.472,
+        "retrieved_event_ids": [
+          "40115158",
+          "40109653",
+          "4070109",
+          "40123082",
+          "40202802"
+        ]
+      },
+      {
+        "cited_event_ids": [],
+        "event_id_hit": false,
+        "format_ok": false,
+        "answer_len": 89,
+        "hallucinated_numbers": [],
+        "cited_laws": [
+          "证券法"
+        ],
+        "laws_in_evidence": [
+          "证券法"
+        ],
+        "condition": "G3",
+        "gold_id": "gold_017",
+        "query": "2005 年《证券法》第七十三条、第七十六条分别规制什么？各举一个被适用的案件。",
+        "answer": "根据检索证据，此类违规主要违反的法规为：违反了《证券法》第五十九条所述“公司公告的股票或公司债券的发行和上市文件，必须真实、准确、完整，不得有虚假记载，误导性陈述或者重大遗漏”。",
+        "latency_s": 10.09,
+        "retrieved_event_ids": [
+          "401214",
+          "401190",
+          "40489",
+          "401884",
+          "401018"
+        ]
+      },
+      {
+        "cited_event_ids": [
+          "401626",
+          "404734"
+        ],
+        "event_id_hit": true,
+        "format_ok": true,
+        "answer_len": 159,
+        "hallucinated_numbers": [],
+        "cited_laws": [
+          "中华人民共和国证券法",
+          "证券法",
+          "证券法",
+          "中华人民共和国证券法",
+          "证券法"
+        ],
+        "laws_in_evidence": [
+          "中华人民共和国证券法",
+          "证券法",
+          "证券法",
+          "中华人民共和国证券法",
+          "证券法"
+        ],
+        "condition": "G3",
+        "gold_id": "gold_103",
+        "query": "张志坚虚构利润案援引了《证券法》哪一条？",
+        "answer": "根据检索证据，此类虚构利润类违规主要违反的法规为：违反了《中华人民共和国证券法》（以下简称原《证券法》）第一百七十七条、《证券法》第一百九十三条的规定。 [法条:《中华人民共和国证券法》；《证券法》]。参考案例见 [EventID=401626];处罚类型包括：其他、市场禁入、罚款 [EventID=404734]。",
+        "latency_s": 16.009,
+        "retrieved_event_ids": [
+          "401626",
+          "40112330",
+          "4072667",
+          "404734",
+          "4068585"
+        ]
+      },
+      {
+        "cited_event_ids": [
+          "40151130"
+        ],
+        "event_id_hit": true,
+        "format_ok": true,
+        "answer_len": 237,
+        "hallucinated_numbers": [],
+        "cited_laws": [
+          "证券法",
+          "证券法",
+          "证券法",
+          "证券法"
+        ],
+        "laws_in_evidence": [
+          "证券法",
+          "证券法",
+          "证券法",
+          "证券法"
+        ],
+        "condition": "G3",
+        "gold_id": "gold_105",
+        "query": "李国富虚假记载案援引了《证券法》哪一条？",
+        "answer": "根据检索证据，此类虚假记载类违规主要违反的法规为：违反了《证券法》第十五条有关“公司对公开发行股票所募集资金，必须按照招股说明书所列资金用途使用。改变招股说明书所列资金用途，必须经股东大会作出决议”的规定，构成了《证券法》第一百八十九条所述“发行人、上市公司或者其他信息披露义务人未按照规定披露信息,或者所披露的信息……”… [法条:《证券法》第十五条;《证券法》第一百八十九条]。参考历史相似案例 [EventID=40151130]，该违规类违规最高处分方式为市场禁入。",
+        "latency_s": 24.777,
+        "retrieved_event_ids": [
+          "408015",
+          "40150204",
+          "401423",
+          "40151130",
+          "40109366"
+        ]
+      },
+      {
+        "cited_event_ids": [
+          "40190445"
+        ],
+        "event_id_hit": true,
+        "format_ok": true,
+        "answer_len": 106,
+        "hallucinated_numbers": [],
+        "cited_laws": [
+          "证券法",
+          "证券法"
+        ],
+        "laws_in_evidence": [
+          "证券法",
+          "证券法"
+        ],
+        "condition": "G3",
+        "gold_id": "gold_109",
+        "query": "高光荣违规买卖股票案援引了《证券法》哪一条？",
+        "answer": "根据检索证据，此类违规主要违反的法规为：违反了《证券法》第四十七条第一款的规定。 [法条:《证券法》第四十七条第一款]。参考案例见 [EventID=40190445];违规类型：其他、违规买卖股票、违规买卖股票",
+        "latency_s": 11.602,
+        "retrieved_event_ids": [
+          "40190445",
+          "40111177",
+          "40203043",
+          "50110891",
+          "50109119"
+        ]
+      },
+      {
+        "cited_event_ids": [
+          "50108453"
+        ],
+        "event_id_hit": false,
+        "format_ok": true,
+        "answer_len": 102,
+        "hallucinated_numbers": [],
+        "cited_laws": [
+          "证券法",
+          "证券法"
+        ],
+        "laws_in_evidence": [
+          "证券法",
+          "证券法"
+        ],
+        "condition": "G3",
+        "gold_id": "gold_110",
+        "query": "高玲违规买卖股票案援引了《证券法》哪一条？",
+        "answer": "根据检索证据，此类违规主要违反的法规为：违反了《证券法》第三十八条及第八十六条第二款的规定。 [法条:《证券法》第三十八条]。参考案例见 [EventID=50108453],具体条款适用以公告原文为准。",
+        "latency_s": 9.577,
+        "retrieved_event_ids": [
+          "40110528",
+          "40111270",
+          "50108453",
+          "40110501",
+          "50111212"
+        ]
+      },
+      {
+        "cited_event_ids": [
+          "4058462",
+          "401949"
+        ],
+        "event_id_hit": true,
+        "format_ok": true,
+        "answer_len": 128,
+        "hallucinated_numbers": [],
+        "cited_laws": [
+          "行政处罚事先告知书",
+          "行政处罚决定书",
+          "证券法",
+          "证券法"
+        ],
+        "laws_in_evidence": [
+          "行政处罚事先告知书",
+          "行政处罚决定书",
+          "证券法",
+          "证券法"
+        ],
+        "condition": "G3",
+        "gold_id": "gold_031",
+        "query": "独立董事疏于履职、在内幕信息公开前买入本公司股票，参考案例会被如何处罚？",
+        "answer": "参考案例：案例1「关于控股股东收到中国证监会浙江监管局《行政处罚事先告知书》和《行政处罚决定书》的公告」[EventID=4058462][法条：《证券法》第七十六条;《证券法》第二百零二条]。处罚类型：其他、罚款、警告 [EventID=401949]。",
+        "latency_s": 12.534,
+        "retrieved_event_ids": [
+          "4058462",
+          "401949",
+          "40159644",
+          "40116918",
+          "50112168"
+        ]
+      },
+      {
+        "cited_event_ids": [
+          "40124013"
+        ],
+        "event_id_hit": false,
+        "format_ok": true,
+        "answer_len": 114,
+        "hallucinated_numbers": [],
+        "cited_laws": [],
+        "laws_in_evidence": [],
+        "condition": "G3",
+        "gold_id": "gold_030",
+        "query": "某上市公司控股股东占用公司资金数亿元且未及时披露，参考近年案例，公司与主要责任人预计会被如何处罚？",
+        "answer": "参考近3年类似案例，对控股股东/实际控制人占用公司资金类违规常见的处罚方式包括：其他、罚款、警告。[EventID=40124013] 最终处罚程度需结合违规情节、主观故意、危害后果综合认定，具体金额与处分措施以证监会公告为准。",
+        "latency_s": 10.305,
+        "retrieved_event_ids": [
+          "40126732",
+          "40124013",
+          "40192003",
+          "40134449",
+          "40187083"
+        ]
+      },
+      {
+        "cited_event_ids": [
+          "401"
+        ],
+        "event_id_hit": true,
+        "format_ok": true,
+        "answer_len": 205,
+        "hallucinated_numbers": [],
+        "cited_laws": [
+          "证券法"
+        ],
+        "laws_in_evidence": [],
+        "condition": "G3",
+        "gold_id": "gold_026",
+        "query": "某上市公司董事在内幕信息公开前使用他人账户买入本公司股票，获利仅 1000 元左右，参考类似案例，预计会被如何处罚？",
+        "answer": "参考相似案例，对董事在内幕信息公开前使用他人账户买入本公司股票获利较大的行为进行处罚较为常见。其中最具相似案例的是「关于公司董事受到中国证监会深圳证监局行政处罚的公告」（2012-12-26），该案涉及的主体包括华涉嫌内幕交易“神火股份”情况内幕信息敏感期内，曹兴华使用他人证券账户，买入“神火股份”股票获利108… [EventID=401]\n违规类型：内幕交易\n法律依据：违反了《证券法》第四十七条的规定。",
+        "latency_s": 18.584,
+        "retrieved_event_ids": [
+          "40111878",
+          "401",
+          "40107846",
+          "4058462",
+          "4014139"
+        ]
+      },
+      {
+        "cited_event_ids": [
+          "40136808"
+        ],
+        "event_id_hit": false,
+        "format_ok": true,
+        "answer_len": 117,
+        "hallucinated_numbers": [],
+        "cited_laws": [
+          "中华人民共和国证券法",
+          "证券法"
+        ],
+        "laws_in_evidence": [],
+        "condition": "G3",
+        "gold_id": "gold_035",
+        "query": "上市公司连续多年虚构利润累计 10 亿元以上，最终被立案处罚，公司层面预计会被罚多少、主要责任人会被如何处理？",
+        "answer": "根据检索证据，此类上市公司连续多年虚构利润类违规主要违反的法规为：参考历史相似案例，关于虚构利润类行为，具体适用的法规为：[法条:《中华人民共和国证券法》（2014年12月20日）；《证券法》]。 [EventID=40136808]",
+        "latency_s": 11.542,
+        "retrieved_event_ids": [
+          "40136808",
+          "4051220",
+          "4018092",
+          "40109846",
+          "40154202"
+        ]
+      },
+      {
+        "cited_event_ids": [
+          "50121647"
+        ],
+        "event_id_hit": false,
+        "format_ok": true,
+        "answer_len": 149,
+        "hallucinated_numbers": [],
+        "cited_laws": [
+          "上市公司信息披露管理办法",
+          "中华人民共和国证券法",
+          "上市公司信息披露管理办法"
+        ],
+        "laws_in_evidence": [],
+        "condition": "G3",
+        "gold_id": "gold_029",
+        "query": "某投资者集中资金连续买卖某股票操纵其价格获利 1000 万元以上，预计会被如何处罚？",
+        "answer": "根据检索证据，此类操纵股价类违规主要违反的法规为：中国证监会《上市公司信息披露管理办法》第二十一条第一款、第三十八条、第四十条、第四十三条、第四十七条。 [法条:《中华人民共和国证券法》；《上市公司信息披露管理办法》]。参考案例见 [EventID=50121647],具体条款适用以公告原文为准。",
+        "latency_s": 12.725,
+        "retrieved_event_ids": [
+          "40108676",
+          "40186642",
+          "50121647",
+          "4083719",
+          "50128585"
+        ]
+      }
+    ]
+  }
+}

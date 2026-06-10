@@ -1,0 +1,9 @@
+%%{init: {"theme":"dark"}}%%
+xychart-beta
+    title "G0-G4 五组生成对照（TBD 跑完 M5 回填真实值，占位仅演示布局）"
+    x-axis ["G0 基座裸跑", "G1 基座+RAG", "G2 基座+RAG+严格约束", "G3 LoRA+RAG+严格约束", "G4 DeepSeek API 对照"]
+    y-axis "指标值 (0-1)" 0 --> 1
+    bar [0.28, 0.52, 0.61, 0.74, 0.80]
+```
+
+> **说明**：G0-G4 五组生成对照（主指标：BERTScore-F1 或引证命中率综合分，TBD 占位）。G0=Qwen2.5-1.5B 基座裸跑无 RAG（预期最低）；G1=基座+RAG（检索证据注入但不约束）；G2=基座+RAG+严格 prompt（引证必标 + 法条白名单）；G3=LoRA 微调后+RAG+严格约束（论文主推方案）；G4=DeepSeek-Chat API 对照（商用上限 sanity check）。论文 Table 2 展示 ROUGE-L / BERTScore / 引证命中率 / 幻觉率 4 × 5 矩阵；本图只画综合得分。重点论证：LoRA 微调（G3）相对 G1 有 ≥3pp BERTScore、幻觉率 ≥5pp 下降。

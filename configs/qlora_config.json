@@ -1,0 +1,109 @@
+{
+  "meta": {
+    "name": "qwen2.5-0.5b-qlora-csrc-v1",
+    "owner": "团队成员",
+    "base_model": "Qwen/Qwen2.5-0.5B-Instruct",
+    "fallback_base_model": "Qwen/Qwen2.5-0.5B-Instruct",
+    "data_version": "rag_qa_train_v1",
+    "seed": 42,
+    "_note": "Turing (RTX 2060S 8GB) — 1.5B QLoRA OOM at step 8 with max_seq=2048; downgraded to 0.5B for local training. 1.5B path kept as 'experiments.colab_1_5b' for Colab T4 fallback."
+  },
+  "quantization": {
+    "load_in_4bit": true,
+    "bnb_4bit_quant_type": "nf4",
+    "bnb_4bit_use_double_quant": true,
+    "bnb_4bit_compute_dtype": "float16"
+  },
+  "lora": {
+    "r": 16,
+    "lora_alpha": 32,
+    "lora_dropout": 0.05,
+    "bias": "none",
+    "task_type": "CAUSAL_LM",
+    "target_modules": [
+      "q_proj",
+      "k_proj",
+      "v_proj",
+      "o_proj",
+      "gate_proj",
+      "up_proj",
+      "down_proj"
+    ]
+  },
+  "training": {
+    "output_dir": "artifacts/models/qwen_lora_csrc",
+    "per_device_train_batch_size": 2,
+    "per_device_eval_batch_size": 2,
+    "gradient_accumulation_steps": 8,
+    "learning_rate": 2e-4,
+    "num_train_epochs": 2,
+    "max_seq_length": 768,
+    "warmup_ratio": 0.03,
+    "lr_scheduler_type": "cosine",
+    "weight_decay": 0.0,
+    "optim": "paged_adamw_8bit",
+    "gradient_checkpointing": true,
+    "logging_steps": 10,
+    "eval_strategy": "steps",
+    "eval_steps": 50,
+    "save_strategy": "steps",
+    "save_steps": 100,
+    "save_total_limit": 3,
+    "load_best_model_at_end": true,
+    "metric_for_best_model": "eval_loss",
+    "greater_is_better": false,
+    "bf16": false,
+    "fp16": true,
+    "fp16_fallback": true,
+    "packing": false,
+    "report_to": ["tensorboard"],
+    "seed": 42
+  },
+  "early_stopping": {
+    "patience": 3,
+    "min_delta": 0.005,
+    "min_progress_ratio": 0.5
+  },
+  "data": {
+    "train_path": "data/train/rag_qa_train.jsonl",
+    "val_path": "data/train/rag_qa_val.jsonl",
+    "test_path": "data/train/rag_qa_test.jsonl",
+    "sample_weight_key": "sample_weight",
+    "weight_multiplier": {
+      "H": 2.0,
+      "D": 1.5,
+      "E": 1.5
+    },
+    "total_samples": 5500,
+    "split": { "train": 5000, "val": 300, "test": 200 },
+    "category_counts": {
+      "A_case_retrieval": 1800,
+      "B_law_grounding": 1200,
+      "C_sanction_recommendation": 1000,
+      "D_trend_analysis": 400,
+      "E_refusal_out_of_scope": 300,
+      "F_insufficient_evidence": 300,
+      "G_multiturn": 200,
+      "H_anti_hallucination_negatives": 300
+    },
+    "augmentation": {
+      "prompt_paraphrase_num": 5,
+      "evidence_shuffle": true,
+      "field_dropout_prob": 0.1
+    },
+    "system_prompt": "\u4f60\u662f\u8bc1\u76d1\u4f1a\u5904\u7f5a\u6848\u4f8b\u667a\u80fd\u5206\u6790\u52a9\u624b\u3002\u4f60\u53ea\u80fd\u6839\u636e\u7ed9\u5b9a\u6848\u4f8b\u8bc1\u636e\u56de\u7b54\uff0c\u7981\u6b62\u7f16\u9020\u672a\u51fa\u73b0\u7684\u6cd5\u6761\u3001\u5904\u7f5a\u7ed3\u679c\u3001\u91d1\u989d\u6216\u4e8b\u5b9e\u3002\u5982\u679c\u8bc1\u636e\u4e0d\u8db3\uff0c\u8bf7\u660e\u786e\u5199\u201c\u8bc1\u636e\u4e0d\u8db3\u201d\u3002",
+    "hf_endpoint": "https://hf-mirror.com"
+  },
+  "ablation": {
+    "v1_template_only": ["A", "B", "C"],
+    "v2_with_refuse": ["A", "B", "C", "D", "E", "F"],
+    "v3_full": ["A", "B", "C", "D", "E", "F", "G", "H"]
+  },
+  "inference": {
+    "merge_and_unload": true,
+    "max_new_tokens": 384,
+    "temperature": 0.2,
+    "top_p": 0.9,
+    "repetition_penalty": 1.05
+  }
+}

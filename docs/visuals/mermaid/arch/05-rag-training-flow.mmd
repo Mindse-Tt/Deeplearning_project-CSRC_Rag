@@ -1,0 +1,39 @@
+%%{init: {"theme":"dark"}}%%
+flowchart TD
+    BASE[🧠 Qwen2.5-1.5B-Instruct<br/>Apache-2.0 基座]
+    DATA[(📚 rag_qa_train.jsonl<br/>5,360 条)]
+
+    DATA --> SPLIT1[📐 8 类分布<br/>A 案例 1800 / B 法条 1200<br/>C 处罚 1000 / D 趋势 400<br/>E 拒答 300 / F 证据不足 300<br/>G 多轮 200 / H 反幻觉 300]
+
+    BASE --> QUANT[🗜️ NF4 量化<br/>double_quant<br/>compute_dtype=fp16]
+    QUANT --> LORA[🔧 LoRA 注入<br/>r=16, α=32<br/>dropout=0.05<br/>target=全部线性层]
+
+    SPLIT1 --> TRAIN[🏋️ SFT 训练<br/>per_dev=2, grad_accum=8<br/>lr=2e-4, epochs=3<br/>cosine + warmup 0.03<br/>max_seq=2048<br/>gradient_checkpointing]
+    LORA --> TRAIN
+
+    TRAIN --> CKPT[(💾 checkpoint/ epoch_1/2/3<br/>early_stop patience=2)]
+    CKPT --> MERGE[🔀 adapter merge<br/>或 PEFT 挂载]
+    MERGE --> OUT[🎯 artifacts/models/<br/>qwen_lora_csrc/]
+
+    %% 三阶段消融
+    TRAIN -.V1 4000 条.-> V1[📦 LoRA-V1<br/>A+B+C]
+    TRAIN -.V2 5000 条.-> V2[📦 LoRA-V2<br/>+D+E+F]
+    TRAIN -.V3 5,360 条.-> V3[📦 LoRA-V3<br/>+G+H 反幻觉]
+
+    %% 环境
+    ENV[💻 RTX 2060S 8GB<br/>Turing fp16<br/>bnb 4bit]
+    ENV -.主训.-> TRAIN
+    ENV -.OOM 兜底.-> CLD[☁️ Colab T4 15GB]
+    CLD -.-> TRAIN
+
+    classDef base fill:#4c1d95,stroke:#a78bfa,color:#fff
+    classDef data fill:#1e3a8a,stroke:#60a5fa,color:#fff
+    classDef train fill:#7c2d12,stroke:#f97316,color:#fff
+    classDef out fill:#064e3b,stroke:#34d399,color:#fff
+    class BASE,QUANT,LORA base
+    class DATA,SPLIT1 data
+    class TRAIN,CKPT,MERGE train
+    class OUT,V1,V2,V3 out
+```
+
+> **说明**：QLoRA 训练流水线。基座 Qwen2.5-1.5B 经 NF4 量化 + double_quant 压到 ~4GB 显存，注入 LoRA(r=16, α=32) 在全部线性层。⚠️ **Turing 架构不支持 bf16**，compute_dtype 改 fp16；per_dev_batch 从 4 降到 2、grad_accum 升到 8 保持有效 batch=16。三阶段消融 V1→V2→V3 逐步加入 D/E/F/G/H 类，验证反幻觉样本的边际收益。主训本机 RTX 2060S，OOM 兜底 Colab T4。

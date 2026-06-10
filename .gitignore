@@ -1,0 +1,49 @@
+.DS_Store
+.env
+.venv*/
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+artifacts/*
+!artifacts/intent_classifier/
+!artifacts/intent_classifier/**
+
+# 保留训练好的 LoRA adapter（README 声明仓库含 ~34MB adapter）。
+# 注意：必须先重纳入 artifacts/models/ 这一层，git 才能再纳入其下的 qwen_lora_csrc 文件，
+# 否则 artifacts/* 排除了父目录会让更深层的负向白名单失效。
+!artifacts/models/
+artifacts/models/*
+!artifacts/models/qwen_lora_csrc/
+!artifacts/models/qwen_lora_csrc/**
+artifacts/hf_smoke/
+artifacts/pycache/
+
+
+node_modules/
+
+# Large binaries / logs (rebuilt in M2)
+# All processed data is regenerable from 证监会处罚信息表.xlsx + scripts/build_*.py
+# Keep small summaries tracked; skip heavy jsonl/npy/chunk_id maps
+data/processed/*.jsonl
+data/processed/*.npy
+data/processed/chunk_id_order.json
+!data/processed/build_summary.json
+!data/processed/dense_index_summary_svd_tfidf.json
+!data/processed/rag_qa_train.jsonl
+!data/processed/rag_qa_val.jsonl
+!data/processed/rag_qa_test.jsonl
+server_test.log
+
+# Python egg-info
+*.egg-info/
+src/csrc_rag_project.egg-info/
+
+# smoke test throwaway data (regenerable from scripts/smoke_build_qa.py)
+data/train_smoke/
+# M4.3 converted chat-format data (derived from data/processed/rag_qa_*.jsonl
+# via scripts/train_qlora_m4.py — do not commit, regenerable)
+data/train/
+artifacts/smoke_qwen*_lora/
+artifacts/smoke_qwen*_m4*/

@@ -1,0 +1,54 @@
+%%{init: {"theme":"dark"}}%%
+flowchart LR
+    subgraph CLIENT[🌐 浏览器端]
+        UI[📄 web/index_v2.html<br/>ECharts UMD<br/>Tailwind CDN]
+    end
+
+    subgraph SERVER[🖥️ 本地 FastAPI 服务]
+        FA[⚡ server_v2.py<br/>uvicorn :8000<br/>Pydantic v2]
+        FA --> ORCH[🧭 orchestration/<br/>planner.py<br/>reject_policy.py]
+        FA --> STATIC[📁 StaticFiles<br/>挂 / → web/]
+    end
+
+    subgraph MODELS[🧠 本地模型层]
+        M1[🎯 intent_classifier_v2.pkl<br/>MiniLM + LR<br/>CPU < 5ms]
+        M2[🔤 BM25 + jieba<br/>CPU]
+        M3[🧬 bge-small-zh-v1.5<br/>CPU 编码]
+        M4[⚡ bge-reranker-v2-m3<br/>GPU fp16 / CPU INT8]
+        M5[🧠 Qwen2.5-1.5B + LoRA<br/>GPU 4bit / CPU 兜底]
+        M6[🏷️ MacBERT 多标签<br/>GPU fp16]
+    end
+
+    subgraph ARTIFACTS[💾 本地 artifacts/]
+        A1[(📁 data/processed/<br/>event_corpus / chunks)]
+        A2[(📁 configs/<br/>intents / synonyms / prompts)]
+        A3[(📁 models/<br/>qwen_lora_csrc/)]
+        A4[(📁 eval/<br/>component / generation / e2e)]
+    end
+
+    UI <-->|POST /api/query<br/>JSON 26 字段| FA
+    UI <-->|SSE /api/query/stream<br/>token 流| FA
+    ORCH --> M1
+    ORCH --> M2
+    ORCH --> M3
+    ORCH --> M4
+    ORCH --> M5
+    ORCH --> M6
+    ORCH --> A1
+    ORCH --> A2
+    ORCH --> A3
+
+    %% 答辩场景
+    DEMO[🎬 答辩 Demo<br/>离线录屏预案] -.断网兜底.-> UI
+
+    classDef client fill:#1e3a8a,stroke:#60a5fa,color:#fff
+    classDef server fill:#7c2d12,stroke:#f97316,color:#fff
+    classDef model fill:#4c1d95,stroke:#a78bfa,color:#fff
+    classDef data fill:#064e3b,stroke:#34d399,color:#fff
+    class UI,DEMO client
+    class FA,ORCH,STATIC server
+    class M1,M2,M3,M4,M5,M6 model
+    class A1,A2,A3,A4 data
+```
+
+> **说明**：离线部署拓扑。所有模型 + 数据 + 配置全部本地化，无需联网即可跑完整 7 层链路。FastAPI 后端 :8000 挂静态 web/，提供同步 `/api/query`（一次拿全 26 字段 trace）和 SSE `/api/query/stream`（L5 token 流）。答辩 API P95 目标：template 模板直答 < 3s、LoRA CPU 生成 < 8s。ECharts 用 UMD 本地化不走 CDN，避免现场断网；备预录 3 条离线录屏作为终极兜底。

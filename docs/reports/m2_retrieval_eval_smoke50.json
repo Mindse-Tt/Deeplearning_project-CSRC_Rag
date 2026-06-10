@@ -1,0 +1,45 @@
+{
+  "config": {
+    "limit": 50,
+    "dataset": "sanity_self_bootstrap (activity → event_id)",
+    "skip": []
+  },
+  "results": [
+    {
+      "label": "bm25",
+      "tested_queries": 50,
+      "Recall@5": 0.14,
+      "MRR": 0.13,
+      "nDCG@10": 0.13,
+      "latency_total_s": 8.33,
+      "latency_per_query_ms": 166.7
+    },
+    {
+      "label": "dense_bge",
+      "tested_queries": 50,
+      "Recall@5": 0.14,
+      "MRR": 0.1267,
+      "nDCG@10": 0.13,
+      "latency_total_s": 63.85,
+      "latency_per_query_ms": 1277.0
+    },
+    {
+      "label": "hybrid_rrf",
+      "tested_queries": 50,
+      "Recall@5": 0.14,
+      "MRR": 0.13,
+      "nDCG@10": 0.13,
+      "latency_total_s": 11.9,
+      "latency_per_query_ms": 238.0
+    },
+    {
+      "label": "hybrid_rerank",
+      "tested_queries": 50,
+      "Recall@5": 0.1,
+      "MRR": 0.075,
+      "nDCG@10": 0.0767,
+      "latency_total_s": 40.5,
+      "latency_per_query_ms": 809.9
+    }
+  ]
+}

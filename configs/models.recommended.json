@@ -1,0 +1,162 @@
+{
+  "_meta": {
+    "version": "recommended-2026-04-22",
+    "owner": "ModelSelectionAgent",
+    "note": "参考版，不覆盖现有 models.json；由 项目统筹 合稿后决定是否采纳。",
+    "source_doc": "docs/strategies/10-model-selection.md"
+  },
+
+  "model_registry": {
+    "generator": "Qwen/Qwen2.5-1.5B-Instruct",
+    "generator_alt_large": "Qwen/Qwen2.5-7B-Instruct",
+    "generator_alt_tiny": "Qwen/Qwen2.5-0.5B-Instruct",
+    "generator_lora_dir": "artifacts/lora/qwen25_1b5_csrc_v1/",
+    "intent_encoder": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+    "dense_encoder": "BAAI/bge-small-zh-v1.5",
+    "dense_encoder_alt": "BAAI/bge-m3",
+    "reranker": "BAAI/bge-reranker-v2-m3",
+    "reranker_alt_fast": "BAAI/bge-reranker-base",
+    "aux_classifier": "hfl/chinese-macbert-base",
+    "aux_classifier_alt": "hfl/chinese-roberta-wwm-ext",
+    "api_baseline": "deepseek-chat",
+    "api_baseline_alt": "qwen-plus"
+  },
+
+  "dense_retrieval": {
+    "backend": "sentence_transformer",
+    "sentence_transformer_model": "BAAI/bge-small-zh-v1.5",
+    "query_instruction_for_retrieval": "为这个句子生成表示以用于检索相关文章：",
+    "normalize_embeddings": true,
+    "batch_size_cpu": 64,
+    "max_length": 512,
+    "prebuilt": {
+      "npy_path": "data/processed/chunk_embeddings_bge_small_zh.npy",
+      "order_path": "data/processed/chunk_id_order.json",
+      "query_model": "BAAI/bge-small-zh-v1.5",
+      "note": "需用 bge-small-zh-v1.5 重建；旧的 MiniLM 版本仅保留做对照"
+    },
+    "svd_tfidf": {
+      "max_features": 30000,
+      "ngram_range": [1, 2],
+      "n_components": 256
+    }
+  },
+
+  "hybrid_retrieval": {
+    "strategy": "rrf",
+    "rrf_k": 60,
+    "candidate_pool": 80,
+    "bm25_top_k": 50,
+    "dense_top_k": 50,
+    "final_top_k_before_rerank": 20
+  },
+
+  "reranker": {
+    "enabled": true,
+    "model": "BAAI/bge-reranker-v2-m3",
+    "top_k_in": 20,
+    "top_k_out": 5,
+    "max_length": 512,
+    "device": "cpu",
+    "fallback_model": "BAAI/bge-reranker-base",
+    "batch_size": 8
+  },
+
+  "intent_router": {
+    "backend": "minilm_feature_lr",
+    "encoder_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+    "classifier": "logistic_regression",
+    "artifact_path": "artifacts/intent_classifier/intent_minilm_lr.pkl",
+    "baseline": {
+      "backend": "tfidf_logistic_regression",
+      "artifact_path": "artifacts/intent_classifier/intent_tfidf_lr.pkl"
+    },
+    "labels": [
+      "greeting",
+      "chitchat",
+      "out_of_scope",
+      "case_retrieval",
+      "law_grounding",
+      "sanction_recommendation",
+      "trend_analysis"
+    ]
+  },
+
+  "fine_tuning_aux": {
+    "task": "punishment_type_multilabel",
+    "baseline_model": "tfidf_logistic_regression",
+    "transformer_model": "hfl/chinese-macbert-base",
+    "alt_transformer_model": "hfl/chinese-roberta-wwm-ext",
+    "max_length": 512,
+    "batch_size": 4,
+    "learning_rate": 2e-5,
+    "num_train_epochs": 3,
+    "weight_decay": 0.01,
+    "warmup_ratio": 0.1
+  },
+
+  "fine_tuning_generator": {
+    "base_model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "method": "qlora",
+    "bits": 4,
+    "lora": {
+      "r": 16,
+      "alpha": 32,
+      "dropout": 0.05,
+      "target_modules": ["q_proj", "k_proj", "v_proj", "o_proj", "gate_proj", "up_proj", "down_proj"]
+    },
+    "train": {
+      "max_length": 2048,
+      "batch_size": 1,
+      "grad_accum": 16,
+      "learning_rate": 2e-4,
+      "num_train_epochs": 3,
+      "warmup_ratio": 0.03,
+      "lr_scheduler": "cosine"
+    },
+    "output_dir": "artifacts/lora/qwen25_1b5_csrc_v1/",
+    "platform": "colab_t4_or_kaggle",
+    "fallback_base_model": "Qwen/Qwen2.5-0.5B-Instruct"
+  },
+
+  "response_generation": {
+    "backend": "hf_transformers",
+    "model_name": "Qwen/Qwen2.5-1.5B-Instruct",
+    "lora_adapter": "artifacts/lora/qwen25_1b5_csrc_v1/",
+    "load_in_4bit": true,
+    "max_new_tokens": 512,
+    "temperature": 0.2,
+    "top_p": 0.9,
+    "repetition_penalty": 1.05,
+    "stop": ["</s>", "<|im_end|>"],
+    "strong_evidence_mode": {
+      "enabled": true,
+      "system_prompt": "你是证监会处罚案例助理。回答必须严格基于给定证据；若无证据请直接回答『暂无资料』。每个事实断言需附 [事件ID]。"
+    },
+    "template_fallback": true
+  },
+
+  "api_baseline": {
+    "provider": "deepseek",
+    "model": "deepseek-chat",
+    "base_url": "https://api.deepseek.com/v1",
+    "api_key_env": "DEEPSEEK_API_KEY",
+    "max_tokens": 1024,
+    "temperature": 0.2,
+    "alt_provider": {
+      "provider": "dashscope",
+      "model": "qwen-plus",
+      "base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+      "api_key_env": "DASHSCOPE_API_KEY"
+    }
+  },
+
+  "experiments": {
+    "g0_template_only": {"generator": null, "use_rag": false},
+    "g1_rag_template": {"generator": null, "use_rag": true},
+    "g2_base_noft": {"generator": "Qwen/Qwen2.5-1.5B-Instruct", "use_rag": true, "lora": false},
+    "g3_base_lora": {"generator": "Qwen/Qwen2.5-1.5B-Instruct", "use_rag": true, "lora": true},
+    "g4_api_baseline": {"generator": "deepseek-chat", "use_rag": true, "lora": false},
+    "g5_embedding_ablation": {"dense_encoder": "BAAI/bge-m3", "use_rag": true, "lora": true}
+  }
+}

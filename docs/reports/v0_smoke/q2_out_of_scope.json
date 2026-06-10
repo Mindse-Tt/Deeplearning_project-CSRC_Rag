@@ -1,0 +1,23 @@
+{
+  "intent": "out_of_scope",
+  "intent_confidence": 0.9642,
+  "intent_method": "tfidf_logistic_regression_v2",
+  "intent_scores": {
+    "out_of_scope": 0.9642,
+    "trend_analysis": 0.0097,
+    "greeting": 0.0074,
+    "sanction_recommendation": 0.0055,
+    "chitchat": 0.0048,
+    "case_retrieval": 0.0044,
+    "law_grounding": 0.0041
+  },
+  "response_backend": "planner_v2_fallback",
+  "response_model": null,
+  "query_plan": {
+    "retrieval_unit": "-",
+    "top_k": 0,
+    "metadata_filters": {}
+  },
+  "answer": "抱歉，该问题不在本系统覆盖范围内。\n数据来源：仅限中国证监会公开处罚案例（证券 / 基金 / 期货 / 上市公司）。\n不涵盖：股价预测、个股推荐、编程问题、娱乐内容、医疗 / 法律咨询。",
+  "events": []
+}

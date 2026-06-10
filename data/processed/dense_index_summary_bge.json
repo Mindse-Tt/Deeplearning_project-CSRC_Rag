@@ -1,0 +1,16 @@
+{
+  "backend": "bge_prebuilt",
+  "model": "BAAI/bge-small-zh-v1.5",
+  "documents": 29314,
+  "dim": 512,
+  "npy_path": "data\\processed\\chunk_embeddings_bge.npy",
+  "order_path": "data\\processed\\chunk_id_order_bge.json",
+  "normalized": true,
+  "build_time_s": 134.27,
+  "num_chunks": 29314,
+  "batch_size": 32,
+  "device": "cuda",
+  "max_seq_length": 512,
+  "query_instruction": "为这个句子生成表示以用于检索相关文章：",
+  "note": "Configure configs/models.json -> dense_retrieval.bge_small_zh to point here."
+}

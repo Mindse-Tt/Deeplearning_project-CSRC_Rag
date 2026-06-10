@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>证监会处罚案例智能分析台</title>
+    <link rel="stylesheet" href="/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+          <div>
+            <p class="sidebar-kicker">CSRC RAG</p>
+            <h1>处罚案例智能分析台</h1>
+          </div>
+          <button id="newChatBtn" class="icon-btn" title="新建对话">+</button>
+        </div>
+        <div id="sessionList" class="session-list"></div>
+        <div class="sidebar-footer">
+          <div>本地模型 / 非 API</div>
+          <div id="sidebarStatus">准备就绪</div>
+        </div>
+      </aside>
+
+      <main class="main">
+        <header class="topbar">
+          <button id="toggleSidebarBtn" class="icon-btn mobile-only" title="切换侧栏">☰</button>
+          <div class="topbar-title">证监会处罚案例 RAG 工作台</div>
+          <div class="topbar-badges">
+            <span class="badge" id="retrievalBadge">Hybrid</span>
+            <span class="badge" id="intentBadge">意图模型</span>
+            <span class="badge" id="replyBadge">本地回复模型</span>
+            <a
+              class="badge"
+              style="background:#4f8cff;color:white;text-decoration:none;cursor:pointer"
+              href="/compare.html"
+              target="_blank"
+              title="查看 30 条样本 G0 vs G3 微调前后对比"
+            >🔀 微调前后对比</a>
+          </div>
+        </header>
+
+        <section class="chat-wrap" id="chatWrap">
+          <div class="chat-container" id="chatContainer"></div>
+        </section>
+
+        <section class="composer-wrap">
+          <div class="composer-card">
+            <div class="sample-row" id="sampleRow"></div>
+            <div class="composer-main">
+              <textarea
+                id="queryInput"
+                rows="1"
+                placeholder="输入案情、法规问题或处罚判断需求，例如：根据这段违规行为推荐处罚方式，并说明法条依据。"
+              ></textarea>
+              <button id="sendBtn" class="send-btn">发送</button>
+            </div>
+            <div class="composer-foot">
+              <span>支持案例检索、法规依据、处罚推荐、趋势分析</span>
+              <button id="clearSessionBtn" class="ghost-btn">清空当前会话</button>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+    <script src="/app.js"></script>
+  </body>
+</html>

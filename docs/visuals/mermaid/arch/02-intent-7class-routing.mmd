@@ -1,0 +1,37 @@
+%%{init: {"theme":"dark"}}%%
+flowchart LR
+    Q([🎤 Query 输入]) --> CLS[🎯 MiniLM-L12-v2<br/>+ LR Head<br/>7 分类]
+
+    CLS --> I1[💬 greeting<br/>问候]
+    CLS --> I2[🎲 chitchat<br/>闲聊]
+    CLS --> I3[🚫 oos<br/>越界 / 保险银行]
+    CLS --> I4[⚖️ sanction_recommendation<br/>处罚推荐]
+    CLS --> I5[📂 case_retrieval<br/>案例检索]
+    CLS --> I6[📜 law_grounding<br/>法条依据]
+    CLS --> I7[📈 trend_analysis<br/>趋势分析]
+
+    %% 模板路径（不走 RAG）
+    I1 --> T1[📝 tpl_greeting]
+    I2 --> T2[📝 tpl_chitchat_redirect]
+    I3 --> T3[📝 tpl_out_of_scope_finance<br/>软越界话术]
+
+    %% 业务路径（走 RAG 主链路）
+    I4 --> RAG[[🔎 L2→L7 RAG 主链路]]
+    I5 --> RAG
+    I6 --> RAG
+    I7 --> RAG
+
+    %% case_retrieval 子意图
+    I5 -.子意图.-> S1[📁 case_by_event<br/>按事件检索]
+    I5 -.子意图.-> S2[👯 case_similar<br/>相似案例]
+    I5 -.子意图.-> S3[🏢 case_by_org<br/>按机构检索]
+
+    classDef tpl fill:#7c2d12,stroke:#f97316,color:#fff
+    classDef biz fill:#1e3a8a,stroke:#60a5fa,color:#fff
+    classDef sub fill:#064e3b,stroke:#34d399,color:#fff
+    class I1,I2,I3,T1,T2,T3 tpl
+    class I4,I5,I6,I7,RAG biz
+    class S1,S2,S3 sub
+```
+
+> **说明**：7 类意图分流路由图。对外暴露 7 类（greeting/chitchat/oos + sanction_recommendation/case_retrieval/law_grounding/trend_analysis），其中 case_retrieval 内部再分 3 子意图（事件/相似/机构）。前 3 类走模板直答不消耗 RAG 资源；后 4 类进入 L2-L7 主链路。Planner 阶段 1 用 TF-IDF+LR baseline、阶段 2 用 MiniLM 特征 + LR（论文主路线），目标 Macro-F1≥0.92，P95≤5ms。保险/银行归为"软越界"单独走 `tpl_out_of_scope_finance`，不硬拒。

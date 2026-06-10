@@ -1,0 +1,22 @@
+{
+  "chunk_size": 420,
+  "chunk_overlap": 80,
+  "max_supporting_cases": 5,
+  "max_supporting_laws": 3,
+  "tokenizer": "jieba",
+  "bm25": {
+    "k1": 1.2,
+    "b": 0.75
+  },
+  "hybrid": {
+    "bm25_top": 100,
+    "dense_top": 100,
+    "rrf_k": 60,
+    "final_top_k": 8
+  },
+  "metadata_filter": {
+    "enabled": true,
+    "confidence_threshold": 0.7,
+    "min_allowed_fallback": 20
+  }
+}

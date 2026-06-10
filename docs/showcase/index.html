@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSRC-RAG · 证监会违规 RAG 问答系统</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <span class="brand">CSRC-RAG</span>
+  <a href="./index.html" class="active">首页</a>
+  <a href="./compare.html">G0 vs G3 对比</a>
+  <a href="../paper/csrc_rag_v1.docx">论文 (.docx)</a>
+  <a href="../reports/m4_4_generation_eval.md">评测报告</a>
+  <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
+</nav>
+
+<div class="container">
+
+<section class="hero">
+  <h1>CSRC-RAG</h1>
+  <p class="sub">
+    面向中国证监会违规处罚卷宗的检索增强问答系统（赛道 B 作品）。
+    <br>基于 <strong>Qwen2.5-0.5B + QLoRA</strong> + <strong>BM25 + bge-small-zh + RRF</strong> 混合检索,
+    在 130 条 gold 集上对比微调前后效果, 把幻觉数字率从 18% 压到 2.0%。
+  </p>
+  <div class="badges">
+    <span class="badge primary">Track B</span>
+    <span class="badge">Qwen2.5-0.5B-Instruct + QLoRA</span>
+    <span class="badge">BM25 + bge-small-zh-v1.5 + bge-reranker-v2-m3</span>
+    <span class="badge">RTX 2060 SUPER 8GB</span>
+    <span class="badge">4,233 events · 130 gold</span>
+  </div>
+</section>
+
+<h2 class="section-title">核心成果（一句话）</h2>
+<div class="card">
+  <p style="font-size:16px;margin:0;line-height:1.9">
+    LoRA 微调在 <span class="inline-code">Qwen2.5-0.5B-Instruct</span> 上达到了
+    <strong>断崖式</strong> 提升 —— 基线模型完全学不会 <span class="inline-code">[EventID=xxx]</span>
+    的引用格式（G0 / G1 / G2 三组全是 <span class="tag bad">0.0%</span>），
+    微调后（G3）格式合规率直接拉到 <span class="tag ok">76.0%</span>，EventID 命中率 <span class="tag ok">28.0%</span>，
+    幻觉数字率从 <span class="tag bad">18.0%</span> 降到 <span class="tag ok">2.0%</span>
+    （相对下降 <strong>-89%</strong>），推理延迟只增加 +0.7s（+7% 墙钟）。
+  </p>
+</div>
+
+<h2 class="section-title">关键指标</h2>
+<div class="kpi-grid" id="kpi-grid"><!-- filled by JS --></div>
+
+<h2 class="section-title">四组生成对比（G0 → G3）</h2>
+<div class="card">
+  <p class="muted" style="margin-top:0">
+    n=30 条 gold 分层抽样 (case_retrieval / law_grounding / sanction_recommendation)。
+    基座: Qwen2.5-0.5B-Instruct + 4-bit NF4 量化。 检索器: Hybrid (BM25 + bge-small-zh + RRF),
+    top-5 证据。 采样: temperature=0.2, top_p=0.9, max_new_tokens=256。
+  </p>
+  <table>
+    <thead>
+      <tr>
+        <th>组</th>
+        <th>配置</th>
+        <th class="num">EID 命中</th>
+        <th class="num">格式合规</th>
+        <th class="num">幻觉数字</th>
+        <th class="num">答案长度</th>
+        <th class="num">延迟/query</th>
+      </tr>
+    </thead>
+    <tbody id="groups-tbody"><!-- filled by JS --></tbody>
+  </table>
+  <p style="margin-top:14px" class="muted">
+    👉 点击顶部导航的 <a href="./compare.html">G0 vs G3 对比</a> 查看 30 条逐样本交互对比。
+  </p>
+</div>
+
+<h2 class="section-title">检索层消融（M3e）</h2>
+<div class="card">
+  <p class="muted" style="margin-top:0">
+    在 gold_100 集上(tested=98) 对比四种检索方案。 Hybrid = BM25 + bge-small-zh 向量 + RRF(k=60), 再接 bge-reranker-v2-m3。
+  </p>
+  <table id="retrieval-table">
+    <thead>
+      <tr>
+        <th>检索器</th>
+        <th class="num">Recall@5</th>
+        <th class="num">Hit@5</th>
+        <th class="num">MRR</th>
+        <th class="num">nDCG@10</th>
+        <th class="num">延迟 (ms/query)</th>
+      </tr>
+    </thead>
+    <tbody id="retrieval-tbody"><!-- filled by JS --></tbody>
+  </table>
+</div>
+
+<h2 class="section-title">L6 趋势聚合（M4.2）</h2>
+<div class="card" id="trend-card">
+  <p class="muted" style="margin-top:0">
+    趋势类问题（「2018-2023 年每年违规数?」「哪年最高?」）不是向量检索能准确回答的 —
+    我们把 <span class="inline-code">trend_analysis</span> 意图短路到一个 SQL-like 聚合层(TrendAggregator),
+    直接在 event_corpus 上做 groupby 计数。
+  </p>
+  <div id="trend-kpis" class="kpi-grid"><!-- filled by JS --></div>
+</div>
+
+<h2 class="section-title">MacBERT 辅线分类（M5）</h2>
+<div class="card" id="macbert-card">
+  <p class="muted" style="margin-top:0">
+    当事人 → 处罚类型的多标签分类器 (7 类)。 基座 <span class="inline-code">hfl/chinese-macbert-base</span>,
+    轻量跑 1.2k 样本 × 1 epoch (CPU,留显存给 Qwen LoRA), 作为 sanction_recommendation 意图的辅助信号。
+  </p>
+  <div id="macbert-kpis" class="kpi-grid"><!-- filled by JS --></div>
+  <p class="muted" id="macbert-labels" style="margin-top:10px"></p>
+</div>
+
+<h2 class="section-title">系统架构（7 层 Pipeline）</h2>
+<div class="card">
+<pre class="archi">
+用户 query
+    │
+    ▼
+┌──────────────────────────────────────────────┐
+│  L1  意图分类 (Qwen IntentClassifier v2)     │  ── 决定走 L2-L5 还是短路 L6 趋势
+└──────────────────────────────────────────────┘
+    │
+    ▼
+┌──────────────────────────────────────────────┐
+│  L2  Query Rewrite  多子查询拆分 (OR)         │  ── M3e-A: 多约束拆解
+└──────────────────────────────────────────────┘
+    │
+    ▼
+┌────────────────────┬─────────────────────────┐
+│  L3a BM25          │  L3b bge-small-zh 向量   │  ── jieba 中文分词 + metadata 权重
+└────────┬───────────┴──────┬──────────────────┘
+         └──── RRF(k=60) ───┘
+                │
+                ▼
+┌──────────────────────────────────────────────┐
+│  L4  bge-reranker-v2-m3 Cross-Encoder 精排   │  ── top-5 证据
+└──────────────────────────────────────────────┘
+    │
+    ├── trend_analysis 意图 ───▶ ┌──────────────────────────┐
+    │                            │  L6  Trend Aggregator    │  ── SQL-like groupby
+    │                            │      facet + year_window │
+    │                            └──────────────────────────┘
+    │
+    ▼
+┌──────────────────────────────────────────────┐
+│  L5  Qwen2.5-0.5B + QLoRA (r=16) 生成         │  ── 强证据约束 prompt
+└──────────────────────────────────────────────┘
+    │
+    ▼
+结构化答案 + [EventID=xxx] 引用
+</pre>
+</div>
+
+<h2 class="section-title">交付清单</h2>
+<div class="split">
+  <div class="card" style="margin:0">
+    <h3 style="margin-top:0">📄 论文与报告</h3>
+    <ul class="clean">
+      <li><a href="../paper/csrc_rag_v1.docx">📘 论文.docx (8-12 页, 8 节)</a></li>
+      <li><a href="../reports/m4_4_generation_eval.md">M4.4 G0-G3 四组评测报告</a></li>
+      <li><a href="../reports/m4_3_lora_training_report.md">M4.3 LoRA 训练报告</a></li>
+      <li><a href="../reports/m3e_ablation_report.md">M3e 检索消融报告</a></li>
+      <li><a href="../reports/m3e_retrieval_report.md">M3e 检索评测报告</a></li>
+    </ul>
+  </div>
+  <div class="card" style="margin:0">
+    <h3 style="margin-top:0">🧪 代码与数据</h3>
+    <ul class="clean">
+      <li><span class="inline-code">src/csrc_rag/retrieval/engine.py</span> — 7 层检索引擎</li>
+      <li><span class="inline-code">src/csrc_rag/orchestration/trend_aggregator.py</span> — L6 聚合</li>
+      <li><span class="inline-code">scripts/train_qlora_m4.py</span> — M4.3 LoRA 训练</li>
+      <li><span class="inline-code">scripts/evaluate_generation_m4_4.py</span> — G0-G3 评测</li>
+      <li><span class="inline-code">artifacts/models/qwen_lora_csrc/</span> — LoRA adapter (34 MB)</li>
+      <li><span class="inline-code">data/eval/gold_130.jsonl</span> — 主评测集</li>
+      <li><span class="inline-code">data/eval/gold_trend_30.jsonl</span> — 趋势评测集</li>
+    </ul>
+  </div>
+</div>
+
+<h2 class="section-title">局限与诚实说明</h2>
+<div class="card">
+  <ol>
+    <li><strong>Base 是 0.5B 不是 1.5B</strong>: 本机 2060S 8GB 容不下 1.5B QLoRA, 0.5B 绝对能力弱于 1.5B。提供 Colab Notebook 作为 T4 上的 1.5B 重训方案。</li>
+    <li><strong>EID 命中 28% 看起来不高</strong>: 主要因为多 gold 命中要求严格 + 检索器在 hard multi-hop 上的天花板(M3e Hybrid Recall@5=0.388)。 实际格式合规 76.0%, LoRA 已经会正确写 EID, 命中是检索层瓶颈。</li>
+    <li><strong>评测样本 30 条</strong>: 单轮次 30 条 95% CI 约 ±18%。后续可扩到 100 条。</li>
+    <li><strong>幻觉检测只覆盖"数字类"</strong>: 人名/公司名幻觉需人工标注, 见论文 §7。</li>
+  </ol>
+</div>
+
+<div class="footer">
+  Deeplearning RAG Final Project · 赛道 B · 2026-04
+  <br>Build: <span id="build-time">loading…</span>
+</div>
+
+</div>
+
+<script>
+async function loadData() {
+  document.getElementById('build-time').textContent = new Date().toLocaleString('zh-CN');
+  try {
+    const compare = await fetch('./data/compare.json').then(r => r.json());
+    renderKPIs(compare.summary);
+    renderGroups(compare.summary);
+  } catch (e) {
+    console.error('compare.json load failed', e);
+  }
+
+  try {
+    const retrieval = await fetch('./data/retrieval.json').then(r => r.json());
+    renderRetrieval(retrieval);
+  } catch (e) {
+    console.error('retrieval.json load failed', e);
+  }
+
+  try {
+    const trend = await fetch('./data/trend.json').then(r => r.json());
+    renderTrend(trend);
+  } catch (e) {
+    console.error('trend.json load failed', e);
+  }
+
+  try {
+    const macbert = await fetch('./data/macbert.json').then(r => r.json());
+    renderMacbert(macbert);
+  } catch (e) {
+    console.warn('macbert.json unavailable (skip)', e);
+    const card = document.getElementById('macbert-card');
+    if (card) card.style.display = 'none';
+  }
+}
+
+function pct(x) { return (x * 100).toFixed(1) + '%'; }
+
+function renderKPIs(summary) {
+  const kpis = [
+    {
+      label: 'EventID 命中率 (G3)',
+      value: pct(summary.G3.event_id_hit_rate),
+      delta: '+28.0 pp vs G0',
+    },
+    {
+      label: '格式合规率 (G3)',
+      value: pct(summary.G3.format_compliance_rate),
+      delta: '+76.7 pp vs G0',
+    },
+    {
+      label: '幻觉数字率 (G3)',
+      value: pct(summary.G3.hallucinated_number_rate),
+      delta: '-16.0 pp vs G0',
+    },
+    {
+      label: 'LoRA 推理延迟',
+      value: summary.G3.avg_latency_s.toFixed(1) + 's',
+      delta: '+0.7s vs G0',
+    },
+  ];
+  const host = document.getElementById('kpi-grid');
+  host.innerHTML = kpis.map(k => `
+    <div class="kpi">
+      <div class="label">${k.label}</div>
+      <div class="value">${k.value}</div>
+      <div class="delta">${k.delta}</div>
+    </div>
+  `).join('');
+}
+
+function renderGroups(summary) {
+  const configs = {
+    G0: 'base + 无 RAG + 弱 prompt',
+    G1: 'base + RAG + 弱 prompt',
+    G2: 'base + RAG + 强 prompt',
+    G3: 'base + LoRA + RAG + 强 prompt',
+  };
+  const rows = ['G0', 'G1', 'G2', 'G3'].map(g => {
+    const s = summary[g];
+    const cls = g === 'G3' ? 'highlight' : '';
+    return `<tr class="${cls}">
+      <td><strong>${g}</strong></td>
+      <td>${configs[g]}</td>
+      <td class="num">${pct(s.event_id_hit_rate)}</td>
+      <td class="num">${pct(s.format_compliance_rate)}</td>
+      <td class="num">${pct(s.hallucinated_number_rate)}</td>
+      <td class="num">${s.avg_answer_chars.toFixed(0)} 字</td>
+      <td class="num">${s.avg_latency_s.toFixed(2)} s</td>
+    </tr>`;
+  });
+  document.getElementById('groups-tbody').innerHTML = rows.join('');
+}
+
+function renderRetrieval(data) {
+  const results = data.results || [];
+  // sort by Recall@5 descending, show top 4
+  const sorted = [...results].sort((a, b) => (b['Recall@5'] || 0) - (a['Recall@5'] || 0));
+  const rows = sorted.map((r, i) => {
+    const cls = i === 0 ? 'highlight' : '';
+    return `<tr class="${cls}">
+      <td><strong>${r.label}</strong></td>
+      <td class="num">${(r['Recall@5'] ?? 0).toFixed(4)}</td>
+      <td class="num">${(r['Hit@5'] ?? 0).toFixed(4)}</td>
+      <td class="num">${(r['MRR'] ?? 0).toFixed(4)}</td>
+      <td class="num">${(r['nDCG@10'] ?? 0).toFixed(4)}</td>
+      <td class="num">${(r.latency_per_query_ms ?? 0).toFixed(1)}</td>
+    </tr>`;
+  });
+  document.getElementById('retrieval-tbody').innerHTML = rows.join('');
+}
+
+function renderTrend(data) {
+  const kpis = [
+    {
+      label: '完全精确 bucket 率',
+      value: pct(data.macro_exact_bucket_rate || 0),
+    },
+    {
+      label: '宏平均相对误差',
+      value: ((data.macro_mean_rel_err || 0) * 100).toFixed(1) + '%',
+    },
+    {
+      label: '排序准确率',
+      value: pct(data.macro_ranking_accuracy || 0),
+    },
+    {
+      label: '峰值年准确率',
+      value: pct(data.peak_year_accuracy || 0),
+    },
+  ];
+  const host = document.getElementById('trend-kpis');
+  host.innerHTML = kpis.map(k => `
+    <div class="kpi">
+      <div class="label">${k.label}</div>
+      <div class="value">${k.value}</div>
+    </div>
+  `).join('');
+}
+
+function renderMacbert(data) {
+  const tm = data.test_metrics || {};
+  const kpis = [
+    { label: 'Micro-F1', value: (tm['eval_Micro-F1'] ?? 0).toFixed(4) },
+    { label: 'Macro-F1', value: (tm['eval_Macro-F1'] ?? 0).toFixed(4) },
+    { label: 'Hamming Loss', value: (tm['eval_HammingLoss'] ?? 0).toFixed(4) },
+    { label: 'Subset Accuracy', value: (tm['eval_SubsetAccuracy'] ?? 0).toFixed(4) },
+  ];
+  const host = document.getElementById('macbert-kpis');
+  host.innerHTML = kpis.map(k => `
+    <div class="kpi">
+      <div class="label">${k.label}</div>
+      <div class="value">${k.value}</div>
+    </div>
+  `).join('');
+  const labels = data.label_vocab || [];
+  if (Array.isArray(labels) && labels.length) {
+    document.getElementById('macbert-labels').innerHTML =
+      '标签空间 (' + labels.length + ' 类): ' +
+      labels.map(l => `<span class="tag">${l}</span>`).join('');
+  }
+}
+
+loadData();
+</script>
+
+</body>
+</html>

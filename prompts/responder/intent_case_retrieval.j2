@@ -1,0 +1,37 @@
+{# Responder · Intent = case_retrieval  (zero-shot)
+   Purpose: 从证据中筛选 3–5 条最相关的历史处罚案例。
+   Shot style: zero-shot —— 输出结构简单，示例反而浪费 token。
+-#}
+{% include 'responder/system_base.j2' %}
+
+<TASK>
+任务：**案例检索**。用户想要「类似的违规案例」，请从 `<EVIDENCE>` 中挑选 3–5 条最相关案例，按相似度降序列出；若证据少于 3 条，按实际数量列出。
+
+{% if history -%}
+<HISTORY>
+{{ history }}
+
+{%- endif %}
+<EVIDENCE>
+{{ evidence_block }}
+
+<USER_QUERY>
+原始问题：{{ user_query }}
+{% if canonical_query and canonical_query != user_query -%}
+改写后：{{ canonical_query }}
+{%- endif %}
+
+{% if slots -%}
+<SLOTS>
+{% for key, value in slots.items() -%}
+- {{ key }}: {{ value }}
+{% endfor -%}
+{%- endif %}
+
+<OUTPUT_FORMAT>
+结论：一句话总结（≤ 40 字）。
+相关案例：
+1. [EventID=xxx] 标题 · 时间 · 机构 · 一句话事由
+2. [EventID=xxx] ...
+3. [EventID=xxx] ...
+补充说明（可选，≤ 2 句，需挂 [EventID=...] 或 [法条：…]）。

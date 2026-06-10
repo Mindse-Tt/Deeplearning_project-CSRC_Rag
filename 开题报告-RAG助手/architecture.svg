@@ -1,0 +1,225 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 920" width="1600" height="920">
+  <defs>
+    <style>
+      text { font-family: -apple-system, "Segoe UI", "Microsoft YaHei", sans-serif; }
+      .title { font-size: 26px; font-weight: 700; fill: #222; }
+      .subtitle { font-size: 14px; fill: #666; }
+      .layer-tag { font-size: 13px; font-weight: 700; }
+      .card-title { font-size: 15px; font-weight: 700; fill: #222; }
+      .card-desc { font-size: 12px; fill: #555; }
+      .card-algo { font-size: 11px; fill: #2a6fb2; font-weight: 600; }
+      .side-note { font-size: 12px; fill: #888; font-style: italic; }
+      .arrow-label { font-size: 11px; fill: #555; font-weight: 600; }
+      .side-col-title { font-size: 16px; font-weight: 700; fill: #222; }
+      .side-col-item-h { font-size: 13px; font-weight: 700; fill: #222; }
+      .side-col-item { font-size: 12px; fill: #555; }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#5B8DEF"/>
+    </marker>
+    <marker id="arrow-gray" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#999"/>
+    </marker>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="1600" height="920" fill="#FAFBFC"/>
+
+  <!-- 标题 -->
+  <text x="700" y="42" class="title" text-anchor="middle">基于 RAG 的证券违规案例智能检索与问答系统 — 技术方案</text>
+  <text x="700" y="64" class="subtitle" text-anchor="middle">Intent Planner + Dual-Route Retrieval + Rerank + LoRA-Tuned LLM + Multi-Dim Evaluation</text>
+
+  <!-- ========== Layer 1: 用户输入 ========== -->
+  <rect x="560" y="95" width="280" height="50" rx="8" fill="#EEF3FC" stroke="#5B8DEF" stroke-width="1.5"/>
+  <rect x="560" y="95" width="280" height="3.5" fill="#5B8DEF"/>
+  <text x="700" y="118" class="card-title" text-anchor="middle">用户问题 (User Query)</text>
+  <text x="700" y="136" class="card-desc" text-anchor="middle">财务部 / 内审 / 注册会计师 / 投行尽调</text>
+
+  <!-- 箭头 1 -->
+  <line x1="700" y1="147" x2="700" y2="175" stroke="#5B8DEF" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- ========== Layer 2: 意图规划器 ========== -->
+  <rect x="420" y="180" width="560" height="80" rx="8" fill="#FFF7E8" stroke="#E8923A" stroke-width="1.5"/>
+  <rect x="420" y="180" width="560" height="3.5" fill="#E8923A"/>
+  <text x="438" y="202" class="layer-tag" fill="#B56A1E">① 意图规划器</text>
+  <text x="700" y="222" class="card-title" text-anchor="middle">Intent Planner — 判断是否检索 / 路径选择 / 边界管控</text>
+  <text x="700" y="242" class="card-desc" text-anchor="middle">识别：结构化查询 / 语义问题 / 越界闲聊 / 拒答，决定下游分支</text>
+  <text x="700" y="257" class="card-algo" text-anchor="middle">算法：Prompt-based LLM Router  ·  Few-shot Classification  ·  规则正则兜底</text>
+
+  <!-- 分发箭头 -->
+  <line x1="560" y1="263" x2="260" y2="295" stroke="#5B8DEF" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="700" y1="263" x2="700" y2="295" stroke="#5B8DEF" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="840" y1="263" x2="1140" y2="295" stroke="#999" stroke-width="1.5" stroke-dasharray="6,3" marker-end="url(#arrow-gray)"/>
+
+  <text x="400" y="285" class="arrow-label" text-anchor="middle">结构化</text>
+  <text x="712" y="285" class="arrow-label" text-anchor="middle">语义模糊</text>
+  <text x="1010" y="285" class="arrow-label" text-anchor="middle">越界 / 闲聊</text>
+
+  <!-- ========== Layer 3: 三路分支 ========== -->
+  <!-- 精确检索 -->
+  <rect x="80" y="300" width="360" height="110" rx="8" fill="#EAF5EC" stroke="#4CAF82" stroke-width="1.5"/>
+  <rect x="80" y="300" width="360" height="3.5" fill="#4CAF82"/>
+  <text x="98" y="322" class="layer-tag" fill="#2E7D51">② 精确检索</text>
+  <text x="260" y="348" class="card-title" text-anchor="middle">Structured Retrieval</text>
+  <text x="260" y="368" class="card-desc" text-anchor="middle">针对企业代码 / 违规类型 / 处罚方式等字段</text>
+  <text x="260" y="388" class="card-algo" text-anchor="middle">算法：SQL / Pandas Filter  ·  BM25  ·  关键词倒排索引</text>
+  <text x="260" y="404" class="card-algo" text-anchor="middle">字段：Symbol / ViolationType / PunishmentType / SumPenalty</text>
+
+  <!-- 向量检索 -->
+  <rect x="520" y="300" width="360" height="110" rx="8" fill="#EEF3FC" stroke="#5B8DEF" stroke-width="1.5"/>
+  <rect x="520" y="300" width="360" height="3.5" fill="#5B8DEF"/>
+  <text x="538" y="322" class="layer-tag" fill="#2A5BB5">② 向量检索</text>
+  <text x="700" y="348" class="card-title" text-anchor="middle">Semantic Retrieval</text>
+  <text x="700" y="368" class="card-desc" text-anchor="middle">针对 Activity / Law / PunishmentMeasure 长文本</text>
+  <text x="700" y="388" class="card-algo" text-anchor="middle">算法：BGE-M3 / BERT Embedding  ·  FAISS / Milvus ANN</text>
+  <text x="700" y="404" class="card-algo" text-anchor="middle">分块：Recursive Chunking (256~512 tokens, overlap 64)</text>
+
+  <!-- 拒答策略 -->
+  <rect x="960" y="300" width="360" height="110" rx="8" fill="#F9EAEA" stroke="#E05D5D" stroke-width="1.5" stroke-dasharray="6,3"/>
+  <rect x="960" y="300" width="360" height="3.5" fill="#E05D5D"/>
+  <text x="978" y="322" class="layer-tag" fill="#A83A3A">② 闲聊 / 拒答</text>
+  <text x="1140" y="348" class="card-title" text-anchor="middle">Refusal &amp; Chit-chat Policy</text>
+  <text x="1140" y="368" class="card-desc" text-anchor="middle">越界问题统一兜底，保证安全性</text>
+  <text x="1140" y="388" class="card-algo" text-anchor="middle">算法：Safety Prompt Template  ·  关键词黑名单</text>
+  <text x="1140" y="404" class="card-algo" text-anchor="middle">输出：标准化拒答话术 + 边界提示</text>
+
+  <!-- 合流箭头 -->
+  <line x1="260" y1="413" x2="620" y2="460" stroke="#5B8DEF" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="700" y1="413" x2="700" y2="460" stroke="#5B8DEF" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- ========== Layer 4: 重排 ========== -->
+  <rect x="420" y="465" width="560" height="80" rx="8" fill="#F3EDFA" stroke="#9B7FD4" stroke-width="1.5"/>
+  <rect x="420" y="465" width="560" height="3.5" fill="#9B7FD4"/>
+  <text x="438" y="487" class="layer-tag" fill="#6E4FAE">③ 重排融合</text>
+  <text x="700" y="507" class="card-title" text-anchor="middle">Rerank &amp; Fusion — Top-K 候选精排</text>
+  <text x="700" y="527" class="card-desc" text-anchor="middle">对双路召回结果加权融合并做 Cross-Encoder 二次打分，抑制噪声</text>
+  <text x="700" y="542" class="card-algo" text-anchor="middle">算法：BGE-Reranker / Cross-Encoder  ·  RRF (Reciprocal Rank Fusion)  ·  MMR 去冗</text>
+
+  <line x1="700" y1="548" x2="700" y2="580" stroke="#5B8DEF" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- ========== Layer 5: 回复模型 ========== -->
+  <rect x="340" y="585" width="720" height="100" rx="8" fill="#FFF7E8" stroke="#E8923A" stroke-width="1.5"/>
+  <rect x="340" y="585" width="720" height="3.5" fill="#E8923A"/>
+  <text x="358" y="607" class="layer-tag" fill="#B56A1E">④ 回复模型 (含微调)</text>
+  <text x="700" y="627" class="card-title" text-anchor="middle">Generator — 领域微调 LLM 基于检索上下文作答</text>
+  <text x="700" y="648" class="card-desc" text-anchor="middle">输入：Query + Top-K Chunks + 指令模板  ·  输出：带引用来源的合规回答</text>
+  <text x="700" y="666" class="card-algo" text-anchor="middle">基座：Qwen2.5-7B / ChatGLM3 / Llama3-8B  ·  微调：LoRA / QLoRA / P-Tuning v2</text>
+  <text x="700" y="681" class="card-algo" text-anchor="middle">训练数据：自构 QA 对（GPT 生成 + 人工标注），覆盖六大违规方向</text>
+
+  <line x1="700" y1="688" x2="700" y2="720" stroke="#5B8DEF" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- ========== Layer 6: 评估 ========== -->
+  <rect x="220" y="725" width="960" height="105" rx="8" fill="#EAF5EC" stroke="#4CAF82" stroke-width="1.5"/>
+  <rect x="220" y="725" width="960" height="3.5" fill="#4CAF82"/>
+  <text x="238" y="747" class="layer-tag" fill="#2E7D51">⑤ 评估体系 (Ragas + 自建测试集)</text>
+
+  <!-- 四列评估 -->
+  <text x="340" y="770" class="card-title" text-anchor="middle">检索能力</text>
+  <text x="340" y="790" class="card-algo" text-anchor="middle">Context Precision</text>
+  <text x="340" y="806" class="card-algo" text-anchor="middle">Context Recall</text>
+
+  <text x="580" y="770" class="card-title" text-anchor="middle">生成能力</text>
+  <text x="580" y="790" class="card-algo" text-anchor="middle">Faithfulness</text>
+  <text x="580" y="806" class="card-algo" text-anchor="middle">Answer Relevancy</text>
+
+  <text x="820" y="770" class="card-title" text-anchor="middle">幻觉安全</text>
+  <text x="820" y="790" class="card-algo" text-anchor="middle">Hallucination Rate</text>
+  <text x="820" y="806" class="card-algo" text-anchor="middle">Rejection Rate</text>
+
+  <text x="1060" y="770" class="card-title" text-anchor="middle">工程效率</text>
+  <text x="1060" y="790" class="card-algo" text-anchor="middle">End-to-End Latency</text>
+  <text x="1060" y="806" class="card-algo" text-anchor="middle">GPU Memory Usage</text>
+
+  <!-- 分割竖线 -->
+  <line x1="460" y1="755" x2="460" y2="815" stroke="#d0d6dc" stroke-width="1"/>
+  <line x1="700" y1="755" x2="700" y2="815" stroke="#d0d6dc" stroke-width="1"/>
+  <line x1="940" y1="755" x2="940" y2="815" stroke="#d0d6dc" stroke-width="1"/>
+
+  <!-- 左侧数据层（侧边独立模块） -->
+  <rect x="30" y="585" width="260" height="100" rx="8" fill="#F7F8FC" stroke="#888" stroke-width="1.3" stroke-dasharray="5,3"/>
+  <rect x="30" y="585" width="260" height="3.5" fill="#888"/>
+  <text x="160" y="608" class="card-title" text-anchor="middle">知识库 / Knowledge Base</text>
+  <text x="160" y="628" class="card-desc" text-anchor="middle">CNRDS 证监会处罚信息表</text>
+  <text x="160" y="646" class="card-algo" text-anchor="middle">14,743 行 × 24 列 → 清洗 8,000+ 条</text>
+  <text x="160" y="662" class="card-algo" text-anchor="middle">BERT 聚类 K=6 → 六大违规方向</text>
+  <text x="160" y="678" class="card-algo" text-anchor="middle">Index: FAISS + SQLite (hybrid)</text>
+
+  <line x1="290" y1="635" x2="420" y2="500" stroke="#999" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arrow-gray)"/>
+  <text x="318" y="560" class="side-note">索引供给</text>
+
+  <!-- 微调训练模块 (放到左下，保留右侧空间做说明列) -->
+  <rect x="30" y="725" width="180" height="105" rx="8" fill="#F7F8FC" stroke="#888" stroke-width="1.3" stroke-dasharray="5,3"/>
+  <rect x="30" y="725" width="180" height="3.5" fill="#888"/>
+  <text x="120" y="747" class="card-title" text-anchor="middle">训练 / Fine-tuning</text>
+  <text x="120" y="766" class="card-desc" text-anchor="middle">领域 QA 对 ≥ 2k</text>
+  <text x="120" y="784" class="card-algo" text-anchor="middle">SFT (LoRA r=8, α=16)</text>
+  <text x="120" y="800" class="card-algo" text-anchor="middle">可选：DPO 偏好对齐</text>
+  <text x="120" y="816" class="card-algo" text-anchor="middle">PEFT / LLaMA-Factory</text>
+
+  <line x1="210" y1="640" x2="340" y2="635" stroke="#999" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arrow-gray)"/>
+  <line x1="120" y1="725" x2="120" y2="688" stroke="#999" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <line x1="120" y1="688" x2="340" y2="635" stroke="#999" stroke-width="1.5" stroke-dasharray="5,3"/>
+
+  <!-- ========== 右侧说明列 ========== -->
+  <rect x="1340" y="95" width="240" height="735" rx="10" fill="#FFFFFF" stroke="#C9D1DA" stroke-width="1.2"/>
+  <rect x="1340" y="95" width="240" height="4" fill="#5B8DEF"/>
+  <text x="1460" y="120" class="side-col-title" text-anchor="middle">技术方案说明</text>
+  <line x1="1360" y1="130" x2="1560" y2="130" stroke="#E0E3E8" stroke-width="1"/>
+
+  <!-- 说明条目 -->
+  <!-- ①意图规划器 -->
+  <text x="1358" y="156" class="side-col-item-h" fill="#B56A1E">① 意图规划器</text>
+  <text x="1358" y="174" class="side-col-item">LLM Router + 正则兜底</text>
+  <text x="1358" y="190" class="side-col-item">判定检索路径、管控系统</text>
+  <text x="1358" y="206" class="side-col-item">边界，避免越界回答。</text>
+
+  <!-- ②精确检索 -->
+  <text x="1358" y="234" class="side-col-item-h" fill="#2E7D51">② 精确检索</text>
+  <text x="1358" y="252" class="side-col-item">BM25 + SQL 过滤</text>
+  <text x="1358" y="268" class="side-col-item">处理企业代码、违规类型</text>
+  <text x="1358" y="284" class="side-col-item">等结构化查询。</text>
+
+  <!-- ②向量检索 -->
+  <text x="1358" y="312" class="side-col-item-h" fill="#2A5BB5">② 向量检索</text>
+  <text x="1358" y="330" class="side-col-item">BGE-M3 Embedding + FAISS</text>
+  <text x="1358" y="346" class="side-col-item">处理语义模糊的长文本</text>
+  <text x="1358" y="362" class="side-col-item">相似案例问题。</text>
+
+  <!-- ②拒答 -->
+  <text x="1358" y="390" class="side-col-item-h" fill="#A83A3A">② 拒答策略</text>
+  <text x="1358" y="408" class="side-col-item">Safety Prompt + 黑名单</text>
+  <text x="1358" y="424" class="side-col-item">保证系统不越界回答，</text>
+  <text x="1358" y="440" class="side-col-item">提升合规安全性。</text>
+
+  <!-- ③重排 -->
+  <text x="1358" y="468" class="side-col-item-h" fill="#6E4FAE">③ 重排融合</text>
+  <text x="1358" y="486" class="side-col-item">Cross-Encoder + RRF + MMR</text>
+  <text x="1358" y="502" class="side-col-item">融合双路召回并精排，</text>
+  <text x="1358" y="518" class="side-col-item">提升 Top-K 质量。</text>
+
+  <!-- ④回复模型 -->
+  <text x="1358" y="546" class="side-col-item-h" fill="#B56A1E">④ 回复模型</text>
+  <text x="1358" y="564" class="side-col-item">Qwen2.5-7B + LoRA 微调</text>
+  <text x="1358" y="580" class="side-col-item">基于检索上下文生成</text>
+  <text x="1358" y="596" class="side-col-item">带引用来源的合规回答。</text>
+
+  <!-- ⑤评估 -->
+  <text x="1358" y="624" class="side-col-item-h" fill="#2E7D51">⑤ 评估体系</text>
+  <text x="1358" y="642" class="side-col-item">Ragas 四指标 + 幻觉率</text>
+  <text x="1358" y="658" class="side-col-item">+ 延迟 / 显存</text>
+  <text x="1358" y="674" class="side-col-item">做微调前后消融对比。</text>
+
+  <!-- 知识库 -->
+  <text x="1358" y="702" class="side-col-item-h" fill="#555">◎ 知识库</text>
+  <text x="1358" y="720" class="side-col-item">CNRDS 14,743 行 → 清洗</text>
+  <text x="1358" y="736" class="side-col-item">8,000+ 条，聚类 K=6</text>
+  <text x="1358" y="752" class="side-col-item">作为六大违规方向边界。</text>
+
+  <!-- 训练 -->
+  <text x="1358" y="780" class="side-col-item-h" fill="#555">◎ 训练流程</text>
+  <text x="1358" y="798" class="side-col-item">自构 QA 对 ≥ 2k 条，</text>
+  <text x="1358" y="814" class="side-col-item">LoRA (r=8) SFT，可选 DPO。</text>
+
+  <!-- 底部署名 -->
+  <text x="1570" y="900" class="side-note" text-anchor="end" style="font-weight:700;">DL Group · Compliance-RAG · 2026</text>
+</svg>

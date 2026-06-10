@@ -1,0 +1,48 @@
+%%{init: {"theme":"dark"}}%%
+flowchart TD
+    IN[📝 L5 生成答案 draft<br/>+ cited_event_ids<br/>+ cited_laws]
+    IN --> V1{✅ C1 EventID 存在?<br/>白名单内}
+    V1 -->|否| F1[🚩 span_unsupported_event]
+    V1 -->|是| V2{✅ C2 法条正则?<br/>《xxx法》第X条}
+    V2 -->|否| F2[🚩 span_invalid_law_format]
+    V2 -->|是| V3{✅ C3 法条真实存在?<br/>law_registry.json}
+    V3 -->|否| F3[🚩 span_law_not_exist]
+    V3 -->|是| V4{✅ C4 金额格式?<br/>万 / 元 / %}
+    V4 -->|否| F4[🚩 span_amount_format]
+    V4 -->|是| V5{✅ C5 日期合理?<br/>1994-2025}
+    V5 -->|否| F5[🚩 span_date_out_of_range]
+    V5 -->|是| V6{✅ C6 机构在 top_k?<br/>被检索到}
+    V6 -->|否| F6[🚩 span_org_not_retrieved]
+    V6 -->|是| V7{✅ C7 处罚措施一致?<br/>类型匹配}
+    V7 -->|否| F7[🚩 span_measure_mismatch]
+    V7 -->|是| V8{✅ C8 总长度合规?<br/>≤ 800 字}
+    V8 -->|否| F8[🚩 span_length_exceed]
+    V8 -->|是| PASS[🟢 passed=true<br/>引证命中率 ≥ 95%]
+
+    %% 汇总
+    F1 --> AGG[🔴 passed=false<br/>unsupported_spans[]]
+    F2 --> AGG
+    F3 --> AGG
+    F4 --> AGG
+    F5 --> AGG
+    F6 --> AGG
+    F7 --> AGG
+    F8 --> AGG
+
+    AGG --> FALLBACK{降级?}
+    FALLBACK -->|Critical span| REJ[🚫 切 tpl_insufficient_evidence]
+    FALLBACK -->|Minor span| WARN[⚠️ 保留答案<br/>前端红叉标注]
+
+    PASS --> OUT([🖥️ 前端渲染绿勾])
+    WARN --> OUT
+    REJ --> OUT2([🖥️ 前端渲染兜底])
+
+    classDef ok fill:#064e3b,stroke:#34d399,color:#fff
+    classDef fail fill:#7f1d1d,stroke:#f87171,color:#fff
+    classDef warn fill:#78350f,stroke:#fbbf24,color:#fff
+    class V1,V2,V3,V4,V5,V6,V7,V8,PASS ok
+    class F1,F2,F3,F4,F5,F6,F7,F8,AGG,REJ fail
+    class WARN,FALLBACK warn
+```
+
+> **说明**：L7 引证校验 8 条规则级联。C1-C3 校验"来源存在性"（EventID 白名单、法条格式、法条真实性），C4-C5 校验"字段合规性"（金额、日期），C6-C7 校验"逻辑一致性"（机构是否被检索到、处罚措施是否匹配），C8 兜底长度。任一 Critical 级失败 → 切 `tpl_insufficient_evidence` 兜底话术；Minor 级失败 → 保留答案但前端用红叉标注未命中 span。目标引证命中率 ≥ 95%，幻觉率 ≤ 5%。

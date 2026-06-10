@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CSRC-RAG · 7 层链路答辩 Demo</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --ink: #0f172a;
+      --ink-soft: #334155;
+      --mute: #64748b;
+      --line: #e2e8f0;
+      --bg: #f8fafc;
+      --bg-card: #ffffff;
+      --accent: #1e40af;
+      --accent-soft: #dbeafe;
+      --ok: #059669;
+      --ok-soft: #d1fae5;
+      --warn: #d97706;
+      --warn-soft: #fef3c7;
+      --err: #dc2626;
+      --err-soft: #fee2e2;
+      --gold: #a16207;
+    }
+    * { font-feature-settings: "ss01", "cv01"; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC",
+                   "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+    }
+    .mono { font-family: "SF Mono", "JetBrains Mono", Consolas, monospace; }
+    .rule {
+      background-image: linear-gradient(to right,
+        var(--line) 0, var(--line) 4px, transparent 4px, transparent 8px);
+      background-size: 8px 1px;
+      background-repeat: repeat-x;
+      background-position: 0 50%;
+      height: 1px;
+    }
+    .badge {
+      display: inline-flex; align-items: center; gap: 4px;
+      padding: 2px 8px; border-radius: 4px;
+      font-size: 11px; font-weight: 600; letter-spacing: 0.02em;
+    }
+    .layer-card {
+      background: var(--bg-card);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .layer-card:hover {
+      box-shadow: 0 4px 16px -4px rgba(15, 23, 42, 0.1);
+    }
+    .layer-card.active {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-soft);
+    }
+    .layer-card.active .layer-head { background: var(--accent); color: white; }
+    .layer-head {
+      padding: 8px 14px;
+      background: var(--bg);
+      border-bottom: 1px solid var(--line);
+      display: flex; align-items: center; justify-content: space-between;
+      font-weight: 600; font-size: 13px;
+      transition: background 0.2s, color 0.2s;
+    }
+    .layer-body { padding: 14px; font-size: 13px; line-height: 1.6; }
+    .kv { display: flex; gap: 8px; padding: 4px 0; border-bottom: 1px dashed var(--line); }
+    .kv:last-child { border: none; }
+    .kv-k { color: var(--mute); min-width: 84px; font-size: 12px; }
+    .kv-v { color: var(--ink); flex: 1; font-size: 12px; }
+    .bar {
+      position: relative;
+      height: 4px; background: var(--line); border-radius: 2px;
+      overflow: hidden;
+    }
+    .bar > i {
+      position: absolute; left: 0; top: 0; bottom: 0;
+      background: var(--accent); border-radius: 2px;
+    }
+    .token-hl {
+      background: var(--ok-soft);
+      padding: 1px 4px; border-radius: 3px;
+      color: var(--ok); font-weight: 600;
+    }
+    .token-hl-law {
+      background: var(--accent-soft);
+      padding: 1px 4px; border-radius: 3px;
+      color: var(--accent); font-weight: 600;
+    }
+    .arrow-pop { animation: arrow-pop 0.6s ease-out; }
+    @keyframes arrow-pop {
+      0% { opacity: 0; transform: translateX(-8px); }
+      100% { opacity: 1; transform: translateX(0); }
+    }
+    .step-dot {
+      width: 24px; height: 24px; border-radius: 50%;
+      display: inline-flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 11px;
+      background: white; color: var(--accent);
+      border: 2px solid var(--accent);
+    }
+    .step-dot.done { background: var(--accent); color: white; }
+    .step-dot.pending { color: var(--mute); border-color: var(--line); background: var(--bg); }
+    .tag {
+      display: inline-block;
+      background: var(--bg); border: 1px solid var(--line);
+      padding: 1px 6px; border-radius: 3px;
+      font-size: 11px; color: var(--ink-soft);
+      margin: 1px 2px;
+    }
+    .rank-change {
+      display: inline-flex; align-items: center; gap: 2px;
+      font-size: 11px; font-weight: 700;
+    }
+    .rank-up { color: var(--ok); }
+    .rank-down { color: var(--err); }
+    .rank-same { color: var(--mute); }
+    .header-gradient {
+      background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 50%, #0f172a 100%);
+    }
+    .check-row {
+      display: flex; align-items: center; gap: 10px;
+      padding: 6px 0;
+      border-bottom: 1px dashed var(--line);
+      font-size: 12px;
+    }
+    .check-row:last-child { border: none; }
+    .check-icon {
+      width: 18px; height: 18px; border-radius: 50%;
+      display: inline-flex; align-items: center; justify-content: center;
+      font-size: 11px; font-weight: 700;
+    }
+    .check-pass { background: var(--ok-soft); color: var(--ok); }
+    .check-fail { background: var(--err-soft); color: var(--err); }
+    .evidence-item {
+      background: var(--bg);
+      border-left: 3px solid var(--accent);
+      padding: 8px 10px;
+      margin-bottom: 6px;
+      border-radius: 0 4px 4px 0;
+      font-size: 12px;
+    }
+    .evidence-item .evidence-head {
+      display: flex; align-items: center; justify-content: space-between;
+      font-weight: 600; color: var(--ink); margin-bottom: 4px;
+    }
+    .evidence-item .evidence-body { color: var(--ink-soft); line-height: 1.5; }
+    .shine { position: relative; overflow: hidden; }
+    .shine::before {
+      content: ''; position: absolute; top: 0; left: -100%;
+      width: 100%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+      animation: shine 2.5s infinite;
+    }
+    @keyframes shine { 0% { left: -100%; } 60%, 100% { left: 100%; } }
+  </style>
+</head>
+<body>
+
+<!-- ============== 顶部 Header ============== -->
+<header class="header-gradient text-white">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded bg-white/10 flex items-center justify-center text-xl">⚖️</div>
+      <div>
+        <div class="text-lg font-bold tracking-wide">CSRC-RAG · 证监会处罚案例智能问答系统</div>
+        <div class="text-xs text-blue-200 mono">七层检索增强生成架构 · L0 → L7 · 答辩 Demo v1.0</div>
+      </div>
+    </div>
+    <div class="flex items-center gap-4 text-xs">
+      <div class="flex items-center gap-1.5">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span class="mono">API 在线 · 延迟 2.3s</span>
+      </div>
+      <div class="text-blue-200">|</div>
+      <div class="mono">Qwen2.5-1.5B + LoRA · bge-small-zh · bge-reranker-v2-m3</div>
+    </div>
+  </div>
+</header>
+
+<!-- ============== Query 输入条 ============== -->
+<section class="bg-white border-b border-slate-200">
+  <div class="max-w-7xl mx-auto px-6 py-5">
+    <div class="flex items-center gap-3">
+      <div class="text-xs mono text-slate-500 uppercase tracking-wider">Query</div>
+      <div class="flex-1 bg-slate-50 border border-slate-200 rounded-md px-4 py-3 flex items-center gap-2">
+        <span class="text-slate-400">›</span>
+        <span class="text-base text-slate-800">康美药业 2020 年财务造假 怎么处罚？</span>
+      </div>
+      <div class="mono text-xs text-slate-500">
+        session: <span class="text-slate-700">sess-ab12cd</span>
+      </div>
+      <button class="px-4 py-3 bg-blue-700 text-white rounded-md text-sm font-semibold hover:bg-blue-800 transition">
+        发送 →
+      </button>
+    </div>
+    <div class="mt-3 flex items-center gap-2 text-xs text-slate-500">
+      <span>7 层链路步骤：</span>
+      <span class="step-dot done">0</span>
+      <span class="step-dot done">1</span>
+      <span class="step-dot done">2</span>
+      <span class="step-dot done">3</span>
+      <span class="step-dot done">4</span>
+      <span class="step-dot done">5</span>
+      <span class="step-dot done">6</span>
+      <span class="step-dot done">7</span>
+      <span class="ml-2 mono text-slate-400">点击下方任一卡片展开该层详情</span>
+    </div>
+  </div>
+</section>
+
+<main class="max-w-7xl mx-auto px-6 py-6">
+
+<!-- ============== L0 预处理 ============== -->
+<div class="layer-card mb-4">
+  <div class="layer-head">
+    <div class="flex items-center gap-3">
+      <div class="step-dot done">0</div>
+      <span>🧹 L0 · 预处理</span>
+      <span class="badge" style="background:var(--ok-soft);color:var(--ok)">✓ 通过</span>
+    </div>
+    <div class="mono text-xs text-slate-400">3ms</div>
+  </div>
+  <div class="layer-body grid grid-cols-3 gap-4">
+    <div>
+      <div class="kv"><div class="kv-k">input</div><div class="kv-v mono">康美药业 2020 年财务造假 怎么处罚？</div></div>
+      <div class="kv"><div class="kv-k">normalized</div><div class="kv-v mono">康美药业 2020 年 财务造假 怎么 处罚</div></div>
+      <div class="kv"><div class="kv-k">lang</div><div class="kv-v"><span class="tag">zh-CN</span></div></div>
+      <div class="kv"><div class="kv-k">length</div><div class="kv-v mono">18 chars / 7 tokens</div></div>
+    </div>
+    <div class="col-span-2 text-xs text-slate-600 bg-slate-50 rounded p-3 border border-slate-200">
+      <b>处理动作</b>：全角半角统一 · 繁简转换 · 标点归一 · 多空白压缩。
+      <b>安全守卫</b>：未检测到 prompt injection 关键字（如 "ignore previous"）；未命中敏感词黑名单。
+    </div>
+  </div>
+</div>
+
+<!-- ============== L1 意图识别 ============== -->
+<div class="layer-card active mb-4">
+  <div class="layer-head">
+    <div class="flex items-center gap-3">
+      <div class="step-dot done">1</div>
+      <span>🎯 L1 · 意图识别 (MiniLM + LR, 7 类 Planner)</span>
+      <span class="badge" style="background:var(--ok-soft);color:var(--ok)">✓ 高置信</span>
+    </div>
+    <div class="mono text-xs text-white/70">4ms · Macro-F1=0.94</div>
+  </div>
+  <div class="layer-body grid grid-cols-5 gap-6">
+    <div class="col-span-2">
+      <div class="text-sm font-semibold text-slate-800 mb-2">🏆 Top-1: sanction_recommendation</div>
+      <div class="text-3xl font-bold text-blue-700 mono">0.89</div>
+      <div class="text-xs text-slate-500 mt-1">置信度 (softmax)</div>
+      <div class="mt-4 text-xs text-slate-600 bg-amber-50 border border-amber-200 rounded p-2.5">
+        <b>决策</b>：进入 L2 → L7 主链路；若 &lt;0.50 则切 <span class="mono">tpl_low_confidence</span> 请求澄清。
+      </div>
+    </div>
+    <div class="col-span-3">
+      <div class="text-xs text-slate-500 mb-2">7 类意图 softmax 分布：</div>
+      <div class="space-y-2">
+        <div><div class="flex justify-between text-xs mb-0.5"><span class="font-semibold">sanction_recommendation</span><span class="mono">0.89</span></div><div class="bar"><i style="width:89%;background:var(--accent)"></i></div></div>
+        <div><div class="flex justify-between text-xs mb-0.5"><span>case_retrieval</span><span class="mono">0.06</span></div><div class="bar"><i style="width:6%"></i></div></div>
+        <div><div class="flex justify-between text-xs mb-0.5"><span>law_grounding</span><span class="mono">0.03</span></div><div class="bar"><i style="width:3%"></i></div></div>
+        <div><div class="flex justify-between text-xs mb-0.5"><span>trend_analysis</span><span class="mono">0.01</span></div><div class="bar"><i style="width:1%"></i></div></div>
+        <div><div class="flex justify-between text-xs mb-0.5 text-slate-400"><span>greeting / chitchat / oos</span><span class="mono">&lt;0.01</span></div><div class="bar"></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============== L2 Query 改写 ============== -->
+<div class="layer-card mb-4">
+  <div class="layer-head">
+    <div class="flex items-center gap-3">
+      <div class="step-dot done">2</div>
+      <span>📦 L2 · Query 改写 (共指消解 + 同义词扩展 + 槽位抽取)</span>
+      <span class="badge" style="background:var(--ok-soft);color:var(--ok)">✓ 槽位 3/3</span>
+    </div>
+    <div class="mono text-xs text-slate-400">12ms</div>
+  </div>
+  <div class="layer-body grid grid-cols-2 gap-6">
+    <div>
+      <div class="text-xs text-slate-500 mb-2">改写前 → 改写后</div>
+      <div class="mono text-xs bg-slate-50 border border-slate-200 rounded p-2 mb-2">
+        康美药业 2020 年财务造假 怎么处罚？
+      </div>
+      <div class="text-center text-slate-400 mb-2">↓</div>
+      <div class="mono text-xs bg-blue-50 border border-blue-200 rounded p-2">
+        <span class="token-hl-law">康美药业</span> (<span class="tag">康美药业股份有限公司</span>)
+        <span class="token-hl-law">2020年</span>
+        <span class="token-hl-law">财务造假</span> OR <span class="tag">信披造假</span> OR <span class="tag">财务舞弊</span>
+        · <span class="token-hl-law">处罚</span> OR <span class="tag">监管措施</span>
+      </div>
+    </div>
+    <div>
+      <div class="text-xs text-slate-500 mb-2">槽位抽取 (QueryPlan)</div>
+      <div class="kv"><div class="kv-k">org</div><div class="kv-v"><span class="tag" style="border-color:var(--accent);color:var(--accent)">康美药业股份有限公司</span></div></div>
+      <div class="kv"><div class="kv-k">year</div><div class="kv-v"><span class="tag" style="border-color:var(--accent);color:var(--accent)">2020</span></div></div>
+      <div class="kv"><div class="kv-k">violation_type</div><div class="kv-v"><span class="tag" style="border-color:var(--accent);color:var(--accent)">信息披露违规</span> <span class="tag" style="border-color:var(--accent);color:var(--accent)">财务造假</span></div></div>
+      <div class="kv"><div class="kv-k">action_intent</div><div class="kv-v mono">sanction_recommendation</div></div>
+      <div class="kv"><div class="kv-k">synonyms</div><div class="kv-v mono text-xs">强(OR): 财务舞弊 · 信披造假 / 弱(0.3): 虚假记载</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============== L3 双路检索 ============== -->
+<div class="layer-card mb-4">
+  <div class="layer-head">
+    <div class="flex items-center gap-3">
+      <div class="step-dot done">3</div>
+      <span>🔎 L3 · 双路召回 + Rerank (BM25 + bge-small-zh → RRF → bge-reranker-v2-m3)</span>
+      <span class="badge" style="background:var(--ok-soft);color:var(--ok)">✓ Recall@5 命中</span>
+    </div>
+    <div class="mono text-xs text-slate-400">280ms · 60→5</div>
+  </div>
+  <div class="layer-body">
+    <div class="grid grid-cols-3 gap-4 mb-4">
+      <!-- BM25 -->
+      <div>
+        <div class="text-xs font-semibold text-orange-700 mb-2">🔤 稀疏路 BM25 (jieba) · top-5/60</div>
+        <div class="space-y-1.5">
+          <div class="bg-orange-50 border border-orange-200 rounded px-2 py-1.5 text-xs"><span class="mono text-orange-700 font-bold">#1</span> EV-2020-CSRC-0412 <span class="mono text-slate-500 ml-1">康美药业案</span></div>
+          <div class="bg-orange-50 border border-orange-200 rounded px-2 py-1.5 text-xs"><span class="mono text-orange-700 font-bold">#2</span> EV-2019-CSRC-1198 <span class="mono text-slate-500 ml-1">康美预披露</span></div>
+          <div class="bg-orange-50 border border-orange-200 rounded px-2 py-1.5 text-xs"><span class="mono text-orange-700 font-bold">#3</span> EV-2021-CSRC-0077 <span class="mono text-slate-500 ml-1">关联方案</span></div>
+          <div class="bg-orange-50 border border-orange-200 rounded px-2 py-1.5 text-xs opacity-80"><span class="mono text-orange-700 font-bold">#4</span> EV-2020-CSRC-0588</div>
+          <div class="bg-orange-50 border border-orange-200 rounded px-2 py-1.5 text-xs opacity-60"><span class="mono text-orange-700 font-bold">#5</span> EV-2018-CSRC-0933</div>
+        </div>
+      </div>
+      <!-- Dense -->
+      <div>
+        <div class="text-xs font-semibold text-blue-700 mb-2">🧬 稠密路 Dense (bge-small-zh) · top-5/60</div>
+        <div class="space-y-1.5">
+          <div class="bg-blue-50 border border-blue-200 rounded px-2 py-1.5 text-xs"><span class="mono text-blue-700 font-bold">#1</span> EV-2020-CSRC-0412 <span class="mono text-slate-500 ml-1">康美药业案</span></div>
+          <div class="bg-blue-50 border border-blue-200 rounded px-2 py-1.5 text-xs"><span class="mono text-blue-700 font-bold">#2</span> EV-2020-CSRC-0588 <span class="mono text-slate-500 ml-1">獐子岛类案</span></div>
+          <div class="bg-blue-50 border border-blue-200 rounded px-2 py-1.5 text-xs"><span class="mono text-blue-700 font-bold">#3</span> EV-2019-CSRC-1198 <span class="mono text-slate-500 ml-1">康美预披露</span></div>
+          <div class="bg-blue-50 border border-blue-200 rounded px-2 py-1.5 text-xs opacity-80"><span class="mono text-blue-700 font-bold">#4</span> EV-2021-CSRC-0077</div>
+          <div class="bg-blue-50 border border-blue-200 rounded px-2 py-1.5 text-xs opacity-60"><span class="mono text-blue-700 font-bold">#5</span> EV-2017-CSRC-0455</div>
+        </div>
+      </div>
+      <!-- Rerank -->
+      <div>
+        <div class="text-xs font-semibold text-purple-700 mb-2">⚡ Rerank 精排 (bge-reranker-v2-m3) · top-5</div>
+        <div class="space-y-1.5">
+          <div class="bg-purple-50 border border-purple-300 rounded px-2 py-1.5 text-xs flex items-center justify-between"><span><span class="mono text-purple-700 font-bold">#1</span> EV-2020-CSRC-0412</span><span class="rank-change rank-same">= 0</span></div>
+          <div class="bg-purple-50 border border-purple-300 rounded px-2 py-1.5 text-xs flex items-center justify-between"><span><span class="mono text-purple-700 font-bold">#2</span> EV-2019-CSRC-1198</span><span class="rank-change rank-up">↑ +1</span></div>
+          <div class="bg-purple-50 border border-purple-300 rounded px-2 py-1.5 text-xs flex items-center justify-between"><span><span class="mono text-purple-700 font-bold">#3</span> EV-2020-CSRC-0588</span><span class="rank-change rank-down">↓ -1</span></div>
+          <div class="bg-purple-50 border border-purple-300 rounded px-2 py-1.5 text-xs flex items-center justify-between"><span><span class="mono text-purple-700 font-bold">#4</span> EV-2021-CSRC-0077</span><span class="rank-change rank-same">= 0</span></div>
+          <div class="bg-purple-50 border border-purple-300 rounded px-2 py-1.5 text-xs flex items-center justify-between"><span><span class="mono text-purple-700 font-bold">#5</span> EV-2018-CSRC-0933</span><span class="rank-change rank-up">↑ +3</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="flex items-center gap-6 text-xs text-slate-600 bg-slate-50 rounded p-3 border border-slate-200">
+      <div><b>硬过滤</b>：year=2020 + violation=财务造假 + org LIKE "康美%" &nbsp; → &nbsp; 候选池 29,314 → 1,802</div>
+      <div><b>RRF 融合</b>: k=30, α=0.4</div>
+      <div><b>精排提升</b>: nDCG@10 <span class="mono">0.67 → 0.82</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============== L4 证据组装 ============== -->
+<div class="layer-card mb-4">
+  <div class="layer-head">
+    <div class="flex items-center gap-3">
+      <div class="step-dot done">4</div>
+      <span>📚 L4 · 证据组装 (Evidence Pack, ≤1800 tok, per_ev ≤260 tok)</span>
+      <span class="badge" style="background:var(--ok-soft);color:var(--ok)">✓ 1,423 tokens</span>
+    </div>
+    <div class="mono text-xs text-slate-400">18ms</div>
+  </div>
+  <div class="layer-body">
+    <div class="grid grid-cols-2 gap-4">
+      <div class="evidence-item">
+        <div class="evidence-head">
+          <span class="mono text-xs">[EV-2020-CSRC-0412]</span>
+          <span class="tag">证监会行政处罚决定书</span>
+        </div>
+        <div class="evidence-body">
+          康美药业股份有限公司于 2016-2018 年通过虚构业务、伪造银行单据、虚假确认存货等方式累计虚增营业收入 291.28 亿元、虚增利润总额 39.59 亿元。2020-05-15 中国证监会作出〔2020〕31 号行政处罚，对公司<b class="text-blue-700">罚款 60 万元</b>；对时任董事长<b class="text-blue-700">马兴田等 21 名直接责任人</b>分别处以<b class="text-blue-700">警告及罚款 10-90 万元</b>，对 6 人采取终身证券市场禁入。
+        </div>
+      </div>
+      <div class="evidence-item">
+        <div class="evidence-head">
+          <span class="mono text-xs">[EV-2019-CSRC-1198]</span>
+          <span class="tag">事先告知书</span>
+        </div>
+        <div class="evidence-body">
+          2019-05-17 证监会对康美药业财务造假立案调查结果预披露。涉嫌违反《证券法》第 63 条信息披露真实性原则 · 第 193 条责任追究条款。审计机构正中珠江会计师事务所及其注册会计师在康美审计项目中<b>未勤勉尽责</b>，被一并立案。
+        </div>
+      </div>
+      <div class="evidence-item">
+        <div class="evidence-head">
+          <span class="mono text-xs">[EV-2020-CSRC-0588]</span>
+          <span class="tag">关联案·类比参考</span>
+        </div>
+        <div class="evidence-body">
+          獐子岛集团 2017-2018 年存货虚假记载案，处罚模式类比：公司罚款 60 万 + 董监高 30-60 万 + 部分市场禁入。违规严重性量级与康美药业案相近，可作为<b>量罚参考</b>。
+        </div>
+      </div>
+      <div class="evidence-item">
+        <div class="evidence-head">
+          <span class="mono text-xs">[EV-2021-CSRC-0077]</span>
+          <span class="tag">关联方违规</span>
+        </div>
+        <div class="evidence-body">
+          康美药业关联方涉及资金占用 116 亿元的补充调查结论，2021 年发布。可作为本案处罚<b>情节严重程度</b>的辅助证据。
+        </div>
+      </div>
+    </div>
+    <div class="mt-3 text-xs text-slate-500">
+      <b>组装策略</b>：top-4 事件摘要（每条 ≤ 260 tok） + 关键字段结构化（金额 / 责任人 / 法条） + 时间序。<b>PunishmentMeasure 字段</b>：仅进 reference，不进 input，防答案泄漏。
+    </div>
+  </div>
+</div>
+
+<!-- ============== L5 生成 ============== -->
+<div class="layer-card active mb-4">
+  <div class="layer-head">
+    <div class="flex items-center gap-3">
+      <div class="step-dot done">5</div>
+      <span>🧠 L5 · 生成 (Qwen2.5-1.5B + LoRA, sanction_recommendation 模板, 严格约束)</span>
+      <span class="badge" style="background:var(--ok-soft);color:var(--ok)">✓ 217 tokens</span>
+    </div>
+    <div class="mono text-xs text-white/70">1.84s · temperature 0.3 · top_p 0.85</div>
+  </div>
+  <div class="layer-body">
+    <div class="bg-gradient-to-br from-slate-50 to-blue-50 border-l-4 border-blue-700 rounded-r p-4 text-sm leading-relaxed text-slate-800">
+      <p>
+        <b>康美药业 2020 年财务造假案</b>的处罚建议如下（基于证监会〔2020〕31 号行政处罚决定书
+        <span class="token-hl">[EventID=EV-2020-CSRC-0412]</span>）：
+      </p>
+      <ol class="list-decimal list-inside mt-2 space-y-1.5 text-[13.5px]">
+        <li>
+          <b>对公司层面</b>：依据
+          <span class="token-hl-law">[法条：《证券法》(2005) 第 193 条]</span>
+          给予警告 + <b>罚款人民币 60 万元</b>。考虑到虚增营收超 291 亿元、性质极其恶劣，属于顶格处罚。
+        </li>
+        <li>
+          <b>对直接责任人</b>：对时任董事长<b>马兴田</b>等 21 名直接负责的主管人员，分别处以<b>警告及 10-90 万元罚款</b>
+          <span class="token-hl">[EventID=EV-2020-CSRC-0412]</span>；对 6 名核心责任人采取<b>终身证券市场禁入</b>。
+        </li>
+        <li>
+          <b>对中介机构</b>：依据
+          <span class="token-hl-law">[法条：《证券法》(2005) 第 223 条]</span>
+          对正中珠江会计师事务所及涉事注册会计师分别追究未勤勉尽责责任
+          <span class="token-hl">[EventID=EV-2019-CSRC-1198]</span>。
+        </li>
+        <li>
+          <b>量罚参考</b>：獐子岛类案
+          <span class="token-hl">[EventID=EV-2020-CSRC-0588]</span>
+          支持本案的处罚量级合理性。
+        </li>
+      </ol>
+      <p class="mt-2 text-xs text-slate-500 italic">
+        ⚠️ 本建议仅供检索参考，不构成任何法律意见；2020 年案件适用当时有效的《证券法》(2005 修订版)，2021-03 起施行的《证券法》(2019 修订版) 大幅提高了顶格罚款额度。
+      </p>
+    </div>
+    <div class="mt-3 grid grid-cols-4 gap-3 text-xs">
+      <div class="kv"><div class="kv-k">Prompt 档位</div><div class="kv-v"><span class="tag" style="border-color:var(--err);color:var(--err)">严 (G3 配置)</span></div></div>
+      <div class="kv"><div class="kv-k">LoRA adapter</div><div class="kv-v mono">qwen_lora_csrc / v3</div></div>
+      <div class="kv"><div class="kv-k">引证注入</div><div class="kv-v">3 个 EventID + 2 条法条</div></div>
+      <div class="kv"><div class="kv-k">GPU 占用</div><div class="kv-v mono">6.4 / 8 GB</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============== L7 引证校验 ============== -->
+<div class="layer-card mb-4">
+  <div class="layer-head">
+    <div class="flex items-center gap-3">
+      <div class="step-dot done">7</div>
+      <span>✅ L7 · 引证校验 (8 条规则级联)</span>
+      <span class="badge" style="background:var(--ok-soft);color:var(--ok)">✓ PASSED 8/8</span>
+    </div>
+    <div class="mono text-xs text-slate-400">22ms · 0 unsupported span</div>
+  </div>
+  <div class="layer-body grid grid-cols-2 gap-x-6 gap-y-1">
+    <div class="check-row"><div class="check-icon check-pass">✓</div><div><b>C1 EventID 白名单</b> · 3 个 EventID 全部在 top-k 检索结果内</div></div>
+    <div class="check-row"><div class="check-icon check-pass">✓</div><div><b>C2 法条正则</b> · 《证券法》第 193 / 223 条 格式正确</div></div>
+    <div class="check-row"><div class="check-icon check-pass">✓</div><div><b>C3 法条真实性</b> · law_registry.json 命中两条</div></div>
+    <div class="check-row"><div class="check-icon check-pass">✓</div><div><b>C4 金额格式</b> · "60 万元" / "10-90 万元" 符合 regex</div></div>
+    <div class="check-row"><div class="check-icon check-pass">✓</div><div><b>C5 日期合理</b> · 2020 年 ∈ [1994, 2025]</div></div>
+    <div class="check-row"><div class="check-icon check-pass">✓</div><div><b>C6 机构检索一致</b> · 康美药业 在 top-5 retrieval 内</div></div>
+    <div class="check-row"><div class="check-icon check-pass">✓</div><div><b>C7 处罚措施匹配</b> · 罚款+市场禁入 ∈ punishment_taxonomy</div></div>
+    <div class="check-row"><div class="check-icon check-pass">✓</div><div><b>C8 长度合规</b> · 217 tokens ≤ 800</div></div>
+  </div>
+</div>
+
+<!-- ============== 对比：未通过示例（反面教材） ============== -->
+<div class="layer-card mb-4" style="border-color:var(--err);">
+  <div class="layer-head" style="background:var(--err-soft);color:var(--err)">
+    <div class="flex items-center gap-3">
+      <div class="step-dot" style="border-color:var(--err);color:var(--err)">!</div>
+      <span>⚠️ 反面案例：若 L7 C3 失败 (模型编造法条)</span>
+      <span class="badge" style="background:var(--err);color:white">🚫 降级兜底</span>
+    </div>
+    <div class="mono text-xs">演示幻觉缓解</div>
+  </div>
+  <div class="layer-body grid grid-cols-2 gap-4">
+    <div>
+      <div class="text-xs text-slate-500 mb-1">假设 L5 生成出现编造：</div>
+      <div class="bg-red-50 border border-red-200 rounded p-2.5 text-xs leading-relaxed">
+        ...依据《证券法》第 <span class="line-through text-red-600 font-bold">378 条</span> 处以...
+      </div>
+      <div class="mt-2 check-row"><div class="check-icon check-fail">✗</div><div><b>C3 失败</b>：law_registry.json 无第 378 条 → Critical span 标记</div></div>
+    </div>
+    <div>
+      <div class="text-xs text-slate-500 mb-1">自动切换兜底话术：</div>
+      <div class="bg-amber-50 border-l-4 border-amber-500 rounded-r p-2.5 text-xs leading-relaxed text-slate-700">
+        "抱歉，当前检索到的证据不足以给出该问题的明确处罚建议。您可以尝试查询 <span class="tag">康美药业 2020</span> 或提供更具体的违规类型。"
+      </div>
+      <div class="mt-2 text-xs text-slate-500">📌 <b>tpl_insufficient_evidence</b> · 前端 Validator Trace 展开可见所有 Critical span，评委可一眼看清"系统主动承认不知道"。</div>
+    </div>
+  </div>
+</div>
+
+</main>
+
+<!-- ============== Footer ============== -->
+<footer class="bg-slate-900 text-slate-400 text-xs py-6 mt-8">
+  <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
+    <div>
+      © 2026 CSRC-RAG · 深度学习课程赛道 B · 证监会处罚案例智能检索问答系统
+    </div>
+    <div class="mono flex items-center gap-3">
+      <span>14,740 原始 → 4,233 事件 → 29,314 chunks</span>
+      <span class="text-slate-600">|</span>
+      <span>Qwen2.5-1.5B · LoRA fp16 · RTX 2060S</span>
+      <span class="text-slate-600">|</span>
+      <span class="text-emerald-400">offline-ready</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

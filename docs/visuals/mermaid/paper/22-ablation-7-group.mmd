@@ -1,0 +1,28 @@
+%%{init: {"theme":"dark"}}%%
+flowchart LR
+    subgraph ABL[🧪 7 组消融矩阵（论文 Table 3，TBD 跑完 M5 回填）]
+        direction TB
+        A1["① BM25-only<br/>vs Hybrid<br/>Δ Recall@5"]
+        A2["② ±Rerank<br/>bge-v2-m3<br/>Δ nDCG@10"]
+        A3["③ ±改写<br/>共指/同义<br/>Δ Recall@5"]
+        A4["④ ±硬过滤<br/>year/org<br/>Δ Precision@5"]
+        A5["⑤ LoRA 前后<br/>G1 vs G3<br/>Δ BERTScore"]
+        A6["⑥ ±强约束<br/>宽/中/严 Prompt<br/>Δ 幻觉率"]
+        A7["⑦ top_k<br/>3 / 5 / 8<br/>Δ F1 + 延迟"]
+    end
+
+    A1 -. E 检索 .-> OUT1[📄 Fig.2 Recall 条形]
+    A2 -. F 重排 .-> OUT1
+    A3 -. C 改写 .-> OUT1
+    A4 -. E 过滤 .-> OUT1
+    A5 -. H LoRA .-> OUT2[📄 Table 2 生成对照]
+    A6 -. G 约束 .-> OUT3[📄 Fig.3 幻觉率对比]
+    A7 -. F 超参 .-> OUT4[📄 Fig.4 延迟-精度曲线]
+
+    classDef ab fill:#1e3a8a,stroke:#60a5fa,color:#fff
+    classDef out fill:#064e3b,stroke:#34d399,color:#fff
+    class A1,A2,A3,A4,A5,A6,A7 ab
+    class OUT1,OUT2,OUT3,OUT4 out
+```
+
+> **说明**：7 组消融实验全景。每组消融对齐 09 评估策略里的一条"单变量对照"，回答论文评审最常问的 7 个 why：①为什么用 Hybrid 不用纯 BM25？②Rerank 值不值得加？③Query 改写真的有用吗？④硬过滤会不会过度剪枝？⑤LoRA 微调相对基座有多大 lift？⑥强约束 prompt 能把幻觉压多少？⑦top_k=5 是最优吗？7 组消融产出 4 张图表分布到论文 Fig.2/3/4 + Table 2。所有数值为 TBD 占位，M5 里程碑后回填。

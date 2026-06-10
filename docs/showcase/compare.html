@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>G0 vs G3 对比 · CSRC-RAG</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <span class="brand">CSRC-RAG</span>
+  <a href="./index.html">首页</a>
+  <a href="./compare.html" class="active">G0 vs G3 对比</a>
+  <a href="../paper/csrc_rag_v1.docx">论文 (.docx)</a>
+  <a href="../reports/m4_4_generation_eval.md">评测报告</a>
+  <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
+</nav>
+
+<div class="container">
+
+<section style="padding:32px 0 8px">
+  <h1 style="margin:0 0 8px;font-size:30px">G0 vs G3 · 微调前后并排对比</h1>
+  <p class="muted" style="margin:0">
+    同样的 query、同样的证据、同样的 prompt。 左 = 裸 Qwen2.5-0.5B-Instruct(G0,无 RAG),
+    右 = 本项目 LoRA 微调版 (G3, +RAG + 强 prompt + LoRA)。 共 30 条 gold 样本按"改善幅度"降序排。
+  </p>
+</section>
+
+<div class="card">
+  <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:center;margin-bottom:12px">
+    <label for="sample-select" style="color:var(--muted);font-size:13px">样本:</label>
+    <select id="sample-select" style="min-width:380px"></select>
+    <span id="nav-info" class="muted"></span>
+    <div style="flex:1"></div>
+    <button class="preset-btn" id="prev-btn">◀ 上一条</button>
+    <button class="preset-btn" id="next-btn">下一条 ▶</button>
+  </div>
+
+  <div id="filter-chips" class="presets" style="margin-bottom:4px">
+    <button class="preset-btn active" data-filter="all">全部 30</button>
+    <button class="preset-btn" data-filter="g3-hit">G3 命中 EID</button>
+    <button class="preset-btn" data-filter="g3-format">G3 合格式/G0 不合</button>
+    <button class="preset-btn" data-filter="g0-halluc">G0 含幻觉数字</button>
+  </div>
+
+  <div class="query-box">
+    <div class="label">Query</div>
+    <div class="q" id="query-text">—</div>
+    <div id="gold-tags" class="meta-row" style="margin-top:10px;font-size:12px;color:var(--muted)"></div>
+  </div>
+
+  <div class="split">
+    <div class="side base">
+      <h4>⬅ G0 — 裸 Qwen2.5-0.5B-Instruct (无 RAG, 弱 prompt)</h4>
+      <div class="meta-row" id="g0-meta"></div>
+      <div class="answer" id="g0-answer">—</div>
+    </div>
+
+    <div class="side lora">
+      <h4>G3 — + LoRA + RAG + 强 prompt ➡</h4>
+      <div class="meta-row" id="g3-meta"></div>
+      <div class="answer" id="g3-answer">—</div>
+    </div>
+  </div>
+
+  <div class="split" style="margin-top:14px">
+    <div class="side">
+      <h4>G1 — +RAG + 弱 prompt</h4>
+      <div class="meta-row" id="g1-meta"></div>
+      <div class="answer" id="g1-answer" style="max-height:200px">—</div>
+    </div>
+    <div class="side">
+      <h4>G2 — +RAG + 强 prompt</h4>
+      <div class="meta-row" id="g2-meta"></div>
+      <div class="answer" id="g2-answer" style="max-height:200px">—</div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <h2>样本级指标摘要（当前 query）</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>条件</th>
+        <th>引用的 EventID</th>
+        <th>格式合规</th>
+        <th>命中 gold</th>
+        <th>幻觉数字</th>
+        <th class="num">答案字数</th>
+        <th class="num">延迟 (s)</th>
+      </tr>
+    </thead>
+    <tbody id="metric-tbody"></tbody>
+  </table>
+</div>
+
+<div class="card">
+  <h2>📘 怎么读这个对比?</h2>
+  <ul>
+    <li><strong>G0(左)</strong> 是基线: 裸 Qwen-0.5B,没有证据,prompt 很弱。典型失效模式 = 拒答 / 自由发挥 / 编造人名公司名。</li>
+    <li><strong>G3(右)</strong> 是本项目产出: 同一基座 + LoRA 微调 + 相同检索证据 + 强约束 prompt。学会了引用 <span class="inline-code">[EventID=xxx]</span> + 拒绝证据外的推断。</li>
+    <li><strong>G1/G2</strong> 是消融对照: 说明光加 RAG(G1)或光加强 prompt(G2)都无法让小模型 zero-shot 遵循格式指令 —
+      必须要 LoRA 微调才能达到 G3 的结构化输出。</li>
+    <li>红底黄字高亮的是<strong>证据里不存在但答案里出现的数字</strong>(幻觉); 绿色 <code>[EventID=...]</code> 是格式合规的引用。</li>
+  </ul>
+</div>
+
+<div class="footer">
+  静态页面由 <span class="inline-code">scripts/build_showcase_data.py</span> 从 <span class="inline-code">docs/reports/m4_4_generation_eval.json</span> 生成, 可独立于后端运行。
+</div>
+
+</div>
+
+<script>
+let SAMPLES = [];
+let FILTERED = [];
+let CURRENT_IDX = 0;
+
+function escapeHtml(s) {
+  return String(s).replace(/[&<>"']/g, c => ({
+    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
+  })[c]);
+}
+
+function renderAnswer(answer, cited, halluc) {
+  if (!answer) return '—';
+  let html = escapeHtml(answer);
+  // Highlight EventID
+  html = html.replace(/\[EventID=([0-9]+)\]/g, (m, id) => {
+    return `<span class="hl-eid">[EventID=${id}]</span>`;
+  });
+  // Highlight hallucinated numbers (best effort — mark if substring appears)
+  (halluc || []).forEach(num => {
+    try {
+      const re = new RegExp(escapeRegex(num), 'g');
+      html = html.replace(re, `<span class="hl-halluc">${num}</span>`);
+    } catch (e) {}
+  });
+  return html;
+}
+
+function escapeRegex(s) {
+  return String(s).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+function metaChips(cond, row) {
+  const chips = [];
+  if (row.format_ok) chips.push('<span class="tag ok">格式合规</span>');
+  else chips.push('<span class="tag bad">格式不合</span>');
+  if (row.event_id_hit) chips.push('<span class="tag ok">命中 gold EID</span>');
+  if ((row.hallucinated_numbers || []).length > 0) {
+    chips.push(`<span class="tag bad">幻觉 ${row.hallucinated_numbers.length} 个数字</span>`);
+  }
+  chips.push(`<span class="tag">字数 ${row.answer_len}</span>`);
+  chips.push(`<span class="tag">延迟 ${row.latency_s.toFixed(1)}s</span>`);
+  if ((row.cited_event_ids || []).length > 0) {
+    chips.push(`<span class="tag">引用 ${row.cited_event_ids.length} EID</span>`);
+  }
+  return chips.join(' ');
+}
+
+function renderSample(s) {
+  document.getElementById('query-text').textContent = s.query;
+
+  // Gold tags
+  const gi = s.gold_info || {};
+  const goldTags = [];
+  if (gi.intent) goldTags.push(`<span class="tag">intent: ${gi.intent}</span>`);
+  if (gi.difficulty) goldTags.push(`<span class="tag">难度: ${gi.difficulty}</span>`);
+  if ((gi.relevant_event_ids || []).length > 0) {
+    goldTags.push(`<span class="tag">gold EID: ${gi.relevant_event_ids.join(', ')}</span>`);
+  }
+  if ((gi.relevant_laws || []).length > 0) {
+    goldTags.push(`<span class="tag">gold 法条: ${gi.relevant_laws.slice(0, 2).join(' / ')}</span>`);
+  }
+  document.getElementById('gold-tags').innerHTML = goldTags.join(' ');
+
+  // Render each condition
+  const tbody = [];
+  ['G0', 'G1', 'G2', 'G3'].forEach(c => {
+    const r = s.conditions[c] || {};
+    document.getElementById(`${c.toLowerCase()}-answer`).innerHTML = renderAnswer(
+      r.answer, r.cited_event_ids, r.hallucinated_numbers,
+    );
+    document.getElementById(`${c.toLowerCase()}-meta`).innerHTML = metaChips(c, r);
+
+    tbody.push(`<tr${c === 'G3' ? ' class="highlight"' : ''}>
+      <td><strong>${c}</strong></td>
+      <td>${(r.cited_event_ids || []).map(id => `<span class="tag">${id}</span>`).join(' ') || '<span class="muted">—</span>'}</td>
+      <td>${r.format_ok ? '<span class="tag ok">✔</span>' : '<span class="tag bad">✘</span>'}</td>
+      <td>${r.event_id_hit ? '<span class="tag ok">✔ 命中</span>' : '<span class="tag">未命中</span>'}</td>
+      <td>${(r.hallucinated_numbers || []).length > 0
+        ? `<span class="tag bad">${r.hallucinated_numbers.join(', ')}</span>`
+        : '<span class="tag ok">无</span>'}</td>
+      <td class="num">${r.answer_len || 0}</td>
+      <td class="num">${(r.latency_s || 0).toFixed(2)}</td>
+    </tr>`);
+  });
+  document.getElementById('metric-tbody').innerHTML = tbody.join('');
+
+  document.getElementById('nav-info').textContent =
+    `第 ${CURRENT_IDX + 1} / ${FILTERED.length} 条  ·  gold_id: ${s.gold_id}`;
+}
+
+function rebuildSelect() {
+  const sel = document.getElementById('sample-select');
+  sel.innerHTML = FILTERED.map((s, i) => {
+    const g3 = s.conditions.G3 || {};
+    const badges = [];
+    if (g3.format_ok) badges.push('✓fmt');
+    if (g3.event_id_hit) badges.push('✓EID');
+    const badge = badges.length ? ` [${badges.join(' ')}]` : '';
+    const qShort = s.query.length > 46 ? s.query.slice(0, 46) + '…' : s.query;
+    return `<option value="${i}">${i + 1}. ${escapeHtml(qShort)}${badge}</option>`;
+  }).join('');
+  sel.value = String(CURRENT_IDX);
+}
+
+function applyFilter(name) {
+  if (name === 'all') FILTERED = SAMPLES.slice();
+  else if (name === 'g3-hit') FILTERED = SAMPLES.filter(s => s.conditions.G3?.event_id_hit);
+  else if (name === 'g3-format') FILTERED = SAMPLES.filter(s =>
+    s.conditions.G3?.format_ok && !s.conditions.G0?.format_ok);
+  else if (name === 'g0-halluc') FILTERED = SAMPLES.filter(s =>
+    (s.conditions.G0?.hallucinated_numbers || []).length > 0);
+  CURRENT_IDX = 0;
+  rebuildSelect();
+  if (FILTERED.length) renderSample(FILTERED[0]);
+}
+
+function go(delta) {
+  if (!FILTERED.length) return;
+  CURRENT_IDX = (CURRENT_IDX + delta + FILTERED.length) % FILTERED.length;
+  document.getElementById('sample-select').value = String(CURRENT_IDX);
+  renderSample(FILTERED[CURRENT_IDX]);
+}
+
+async function init() {
+  const data = await fetch('./data/compare.json').then(r => r.json());
+  SAMPLES = data.samples || [];
+  FILTERED = SAMPLES.slice();
+  rebuildSelect();
+  if (SAMPLES.length) renderSample(SAMPLES[0]);
+
+  document.getElementById('sample-select').addEventListener('change', e => {
+    CURRENT_IDX = parseInt(e.target.value, 10) || 0;
+    renderSample(FILTERED[CURRENT_IDX]);
+  });
+  document.getElementById('prev-btn').addEventListener('click', () => go(-1));
+  document.getElementById('next-btn').addEventListener('click', () => go(1));
+
+  document.querySelectorAll('#filter-chips .preset-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('#filter-chips .preset-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      applyFilter(btn.dataset.filter);
+    });
+  });
+
+  document.addEventListener('keydown', e => {
+    if (e.target.tagName === 'SELECT' || e.target.tagName === 'INPUT') return;
+    if (e.key === 'ArrowLeft') go(-1);
+    else if (e.key === 'ArrowRight') go(1);
+  });
+}
+
+init();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,154 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "csrc-rag/planner/intents.schema.json",
+  "title": "CSRC-RAG Intent Catalog",
+  "description": "7-class intent taxonomy consumed by the Planner (L1). The Planner itself is a TF-IDF/FastText classifier, so the 'trigger_keywords' list is NOT the primary decision signal — it is used for (a) TopicGuard pre-filter, (b) cold-start rules when the classifier is uncertain, and (c) data augmentation seeds in scripts/train_intent_classifier_v2.py.",
+  "version": "2.0.0",
+  "confidence_fallback": {
+    "threshold": 0.55,
+    "fallback_intent": "case_retrieval",
+    "comment": "If Planner.confidence < threshold we default to the safest query path (case retrieval) rather than rejecting the user."
+  },
+  "downstream_actions": [
+    "return_fallback:greeting",
+    "return_fallback:chitchat",
+    "return_fallback:out_of_scope",
+    "return_fallback:finance_adjacent",
+    "proceed_pipeline:case_retrieval",
+    "proceed_pipeline:law_grounding",
+    "proceed_pipeline:sanction_recommendation",
+    "proceed_pipeline:trend_analysis"
+  ],
+  "intents": {
+    "greeting": {
+      "description": "问候 / 寒暄 / 自我介绍请求，无信息检索需求。",
+      "trigger_keywords": [
+        "你好", "您好", "hi", "hello", "在吗", "早上好", "中午好", "晚上好",
+        "能帮我吗", "请介绍一下", "你是谁"
+      ],
+      "confidence_threshold": 0.70,
+      "downstream_action": "return_fallback:greeting",
+      "bypass_retrieval": true,
+      "bypass_rewrite": true,
+      "response_template": "tpl_greeting",
+      "retrieval_mode": "none",
+      "top_k": 0,
+      "need_generation": false,
+      "examples_count_in_train": 500
+    },
+    "chitchat": {
+      "description": "无业务信息需求的闲聊，包括情绪/天气/笑话等。",
+      "trigger_keywords": [
+        "讲个笑话", "你会什么", "今天累了", "聊天", "陪我聊",
+        "今天天气", "心情不好", "无聊"
+      ],
+      "confidence_threshold": 0.70,
+      "downstream_action": "return_fallback:chitchat",
+      "bypass_retrieval": true,
+      "bypass_rewrite": true,
+      "response_template": "tpl_chitchat",
+      "retrieval_mode": "none",
+      "top_k": 0,
+      "need_generation": false,
+      "examples_count_in_train": 500
+    },
+    "out_of_scope": {
+      "description": "与证监会处罚案例无关的请求（编程 / 医疗 / 娱乐 / 预测股价 等）。",
+      "trigger_keywords": [
+        "写代码", "冒泡排序", "推荐电影", "预测股价", "明天涨跌", "保险",
+        "银行贷款", "外汇", "央行", "银保监", "写一首诗"
+      ],
+      "confidence_threshold": 0.75,
+      "downstream_action": "return_fallback:out_of_scope",
+      "bypass_retrieval": true,
+      "bypass_rewrite": true,
+      "response_template": "tpl_out_of_scope",
+      "retrieval_mode": "none",
+      "top_k": 0,
+      "need_generation": false,
+      "examples_count_in_train": 500,
+      "sub_branches": {
+        "finance_adjacent": {
+          "trigger_keywords": ["保险", "银行", "信贷", "外汇", "央行", "银保监"],
+          "response_template": "tpl_out_of_scope_finance"
+        }
+      }
+    },
+    "case_retrieval": {
+      "description": "案例检索：根据违规类型 / 年份 / 公司 查找类似处罚案例。",
+      "trigger_keywords": [
+        "类似", "相近", "近似", "案例", "参考", "相关案件", "历史处罚",
+        "有没有", "有哪些", "找一下"
+      ],
+      "confidence_threshold": 0.60,
+      "downstream_action": "proceed_pipeline:case_retrieval",
+      "bypass_retrieval": false,
+      "bypass_rewrite": false,
+      "response_template": "intent_case_retrieval",
+      "retrieval_mode": "hybrid",
+      "retrieval_unit": "event",
+      "top_k": 8,
+      "need_generation": true,
+      "generation_shot_style": "zero_shot",
+      "examples_count_in_train": 500
+    },
+    "law_grounding": {
+      "description": "法规依据查询：找到违规行为对应的法条、以及代表案例。",
+      "trigger_keywords": [
+        "法条", "法规", "条款", "依据", "违反", "《证券法》", "刑法",
+        "哪一条", "第几条", "适用哪条"
+      ],
+      "confidence_threshold": 0.65,
+      "downstream_action": "proceed_pipeline:law_grounding",
+      "bypass_retrieval": false,
+      "bypass_rewrite": false,
+      "response_template": "intent_law_grounding",
+      "retrieval_mode": "hybrid",
+      "retrieval_unit": "event",
+      "retrieval_filters": {"must_have_law_field": true},
+      "top_k": 8,
+      "need_generation": true,
+      "generation_shot_style": "four_shot",
+      "examples_count_in_train": 500
+    },
+    "sanction_recommendation": {
+      "description": "处罚方式推荐：基于类案统计给出可能的处罚结果 + 强制免责声明。",
+      "trigger_keywords": [
+        "怎么罚", "罚多少", "建议处罚", "推荐处罚", "判断", "预测",
+        "警告", "罚款", "市场禁入", "没收违法所得"
+      ],
+      "confidence_threshold": 0.65,
+      "downstream_action": "proceed_pipeline:sanction_recommendation",
+      "bypass_retrieval": false,
+      "bypass_rewrite": false,
+      "response_template": "intent_sanction_reco",
+      "retrieval_mode": "hybrid",
+      "retrieval_unit": "event",
+      "top_k": 10,
+      "need_generation": true,
+      "generation_shot_style": "four_shot",
+      "strict_evidence": true,
+      "require_disclaimer": true,
+      "examples_count_in_train": 500
+    },
+    "trend_analysis": {
+      "description": "趋势分析：年度 / 机构 / 违规类型 / 处罚类型的聚合统计。",
+      "trigger_keywords": [
+        "趋势", "统计", "分布", "近几年", "近五年", "年度",
+        "各年度", "变化", "数量", "占比"
+      ],
+      "confidence_threshold": 0.65,
+      "downstream_action": "proceed_pipeline:trend_analysis",
+      "bypass_retrieval": false,
+      "bypass_rewrite": false,
+      "response_template": "intent_trend_analysis",
+      "retrieval_mode": "structured_aggregation",
+      "retrieval_unit": "aggregation",
+      "top_k": 20,
+      "need_generation": true,
+      "generation_shot_style": "zero_shot",
+      "aggregation_spec": "trend_analyzer/aggregation_specs.yaml",
+      "examples_count_in_train": 500
+    }
+  }
+}

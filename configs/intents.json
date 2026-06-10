@@ -1,0 +1,31 @@
+{
+  "case_retrieval": {
+    "description": "召回相似处罚案例",
+    "retrieval_unit": "event",
+    "top_k": 8,
+    "response_sections": ["query_summary", "similar_cases", "evidence_highlights"]
+  },
+  "law_grounding": {
+    "description": "围绕法规依据进行回答",
+    "retrieval_unit": "event",
+    "top_k": 8,
+    "response_sections": ["query_summary", "relevant_laws", "supporting_cases"]
+  },
+  "sanction_recommendation": {
+    "description": "推荐处罚方式并给出依据",
+    "retrieval_unit": "event",
+    "top_k": 10,
+    "response_sections": [
+      "query_summary",
+      "recommended_sanctions",
+      "supporting_cases",
+      "explanation"
+    ]
+  },
+  "trend_analysis": {
+    "description": "统计趋势与分布分析",
+    "retrieval_unit": "event",
+    "top_k": 20,
+    "response_sections": ["query_summary", "trend_summary", "supporting_statistics"]
+  }
+}

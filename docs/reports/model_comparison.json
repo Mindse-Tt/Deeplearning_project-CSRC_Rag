@@ -1,0 +1,15 @@
+[
+  {
+    "exp_id": "M2_T3",
+    "desc": "Bloom-560M + Full Fine-tune",
+    "model": "bigscience/bloom-560m",
+    "method": "full",
+    "train_loss": 0.8557,
+    "eval_loss": 1.2242,
+    "train_time_s": 68842.5,
+    "trainable_params": 559214592,
+    "total_params": 559214592,
+    "trainable_pct": 100.0,
+    "status": "success"
+  }
+]

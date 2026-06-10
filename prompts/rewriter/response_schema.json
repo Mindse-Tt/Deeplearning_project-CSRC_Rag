@@ -1,0 +1,71 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "csrc-rag/rewriter/response_schema.json",
+  "title": "RewriteOutput",
+  "description": "Strict JSON contract returned by the LLM fallback branch of the Query Rewriter (L2). Rule-engine outputs follow the same shape plus richer `trace` metadata.",
+  "type": "object",
+  "required": [
+    "canonical_query",
+    "coref_resolved"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "canonical_query": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 120,
+      "description": "Rewritten, de-pronoun'd query ready for retrieval. Max 60 chars recommended, hard cap 120."
+    },
+    "coref_resolved": {
+      "type": "boolean",
+      "description": "True if at least one pronoun was successfully resolved against history/session slots."
+    },
+    "synonyms_expanded": {
+      "type": "array",
+      "items": {"type": "string"},
+      "default": [],
+      "description": "OR-expanded domain synonyms (e.g. 内幕交易 → 利用未公开信息交易)."
+    },
+    "resolved_entities": {
+      "type": "object",
+      "description": "Entities lifted out of history/slots into the rewritten query.",
+      "additionalProperties": false,
+      "properties": {
+        "company": {"type": ["string", "null"]},
+        "stock_code": {"type": ["string", "null"], "pattern": "^[0-9]{6}$"},
+        "year": {"type": ["integer", "null"], "minimum": 1990, "maximum": 2100},
+        "violation_type": {"type": ["string", "null"]},
+        "agency": {"type": ["string", "null"]},
+        "law_article": {"type": ["string", "null"]},
+        "last_event_id": {"type": ["string", "null"]}
+      }
+    },
+    "filters": {
+      "type": "object",
+      "description": "Mongo-like hard-filter predicate consumed by L3a (hybrid engine pre-filter).",
+      "additionalProperties": true
+    },
+    "rule_fired": {
+      "type": ["string", "null"],
+      "enum": [
+        null,
+        "pron_it_to_last_company",
+        "pron_case_to_last_eventid",
+        "demonstrative_year",
+        "ellipsis_sanction",
+        "ellipsis_company_carry",
+        "llm_fallback"
+      ]
+    },
+    "fallback_used": {
+      "type": "string",
+      "enum": ["rule", "llm", "none"],
+      "default": "none"
+    },
+    "trace": {
+      "type": "object",
+      "description": "Debug / observability payload. Safe to drop in production.",
+      "additionalProperties": true
+    }
+  }
+}

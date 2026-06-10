@@ -1,0 +1,77 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "csrc-rag/responder/response_schema.json",
+  "title": "GenerationResult",
+  "description": "Contract returned by L5 Responder. Produced by responder.py and validated by validators.py (L7). Every intent's .j2 template must yield text that after L7 processing satisfies this schema.",
+  "type": "object",
+  "required": [
+    "text",
+    "cited_event_ids",
+    "cited_laws",
+    "backend",
+    "confidence",
+    "validation"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "text": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 1000,
+      "description": "Final user-facing answer, already passed through L7 (length≤800 after truncation + possible disclaimer appended)."
+    },
+    "cited_event_ids": {
+      "type": "array",
+      "items": {"type": "string"},
+      "uniqueItems": true,
+      "description": "Deduped list of `[EventID=xxx]` citations present in `text`."
+    },
+    "cited_laws": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^\\[法条：《[^》]{1,40}》第[0-9一二三四五六七八九十百零两]+条(之[0-9一二三四五六七八九十]+)?\\]$"
+      },
+      "uniqueItems": true,
+      "description": "Deduped list of canonical `[法条：《xx》第xx条]` citations present in `text`."
+    },
+    "backend": {
+      "type": "string",
+      "enum": ["lora_qwen", "local_hf", "template", "template_fallback"]
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 1.0
+    },
+    "validation": {
+      "type": "object",
+      "required": ["passed", "severity"],
+      "additionalProperties": false,
+      "properties": {
+        "passed": {"type": "boolean"},
+        "severity": {
+          "type": "string",
+          "enum": ["ok", "low", "medium", "high", "critical"]
+        },
+        "missing_event_ids": {
+          "type": "array", "items": {"type": "string"}, "default": []
+        },
+        "invalid_laws": {
+          "type": "array", "items": {"type": "string"}, "default": []
+        },
+        "unknown_law_names": {
+          "type": "array", "items": {"type": "string"}, "default": []
+        },
+        "unsupported_claims": {
+          "type": "array", "items": {"type": "string"}, "default": []
+        },
+        "forbidden_hits": {
+          "type": "array", "items": {"type": "string"}, "default": []
+        },
+        "truncated": {"type": "boolean", "default": false},
+        "disclaimer_added": {"type": "boolean", "default": false}
+      }
+    }
+  }
+}

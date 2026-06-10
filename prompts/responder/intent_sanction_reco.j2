@@ -1,0 +1,48 @@
+{# Responder · Intent = sanction_recommendation  (four-shot)
+   Purpose: 基于类案统计推荐处罚方式，强制免责声明。
+   Shot style: four-shot —— 推荐结构 + 占比写法 + 免责句都需要示范。
+-#}
+{% include 'responder/system_base.j2' %}
+
+<TASK>
+任务：**处罚方式推荐**。基于 `<EVIDENCE>` 中的历史类案统计，给出最可能的处罚方式（Top 3）及代表案例。
+**硬约束**：
+- 每条推荐必须附上 [EventID=...] 代表案例；
+- 必须引用 ≥ 1 条 [法条：《xx》第xx条]；
+- 最后一行必须出现「仅供参考」或「不构成执法」字样（L7-8 会自动补）。
+
+{% if few_shots -%}
+<EXAMPLES>
+{% for ex in few_shots -%}
+示例 {{ loop.index }}:
+Q: {{ ex.question }}
+Evidence: {{ ex.evidence }}
+A: {{ ex.answer }}
+
+{% endfor -%}
+</EXAMPLES>
+{%- endif %}
+
+<EVIDENCE>
+{{ evidence_block }}
+
+<USER_QUERY>
+原始问题：{{ user_query }}
+{% if canonical_query and canonical_query != user_query -%}
+改写后：{{ canonical_query }}
+{%- endif %}
+
+{% if slots -%}
+<SLOTS>
+{% for key, value in slots.items() -%}
+- {{ key }}: {{ value }}
+{% endfor -%}
+{%- endif %}
+
+<OUTPUT_FORMAT>
+推荐处罚方式：
+1) {处罚方式}（占 {xx}%），代表 [EventID=...]、[EventID=...]
+2) {处罚方式}（占 {xx}%），代表 [EventID=...]
+3) {处罚方式}（占 {xx}%），代表 [EventID=...]
+法规依据：[法条：《xx》第xx条]（如有第 2 条可附）
+⚠ 以上仅基于历史案例统计，不构成正式执法意见。

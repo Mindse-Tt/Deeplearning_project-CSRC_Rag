@@ -1,0 +1,53 @@
+{
+  "results": [
+    {
+      "idx": 1,
+      "expected_intent": "greeting",
+      "query": "你好",
+      "intent": "greeting",
+      "intent_confidence": 0.9024,
+      "intent_method": "tfidf_logistic_regression_v2",
+      "response_backend": "planner_v2_fallback",
+      "events_count": 0,
+      "answer_head": "你好！我是证监会违规处罚案例智能问答助手。 | 我可以帮你完成四件事： | 1. 案例检索 — 类似「2023 年内幕交易被罚的案例有哪些？」 | 2. 法规依据 — 类似「信息披露违规通常违反哪条法规？」 | 3. 处罚推荐 — 类似「上市公司虚假陈述一般怎么罚？」 | 4. 趋势分析 — 类似「近五年操纵市场案件的处罚趋势？」",
+      "pass": true
+    },
+    {
+      "idx": 2,
+      "expected_intent": "out_of_scope",
+      "query": "今天天气怎么样",
+      "intent": "out_of_scope",
+      "intent_confidence": 0.9642,
+      "intent_method": "tfidf_logistic_regression_v2",
+      "response_backend": "planner_v2_fallback",
+      "events_count": 0,
+      "answer_head": "抱歉，该问题不在本系统覆盖范围内。 | 数据来源：仅限中国证监会公开处罚案例（证券 / 基金 / 期货 / 上市公司）。 | 不涵盖：股价预测、个股推荐、编程问题、娱乐内容、医疗 / 法律咨询。",
+      "pass": true
+    },
+    {
+      "idx": 3,
+      "expected_intent": "case_retrieval",
+      "query": "帮我找内幕交易处罚案例",
+      "intent": "case_retrieval",
+      "intent_confidence": 0.8751,
+      "intent_method": "tfidf_logistic_regression_v2",
+      "response_backend": "template",
+      "events_count": 8,
+      "answer_head": "【案例检索】针对「帮我找内幕交易处罚案例」，共召回 8 条相关案例，以下为最相关案例： |  | ▌ 案例 1  关于公司相关人员收到《行政处罚决定书》的公告 |   时间：2022-06-10　发布机构：上市公司 |   处罚方式：罚款 |   摘要：涉嫌内幕交易“太钢不锈”。… |  | ▌ 案例 2  中国证监会行政处罚决定书（刘刚） |   ",
+      "pass": true
+    },
+    {
+      "idx": 4,
+      "expected_intent": "law_grounding",
+      "query": "这种行为违反哪些法条",
+      "intent": "law_grounding",
+      "intent_confidence": 0.7059,
+      "intent_method": "tfidf_logistic_regression_v2",
+      "response_backend": "template",
+      "events_count": 8,
+      "answer_head": "【法规依据】针对「这种行为违反哪些法条」，以下法规在相似案例中被高频引用： |  | 1. 违反了《中国注册会计师审计准则第1211号——通过了解被审计单位及其环境识别和评估重大错报风险》第十五条“注册会计师应当了解与审计相关的内部控制”以及第二十三条“注册会计师应当了解与审计相关的控制活动”的要求,违反了《中国注册会计师审计",
+      "pass": true
+    }
+  ],
+  "ts": 1776851633.6594894
+}

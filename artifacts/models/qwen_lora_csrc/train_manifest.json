@@ -1,0 +1,7 @@
+{
+  "base_model": "Qwen/Qwen2.5-0.5B-Instruct",
+  "config_path": "configs/qlora_config.json",
+  "train_n": 5360,
+  "val_n": 670,
+  "seed": 42
+}

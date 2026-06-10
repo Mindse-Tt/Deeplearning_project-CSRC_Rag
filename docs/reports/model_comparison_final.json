@@ -1,0 +1,17 @@
+[
+  {"exp_id": "M1_T1", "desc": "Qwen-0.5B + QLoRA", "model": "Qwen/Qwen2.5-0.5B-Instruct", "method": "qlora", "train_loss": 1.181, "eval_loss": 0.923, "train_time_min": 26, "trainable_pct": 0.44, "status": "success"},
+  {"exp_id": "M1_T2", "desc": "Qwen-0.5B + LoRA", "model": "Qwen/Qwen2.5-0.5B-Instruct", "method": "lora", "train_loss": 1.124, "eval_loss": 0.826, "train_time_min": 42, "trainable_pct": 0.44, "status": "success"},
+  {"exp_id": "M1_T3", "desc": "Qwen-0.5B + Full FT", "model": "Qwen/Qwen2.5-0.5B-Instruct", "method": "full", "train_loss": 0.547, "eval_loss": 0.904, "train_time_min": 1800, "trainable_pct": 100.0, "status": "success"},
+  {"exp_id": "M2_T1", "desc": "Bloom-560M + QLoRA", "model": "bigscience/bloom-560m", "method": "qlora", "train_loss": 1.856, "eval_loss": 1.523, "train_time_min": 17, "trainable_pct": 0.39, "status": "success"},
+  {"exp_id": "M2_T2", "desc": "Bloom-560M + LoRA", "model": "bigscience/bloom-560m", "method": "lora", "train_loss": 2.012, "eval_loss": 1.756, "train_time_min": 21, "trainable_pct": 0.39, "status": "success"},
+  {"exp_id": "M2_T3", "desc": "Bloom-560M + Full FT", "model": "bigscience/bloom-560m", "method": "full", "train_loss": 0.856, "eval_loss": 1.224, "train_time_min": 1147, "trainable_pct": 100.0, "status": "success"},
+  {
+    "ablation_g0_g3": {
+      "note": "Raw output (no post-processing), best model: Qwen + QLoRA (5360 samples)",
+      "G0": {"eid_hit": 0.0, "format_compliance": 0.0, "hallucination_rate": 0.333, "latency_s": 11.0},
+      "G1": {"eid_hit": 0.0, "format_compliance": 0.0, "hallucination_rate": 0.033, "latency_s": 15.2},
+      "G2": {"eid_hit": 0.0, "format_compliance": 0.0, "hallucination_rate": 0.067, "latency_s": 11.7},
+      "G3": {"eid_hit": 0.200, "format_compliance": 0.767, "hallucination_rate": 0.067, "latency_s": 20.3}
+    }
+  }
+]

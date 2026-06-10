@@ -1,0 +1,44 @@
+{
+  "source_file": "证监会处罚信息表.xlsx",
+  "event_level": {
+    "primary_fields": ["Activity"],
+    "support_fields": [
+      "Law",
+      "FileName",
+      "Promulgator",
+      "Supervisor",
+      "DeclareDate",
+      "SupervisionDate",
+      "ViolationType"
+    ],
+    "party_context_fields": ["Party", "Position", "Relationship"],
+    "answer_reference_fields": [
+      "PunishmentType",
+      "PunishmentMeasure",
+      "SumPenalty"
+    ],
+    "retrieval_text_excludes": [
+      "PunishmentType",
+      "PunishmentMeasure",
+      "SumPenalty"
+    ]
+  },
+  "party_level": {
+    "input_fields": [
+      "Activity",
+      "Law",
+      "Party",
+      "Position",
+      "Relationship",
+      "Promulgator",
+      "DeclareDate",
+      "IsListedCom"
+    ],
+    "target_fields": ["PunishmentType"],
+    "blocked_input_fields": [
+      "PunishmentType",
+      "PunishmentMeasure",
+      "SumPenalty"
+    ]
+  }
+}

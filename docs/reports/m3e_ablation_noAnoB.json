@@ -1,0 +1,34 @@
+{
+  "config": {
+    "limit": 200,
+    "dataset": "gold (gold_100.jsonl)",
+    "skip": [
+      "dense",
+      "rerank"
+    ],
+    "tested_total": 98,
+    "eval_path": "data\\eval\\gold_100.jsonl"
+  },
+  "results": [
+    {
+      "label": "bm25",
+      "tested_queries": 98,
+      "Recall@5": 0.381,
+      "Hit@5": 0.4082,
+      "MRR": 0.379,
+      "nDCG@10": 0.3681,
+      "latency_total_s": 12.08,
+      "latency_per_query_ms": 123.3
+    },
+    {
+      "label": "hybrid_rrf",
+      "tested_queries": 98,
+      "Recall@5": 0.3622,
+      "Hit@5": 0.4286,
+      "MRR": 0.3451,
+      "nDCG@10": 0.3411,
+      "latency_total_s": 66.97,
+      "latency_per_query_ms": 683.4
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{# Responder · Intent = law_grounding  (four-shot)
+   Purpose: 从证据中提取引用法条并回链到案例。
+   Shot style: four-shot —— 法条引用格式是强约束，必须由示例示范。
+-#}
+{% include 'responder/system_base.j2' %}
+
+<TASK>
+任务：**法规定位**。用户想知道「什么行为触犯了什么法条」，请从 `<EVIDENCE>` 中抽取被引用的法条，并对应到代表案例。只能使用证据中已出现的法条名称与条款号。
+
+{% if few_shots -%}
+<EXAMPLES>
+{% for ex in few_shots -%}
+示例 {{ loop.index }}:
+Q: {{ ex.question }}
+Evidence: {{ ex.evidence }}
+A: {{ ex.answer }}
+
+{% endfor -%}
+</EXAMPLES>
+{%- endif %}
+
+<EVIDENCE>
+{{ evidence_block }}
+
+<USER_QUERY>
+原始问题：{{ user_query }}
+{% if canonical_query and canonical_query != user_query -%}
+改写后：{{ canonical_query }}
+{%- endif %}
+
+{% if slots -%}
+<SLOTS>
+{% for key, value in slots.items() -%}
+- {{ key }}: {{ value }}
+{% endfor -%}
+{%- endif %}
+
+<OUTPUT_FORMAT>
+1. 主要法条：[法条：《xx》第xx条] — 适用场景（一句话）
+2. 代表案例：[EventID=...]（至多 3 条，每条附 10–25 字事由）
+3. 风险提示（1 句，不得给出正式法律意见）

@@ -1,0 +1,30 @@
+%%{init: {"theme":"dark"}}%%
+flowchart TD
+    Q([📦 改写后 Query + 槽位]) --> FILT[🧮 元数据硬过滤<br/>year / violation_type / org]
+    FILT --> POOL[(🗂️ 候选池<br/>event_chunks.jsonl<br/>29,314 chunks)]
+
+    POOL --> BM25[🔤 稀疏路 BM25<br/>jieba 分词<br/>k1=1.5, b=0.75<br/>top_60]
+    POOL --> DENSE[🧬 稠密路 Dense<br/>bge-small-zh-v1.5<br/>512 维<br/>top_60]
+
+    BM25 --> RRF[⚖️ RRF 融合<br/>k=30/60<br/>α=0.4]
+    DENSE --> RRF
+
+    RRF --> RR[⚡ bge-reranker-v2-m3<br/>Cross-Encoder<br/>60 → 5~8]
+    RR --> BOOST[🎯 业务加权<br/>机构权威 × 严重性<br/>仅 sanction 开 severity]
+    BOOST --> OUT[📚 L4 证据组装<br/>top_k=5, per_ev≤260 tok]
+
+    %% 评估口径
+    RRF -. 评估 .-> M1[📊 Recall@5 ≥ 0.70<br/>nDCG@10 ≥ 0.65]
+    RR -. 评估 .-> M2[📊 Recall@5 ≥ 0.85<br/>nDCG@10 ≥ 0.80]
+
+    classDef sparse fill:#7c2d12,stroke:#f97316,color:#fff
+    classDef dense fill:#1e3a8a,stroke:#60a5fa,color:#fff
+    classDef fuse fill:#4c1d95,stroke:#a78bfa,color:#fff
+    classDef metric fill:#064e3b,stroke:#34d399,color:#fff
+    class BM25 sparse
+    class DENSE dense
+    class RRF,RR,BOOST fuse
+    class M1,M2 metric
+```
+
+> **说明**：双路检索架构。硬过滤先把候选池按槽位（年份/违规类型/机构）压缩，再并行走 BM25(jieba) 和 Dense(bge-small-zh) 各取 top_60，RRF 融合后由 bge-reranker-v2-m3 精排压到 top_5~8。sanction_recommendation 意图额外开 severity boost（按机构权威×违规严重性加权）。关键修复：⚠️ 原 embedding 用 paraphrase-multilingual-MiniLM（英文偏置）导致 Recall@5=0.09，切 bge-small-zh 后目标 0.70；叠加 reranker 后目标 0.85。per_event ≤ 260 token 保证 context 不超 1800。

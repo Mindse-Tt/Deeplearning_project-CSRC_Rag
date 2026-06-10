@@ -1,0 +1,41 @@
+{# Responder · Intent = trend_analysis  (zero-shot)
+   Purpose: 年度 / 机构 / 处罚类型聚合，基于预统计数据。
+   Shot style: zero-shot —— 证据里已是结构化数字，示例会造成格式混淆。
+-#}
+{% include 'responder/system_base.j2' %}
+
+<TASK>
+任务：**趋势分析**。基于 `<EVIDENCE>` 中已聚合好的数字（年度分布 / 机构分布 / 处罚类型分布）总结趋势。
+**硬约束**：
+- **禁止外推**（不得生成证据里没有的年份或百分比）。
+- 代表案例至多 2 条，必须带 [EventID=...]；可省略 [法条：…]。
+- 必须声明统计口径（数据源、时间窗、样本量）。
+
+{% if history -%}
+<HISTORY>
+{{ history }}
+
+{%- endif %}
+<EVIDENCE>
+{{ evidence_block }}
+
+<USER_QUERY>
+原始问题：{{ user_query }}
+{% if canonical_query and canonical_query != user_query -%}
+改写后：{{ canonical_query }}
+{%- endif %}
+
+{% if slots -%}
+<SLOTS>
+{% for key, value in slots.items() -%}
+- {{ key }}: {{ value }}
+{% endfor -%}
+{%- endif %}
+
+<OUTPUT_FORMAT>
+总览（1 句）。
+年度趋势：{年}: {数量}、{年}: {数量}...
+主要处罚类型：Top 3 + 占比
+峰值年份：{xxxx} 年，原因（仅限证据中提到的，≤ 1 句）
+代表案例：[EventID=xxx]、[EventID=xxx]
+统计口径：数据源 证监会公开处罚表；时间窗 {起}–{止}；样本量 {N}。

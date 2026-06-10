@@ -1,0 +1,39 @@
+%%{init: {"theme":"dark", "flowchart":{"curve":"basis"}}}%%
+flowchart TD
+    U([👤 用户 Query]) --> L0[🧹 L0 预处理<br/>normalize / lang detect]
+    L0 --> L1[🎯 L1 意图识别<br/>7 类 Planner<br/>MiniLM + LR]
+
+    L1 -->|greeting / chitchat / oos| TPL[📝 模板直答<br/>引导回证监会话题]
+    L1 -->|sanction_recommendation| L2
+    L1 -->|case_retrieval| L2
+    L1 -->|law_grounding| L2
+    L1 -->|trend_analysis| L2
+
+    L2[📦 L2 Query 改写<br/>共指 + 同义词 + 槽位]
+    L2 --> L3a[🧮 L3a 元数据硬过滤<br/>year / violation / org]
+    L3a --> L3[🔎 L3 双路召回<br/>BM25+jieba ⊕ bge-small-zh<br/>RRF k=30/60, α=0.4]
+    L3 --> L3d[⚡ L3d Reranker<br/>bge-reranker-v2-m3<br/>候选60 → 事件5~8]
+    L3d --> L4[📚 L4 证据组装<br/>≤1800 tok / per_ev ≤260]
+    L4 --> L5[🧠 L5 生成<br/>Qwen2.5-1.5B + QLoRA<br/>四意图 Prompt]
+    L5 --> L6{📈 L6 趋势?}
+    L6 -->|trend_analysis| AGG[📊 聚合 + ECharts]
+    L6 -->|其他| L7
+    AGG --> L7
+    L7[✅ L7 引证校验<br/>EventID 白名单<br/>法条正则]
+    L7 --> OUT([🖥️ 前端渲染<br/>引证绿勾红叉<br/>降级提示])
+
+    %% 降级 / 兜底
+    L3 -.证据不足.-> REJ[🚫 兜底话术<br/>tpl_insufficient_evidence]
+    L5 -.幻觉风险.-> REJ
+    L7 -.未通过.-> REJ
+    REJ --> OUT
+
+    classDef main fill:#1e3a8a,stroke:#60a5fa,color:#fff
+    classDef tpl fill:#7c2d12,stroke:#f97316,color:#fff
+    classDef rej fill:#7f1d1d,stroke:#f87171,color:#fff
+    class L0,L1,L2,L3a,L3,L3d,L4,L5,L6,L7,AGG main
+    class TPL tpl
+    class REJ rej
+```
+
+> **说明**：7 层全景总览图。主流程实线，降级/兜底虚线。L0-L2 为前置层（预处理 + 意图 + 改写），L3-L4 为检索层（硬过滤 + 双路召回 + 重排 + 证据组装），L5-L7 为生成校验层（LoRA 生成 + 趋势聚合 + 引证校验）。任一层失败均降级到 `tpl_insufficient_evidence` 兜底话术，不让链路 500。前端 `/api/query` 一次请求一次拿全 26 字段 trace，方便答辩现场点开任意层看中间态。

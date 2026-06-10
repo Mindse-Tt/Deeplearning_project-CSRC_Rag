@@ -1,0 +1,23 @@
+{
+  "intent": "greeting",
+  "intent_confidence": 0.9024,
+  "intent_method": "tfidf_logistic_regression_v2",
+  "intent_scores": {
+    "greeting": 0.9024,
+    "chitchat": 0.0414,
+    "out_of_scope": 0.0153,
+    "sanction_recommendation": 0.0107,
+    "case_retrieval": 0.0106,
+    "trend_analysis": 0.0101,
+    "law_grounding": 0.0095
+  },
+  "response_backend": "planner_v2_fallback",
+  "response_model": null,
+  "query_plan": {
+    "retrieval_unit": "-",
+    "top_k": 0,
+    "metadata_filters": {}
+  },
+  "answer": "你好！我是证监会违规处罚案例智能问答助手。\n我可以帮你完成四件事：\n1. 案例检索 — 类似「2023 年内幕交易被罚的案例有哪些？」\n2. 法规依据 — 类似「信息披露违规通常违反哪条法规？」\n3. 处罚推荐 — 类似「上市公司虚假陈述一般怎么罚？」\n4. 趋势分析 — 类似「近五年操纵市场案件的处罚趋势？」",
+  "events": []
+}

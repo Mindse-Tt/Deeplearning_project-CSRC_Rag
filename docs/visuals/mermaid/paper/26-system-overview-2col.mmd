@@ -1,0 +1,28 @@
+%%{init: {"theme":"dark"}}%%
+flowchart LR
+    subgraph LEFT[📘 左栏：系统架构压缩版]
+        direction TB
+        LU([👤 用户]) --> LL0[🧹 L0-L2<br/>预处理+意图+改写]
+        LL0 --> LL3[🔎 L3-L4<br/>Hybrid+Rerank+Evidence]
+        LL3 --> LL5[🧠 L5-L7<br/>LoRA+Validator]
+        LL5 --> LOUT([🖥️ 前端渲染])
+    end
+
+    subgraph RIGHT[📙 右栏：关键创新压缩版]
+        direction TB
+        R1[✨ 创新 1<br/>EventID+时间<br/>三切防泄漏]
+        R2[✨ 创新 2<br/>双路+RRF+Rerank<br/>R@5 0.09→0.86]
+        R3[✨ 创新 3<br/>QLoRA fp16<br/>适配 Turing 8GB]
+        R4[✨ 创新 4<br/>L7 八条引证校验<br/>幻觉率 ≤5%]
+        R1 --> R2 --> R3 --> R4
+    end
+
+    LEFT -. 支撑 .-> RIGHT
+
+    classDef main fill:#1e3a8a,stroke:#60a5fa,color:#fff
+    classDef innov fill:#7c2d12,stroke:#f97316,color:#fff
+    class LL0,LL3,LL5 main
+    class R1,R2,R3,R4 innov
+```
+
+> **说明**：论文 Fig.1 两栏压缩系统总览。左栏压缩 7 层到 3 组（预处理+意图+改写 / 检索+重排+组装 / 生成+趋势+校验），右栏并列本项目 4 大创新点。这张图适合论文首页 Figure 1 或 PPT 首张内容页，3 秒让评审理解"我们做了什么 + 最关键的 4 个差异化点"。左右布局用 LR 以便横向排版适配 A4 两栏。

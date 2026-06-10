@@ -1,0 +1,114 @@
+# ------------------------------------------------------------------
+# L7 Citation Validation Rules
+# Source of truth for the behaviour implemented in
+#   src/csrc_rag/response/validators.py
+# The runtime code-side is the enforcement layer; this file is the
+# human-readable declaration consumed by:
+#   - docs / paper Chapter 3 (引证校验规则表)
+#   - test fixtures (tests/test_validators.py)
+#   - future rule-engine refactor (rules → code generator)
+# ------------------------------------------------------------------
+version: 2.0.0
+max_answer_chars: 800
+disclaimer_keywords:
+  - "仅供参考"
+  - "不构成执法"
+  - "不构成正式执法"
+
+law_whitelist:
+  - 证券法
+  - 公司法
+  - 证券投资基金法
+  - 基金法
+  - 期货和衍生品法
+  - 期货法
+  - 刑法
+  - 反洗钱法
+  - 商业银行法
+  - 行政处罚法
+  - 证券投资者保护法
+  - 上市公司信息披露管理办法
+  - 证券发行与承销管理办法
+
+regexes:
+  event_id: "\\[EventID=([^\\]\\s]+?)\\]"
+  law_citation: "\\[法条：《([^》]{1,40})》第([0-9一二三四五六七八九十百零两]+)条(之[0-9一二三四五六七八九十]+)?\\]"
+  numeric_claim: "(?:\\d+(?:\\.\\d+)?\\s*(?:%|％|万元|亿元|元|人|年|次|起|件))"
+
+forbidden_rewrites:
+  - pattern: "法院已判决"
+    replacement: "建议参考"
+  - pattern: "根据法律，?必须判处"
+    replacement: "历史案例中常见处罚为"
+  - pattern: "本案应判处"
+    replacement: "历史案例中类似情形通常处以"
+
+rules:
+  - id: L7-1
+    name: event_id_must_in_retrieved
+    description: "答案中的 [EventID=xxx] 必须全部出现在 L3 检索结果 (ranked_events) 的 id 集合里。"
+    severity: critical
+    action: fallback_to_template
+    field_in_report: missing_event_ids
+
+  - id: L7-2
+    name: event_id_required
+    description: "答案至少出现 1 次 [EventID=...]，trend_analysis 意图除外。"
+    severity: high
+    action: fallback_to_template
+    field_in_report: missing_event_ids
+    intents_excluded: [trend_analysis]
+
+  - id: L7-3
+    name: law_citation_format
+    description: "[法条：《xx》第xx条] 必须匹配 `regexes.law_citation`，否则视为无效引证。"
+    severity: high
+    action: strip_invalid_and_flag
+    field_in_report: invalid_laws
+
+  - id: L7-4
+    name: law_name_whitelist
+    description: "法条名必须落入 `law_whitelist`（部分匹配即可）。"
+    severity: medium
+    action: warn_only
+    field_in_report: unknown_law_names
+
+  - id: L7-5
+    name: numeric_claim_must_cite
+    description: "包含数字/金额/百分比的句子，同句必须至少有 1 个 [EventID=...] 或 [法条：...]。"
+    severity: medium
+    action: flag_unsupported
+    field_in_report: unsupported_claims
+
+  - id: L7-6
+    name: max_length
+    description: "答案正文长度 ≤ 800 字；超过按句号截断并追加省略号。"
+    severity: low
+    action: truncate
+    field_in_report: truncated
+
+  - id: L7-7
+    name: forbidden_phrase_rewrite
+    description: "检测到越权表述（如「法院已判决」「根据法律必须判处」）时替换为保守措辞。"
+    severity: high
+    action: auto_rewrite
+    field_in_report: forbidden_hits
+
+  - id: L7-8
+    name: sanction_disclaimer_required
+    description: "sanction_recommendation 意图的回答必须含 `disclaimer_keywords` 中的至少一个关键词，缺失时追加 disclaimer.txt。"
+    severity: high
+    action: append_disclaimer
+    field_in_report: disclaimer_added
+    intents_required: [sanction_recommendation]
+
+confidence_formula:
+  # 与 validators.compute_confidence 完全对齐
+  weights:
+    avg_top3_retrieval_score: 0.4
+    citation_coverage:        0.3
+    evidence_count_norm:      0.2
+    unsupported_complement:   0.1
+  penalty_on_missing_event_id: 0.5   # 乘法惩罚
+  fallback_threshold: 0.5             # confidence < 0.5 触发 Template 兜底
+  hard_reject_threshold: 0.3          # confidence < 0.3 且 intent 属敏感类则强制走「证据不足」文案

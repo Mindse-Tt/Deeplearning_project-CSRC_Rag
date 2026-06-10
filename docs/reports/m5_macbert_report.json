@@ -1,0 +1,26 @@
+{
+  "model_name": "hfl/chinese-macbert-base",
+  "num_labels": 7,
+  "label_vocab": [
+    "其他",
+    "市场禁入",
+    "批评",
+    "没收非法所得",
+    "罚款",
+    "警告",
+    "谴责"
+  ],
+  "test_metrics": {
+    "eval_loss": 0.45083314180374146,
+    "eval_Micro-F1": 0.6796116504854369,
+    "eval_Macro-F1": 0.22144647332617257,
+    "eval_HammingLoss": 0.17285714285714285,
+    "eval_SubsetAccuracy": 0.2733333333333333,
+    "eval_runtime": 88.7266,
+    "eval_samples_per_second": 3.381,
+    "eval_steps_per_second": 0.214,
+    "epoch": 1.0
+  },
+  "final_train_loss": 0.3429,
+  "final_eval_loss": 0.45083314180374146
+}

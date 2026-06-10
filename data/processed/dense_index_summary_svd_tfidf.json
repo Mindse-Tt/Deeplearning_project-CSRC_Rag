@@ -1,0 +1,5 @@
+{
+  "backend": "svd_tfidf",
+  "documents": 29314,
+  "note": "当前索引构建在内存中完成。后续可扩展为持久化 embedding 或向量库。"
+}

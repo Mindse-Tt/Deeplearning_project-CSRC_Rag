@@ -1,0 +1,73 @@
+{
+  "dense_retrieval": {
+    "backend": "svd_tfidf",
+    "active_backend": "bge_small_zh",
+    "prebuilt": {
+      "npy_path": "data/processed/chunk_embeddings.npy",
+      "order_path": "data/processed/chunk_id_order.json",
+      "query_model": "sentence-transformers/all-MiniLM-L6-v2"
+    },
+    "bge_small_zh": {
+      "npy_path": "data/processed/chunk_embeddings_bge.npy",
+      "order_path": "data/processed/chunk_id_order_bge.json",
+      "model_name": "BAAI/bge-small-zh-v1.5",
+      "model_cache_folder": "artifacts/models",
+      "query_instruction": "为这个句子生成表示以用于检索相关文章：",
+      "max_seq_length": 512
+    },
+    "sentence_transformer_model": "BAAI/bge-small-zh-v1.5",
+    "svd_tfidf": {
+      "max_features": 30000,
+      "ngram_range": [1, 2],
+      "n_components": 256
+    }
+  },
+  "hybrid_retrieval": {
+    "strategy": "rrf",
+    "rrf_k": 60,
+    "candidate_pool": 80
+  },
+  "reranker": {
+    "enabled": false,
+    "model_name": "BAAI/bge-reranker-v2-m3",
+    "fallback_model_name": "BAAI/bge-reranker-base",
+    "model_cache_folder": "artifacts/models",
+    "max_length": 512,
+    "batch_size": 16,
+    "candidate_pool_max": 100,
+    "final_top_k_events": 50,
+    "device": "auto",
+    "use_fp16": true
+  },
+  "fine_tuning": {
+    "task": "punishment_type_multilabel",
+    "baseline_model": "tfidf_logistic_regression",
+    "transformer_model": "hfl/chinese-macbert-base",
+    "max_length": 512,
+    "batch_size": 4,
+    "learning_rate": 2e-5,
+    "num_train_epochs": 3
+  },
+  "intent_router": {
+    "backend": "tfidf_logistic_regression_v2",
+    "artifact_path": "artifacts/intent_classifier_v2/intent_model.pkl",
+    "schema_version": "v2",
+    "labels": [
+      "greeting",
+      "chitchat",
+      "out_of_scope",
+      "case_retrieval",
+      "law_grounding",
+      "sanction_recommendation",
+      "trend_analysis"
+    ],
+    "legacy_artifact_path": "artifacts/intent_classifier/intent_model.pkl"
+  },
+  "response_generation": {
+    "backend": "template",
+    "model_name": "Qwen/Qwen2.5-0.5B-Instruct",
+    "max_new_tokens": 256,
+    "temperature": 0.2,
+    "top_p": 0.9
+  }
+}

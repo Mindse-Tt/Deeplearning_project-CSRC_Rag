@@ -1,0 +1,26 @@
+{
+  "ceiling": {
+    "task_accuracy": 1.0,
+    "entity_f1": 0.8363636363636363,
+    "instruction_following": 0.36363636363636365,
+    "format_compliance": 0.36363636363636365,
+    "eid_hit_rate": 0.8363636363636363,
+    "hallucination_rate": 0.0
+  },
+  "g0_baseline": {
+    "task_accuracy": 0.16363636363636364,
+    "entity_f1": 0.0,
+    "instruction_following": 0.0,
+    "format_compliance": 0.0,
+    "eid_hit_rate": 0.0,
+    "hallucination_rate": 0.0
+  },
+  "g3_from_m4_4_report": {
+    "task_accuracy": 0.2,
+    "entity_f1": 0.5,
+    "instruction_following": 0.767,
+    "format_compliance": 0.767,
+    "eid_hit_rate": 0.2,
+    "hallucination_rate": 0.033
+  }
+}

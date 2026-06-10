@@ -1,0 +1,15 @@
+%%{init: {"theme":"dark"}}%%
+xychart-beta
+    title "G0-G3 四组生成对比:EventID 命中率 & 格式合规率 (n=50, 2026-04-23)"
+    x-axis ["G0 base", "G1 +RAG", "G2 +RAG+prompt", "G3 +LoRA"]
+    y-axis "Rate" 0 --> 1
+    bar [0.000, 0.000, 0.000, 0.760]
+```
+
+> **说明**:论文 Ch4.2 Figure 1 — **格式合规率** (G0/G1/G2/G3 = 0/0/0/0.760)。
+>
+> **核心论点**:在 Qwen-0.5B 小模型上,**引用格式的学习必须通过指令微调**;加 RAG 证据(G1)、加强系统 prompt(G2)都无法让裸模型 zero-shot 遵循 `[EventID=xxx]` 格式。这是课程赛道 B "微调前后对比"的最硬证据 — G0→G2 三档全部 0%,G3 跳到 76.0%,断崖式差距。
+>
+> **对比另一个维度** EID **命中率** (G0/G1/G2/G3 = 0/0/0/0.280): G3 命中 28% 不到格式合规的原因是检索层天花板 — M3e 的 Hybrid Recall@5 只有 0.388,生成层再完美也只能命中检索器返回的那部分 gold,剩下的就是检索层在 hard multi-hop query 上的已知瓶颈(见 docs/reports/m3e_ablation_report.md §4)。
+>
+> **产出数据**: `docs/reports/m4_4_generation_eval.json`

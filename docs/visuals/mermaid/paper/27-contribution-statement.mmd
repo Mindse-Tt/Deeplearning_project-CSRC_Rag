@@ -1,0 +1,34 @@
+%%{init: {"theme":"dark"}}%%
+mindmap
+  root((🏆 本项目<br/>4 大贡献))
+    ✨ C1 严格防泄漏数据集
+      EventID + 时间三切
+      Train 1994-2021
+      Val 2022-2023
+      Test 2024-2025
+      PunishmentMeasure 红线
+      4,233 事件 + 14,740 当事人
+    ✨ C2 中文金融领域检索重构
+      5 根因诊断与修复
+      paraphrase-MiniLM 英文偏置 → bge-small-zh
+      非 jieba 分词 → jieba
+      过度硬过滤 → 弹性阈值
+      Recall@5 0.09 → 0.86
+      开箱 SOTA 中文 embedding
+    ✨ C3 消费级显卡 QLoRA 适配
+      RTX 2060 SUPER 8GB
+      Turing 架构不支持 bf16
+      统一改 fp16
+      per_dev_batch 2 + grad_accum 8
+      NF4 + double_quant
+      5,360 条 SFT 3 epoch
+    ✨ C4 引证校验 + 反幻觉
+      L7 八条级联规则
+      EventID 白名单 + 法条正则
+      强约束 Prompt 三档
+      H 类反幻觉样本 300 条
+      G0-G4 五组对照
+      幻觉率 ≤ 5%
+```
+
+> **说明**：论文贡献陈述气泡图（mindmap）。4 大贡献（C1-C4）对应赛道 B 硬性要求 + 本项目独有创新：C1 数据切分防泄漏（学术严谨性）、C2 检索层工程重构（5 根因诊断的诊疗报告，从 0.09→0.86 的大幅提升最有说服力）、C3 消费级显卡 QLoRA 适配（Turing 架构 bf16 不支持这个坑对同类 2060/3060 用户有泛化价值）、C4 引证校验 + 反幻觉（赛道 B 必做）。论文 §1 引言结尾、PPT 第 2 页、答辩开场都可用这张图 30s overview。

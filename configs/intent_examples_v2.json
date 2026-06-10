@@ -1,0 +1,44 @@
+{
+  "_meta": {
+    "version": "v2",
+    "num_intents": 7,
+    "seeds_per_intent": 3,
+    "description": "Planner 7 类种子样本（每类 3 条）。LLM 扩增至每类 500 条后回写同结构，_meta 不变。",
+    "augmentation_prompt_ref": "docs/strategies/04-planner-training-strategy.md#5"
+  },
+  "greeting": [
+    "你好",
+    "hi，在吗",
+    "早上好，帮我一下"
+  ],
+  "chitchat": [
+    "你是谁开发的",
+    "今天天气怎么样",
+    "讲个笑话吧"
+  ],
+  "out_of_scope": [
+    "给我推荐一部电影",
+    "帮我写一段 Python 冒泡排序",
+    "明天股票能涨吗"
+  ],
+  "case_retrieval": [
+    "帮我找和内幕交易类似的处罚案例",
+    "历史上有没有和这类行为相近的案件",
+    "召回和操纵市场接近的历史案例"
+  ],
+  "law_grounding": [
+    "这类行为通常违反哪些法条",
+    "请给出相关法律依据并列出条款",
+    "对应《证券法》哪一条"
+  ],
+  "sanction_recommendation": [
+    "结合案例给出处罚建议",
+    "这种情况更可能警告还是罚款",
+    "预测一下这种行为可能对应哪些处罚"
+  ],
+  "trend_analysis": [
+    "近五年内幕交易处罚趋势如何",
+    "统计不同年份的处罚方式变化",
+    "信息披露违规的处罚分布有什么变化"
+  ]
+}

@@ -1,0 +1,51 @@
+%%{init: {"theme":"dark"}}%%
+gantt
+    title CSRC-RAG 2-4 周交付甘特（D0 = 2026-04-22，团队 2-4 周交付）
+    dateFormat  YYYY-MM-DD
+    axisFormat  D%d
+
+    section 📐 准备期 D0-D2
+    策略文档合稿                  :done, m0, 2026-04-22, 1d
+    数据切分+质量审查             :a1, after m0, 2d
+    意图 7 类种子+扩增            :a2, after m0, 2d
+    拒答模板库                    :a3, after m0, 1d
+    Prompt 三档模板               :a4, after m0, 1d
+    模型选型+RTX2060S环境         :a5, after m0, 2d
+    里程碑 M1 策略定稿                    :milestone, mm1, 2026-04-24, 0d
+
+    section 🔎 检索期 D3-D4
+    synonyms.json 200+            :b1, after a1, 1d
+    rewriter.py 共指+同义         :b2, after b1, 2d
+    bge-small-zh 重建索引         :b3, after a5, 1d
+    意图分类器 v2 训练            :b4, after a2, 1d
+    bge-reranker-v2-m3 接入       :b5, after b3, 1d
+    里程碑 M2 检索达标 R@5≥0.70           :milestone, mm2, 2026-04-26, 0d
+
+    section 📚 数据构造期 D4-D6
+    rag_qa A+C 2700               :c1, after b4, 2d
+    rag_qa B+D 1800               :c2, after b4, 2d
+    rag_qa E+F+G+H 1100           :c3, after c1, 1d
+    50 条金标标注(用户抽查)   :crit, c4, 2026-04-27, 1d
+    QA 抽检+合并                  :c5, after c3, 1d
+    里程碑 M3 训练数据+评测集齐           :milestone, mm3, 2026-04-28, 0d
+
+    section 🏋️ 训练期 D7-D9
+    QLoRA Qwen2.5-1.5B fp16(RTX2060S) :crit, d1, after c5, 2d
+    MacBERT 多标签                :d2, after d1, 1d
+    LoRA 合并+集成 responder      :d3, after d1, 1d
+    里程碑 M4 模型训完                    :milestone, mm4, 2026-05-01, 0d
+
+    section 📊 评估期 D10-D12
+    G0-G4 生成五组对照            :e1, after d3, 2d
+    7 组消融实验                  :e2, after e1, 1d
+    50 条 blind 打分+κ(用户)       :e3, after e1, 1d
+    论文数据表回填                         :milestone, e4, after e2, 0d
+    里程碑 M5 消融+打分齐                 :milestone, mm5, 2026-05-04, 0d
+
+    section 📝 交付期 D13-D14
+    论文初稿 8-12 页              :f1, after e4, 1d
+    PPT ≤15 页 + Demo 脚本        :f2, after e4, 1d
+    最终答辩包封版                         :milestone, mm6, 2026-05-06, 0d
+```
+
+> **说明**：D0 = 2026-04-22 出发的 14 天完整甘特。6 个里程碑（M1-M6）串起 6 大阶段：准备→检索→数据→训练→评估→交付。⚠️ 团队按阶段并行推进，关键路径单点风险由子任务拆分 + 抽查验收控制。关键路径（crit 标记）：D6 金标标注、D7-D9 QLoRA 训练，任一延期都会让 M6 答辩包封版跳日。

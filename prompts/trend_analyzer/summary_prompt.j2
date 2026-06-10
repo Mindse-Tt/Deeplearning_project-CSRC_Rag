@@ -1,0 +1,32 @@
+{# Trend Analyzer · Optional LLM Summary Prompt
+   When the caller wants a 1–2 sentence natural-language summary on top of
+   the raw aggregation tables, the Responder invokes this prompt with the
+   same `<EVIDENCE>` format emitted by aggregation_specs.yaml.
+
+   In the default pipeline we skip this step and return structured stats +
+   the Responder's `intent_trend_analysis.j2` output. Kept here so that
+   Chapter 3 of the paper can reference an end-to-end template.
+-#}
+{% include 'responder/system_base.j2' %}
+
+<TASK>
+任务：**趋势摘要**。根据 `<STATS>` 中的聚合数据，用 2–3 句话总结趋势，禁止外推。
+- 必须提到时间窗、样本量、峰值年份。
+- 至多引用 2 个 [EventID=...] 作为代表案例。
+- 不得使用 `<STATS>` 中未出现的年份或百分比。
+
+<STATS>
+{{ stats_block }}
+
+{% if sample_events -%}
+<SAMPLE_EVENTS>
+{% for ev in sample_events -%}
+[EventID={{ ev.event_id }}] {{ ev.title }} · {{ ev.declare_date }} · {{ ev.violation_types | join("、") }}
+{% endfor -%}
+{%- endif %}
+
+<USER_QUERY>
+{{ user_query }}
+
+<OUTPUT_FORMAT>
+一段 2–3 句的自然语言摘要，末尾加一行「统计口径：…」。

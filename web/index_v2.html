@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>证监会处罚案例智能分析台 · v2</title>
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/style_v2.css" />
+    <!-- ECharts (UMD) for trend charts. 可本地化放到 /vendor/echarts.min.js -->
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <!-- ─────────────── Sidebar ─────────────── -->
+      <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+          <div>
+            <p class="sidebar-kicker">CSRC RAG · v2</p>
+            <h1>处罚案例智能分析台</h1>
+          </div>
+          <button id="newChatBtn" class="icon-btn" title="新建对话">+</button>
+        </div>
+        <nav class="tab-nav">
+          <button class="tab-btn active" data-tab="chat">对话</button>
+          <button class="tab-btn" data-tab="trend">趋势分析</button>
+          <button class="tab-btn" data-tab="trace">链路追踪</button>
+        </nav>
+        <div id="sessionList" class="session-list"></div>
+        <div class="sidebar-footer">
+          <div>本地模型 / 非 API</div>
+          <div id="sidebarStatus">准备就绪</div>
+        </div>
+      </aside>
+
+      <!-- ─────────────── Main ─────────────── -->
+      <main class="main">
+        <header class="topbar">
+          <button id="toggleSidebarBtn" class="icon-btn mobile-only" title="切换侧栏">☰</button>
+          <div class="topbar-title">证监会处罚案例 RAG 工作台（v2 · 七层链路）</div>
+          <div class="topbar-badges">
+            <span class="badge" id="retrievalBadge">Hybrid</span>
+            <span class="badge intent-badge" id="intentBadge">意图</span>
+            <span class="badge" id="replyBadge">本地回复</span>
+            <span class="badge" id="validatorBadge">引证</span>
+          </div>
+        </header>
+
+        <!-- TAB: 对话 -->
+        <section class="tab-panel active" id="tab-chat">
+          <section class="chat-wrap" id="chatWrap">
+            <div class="chat-container" id="chatContainer">
+              <!-- 每条 assistant 消息包含以下子模块： -->
+              <!--
+                <article class="message-card assistant">
+                  <div class="intent-row">
+                    <span class="intent-pill intent-case_retrieval">案例检索 91%</span>
+                    <span class="intent-conf conf-high">高</span>
+                  </div>
+
+                  <!-- L2 改写 + 槽位 --
+                  <details class="fold-card" open>
+                    <summary>查询改写 & 槽位</summary>
+                    <div class="fold-content">
+                      <div class="rewrite-diff">
+                        <div class="diff-before">原始：<code>…</code></div>
+                        <div class="diff-after">改写：<code>…</code></div>
+                      </div>
+                      <div class="slot-row">
+                        <span class="slot-chip">年份 2023</span>
+                        <span class="slot-chip">公司 康美药业</span>
+                        <span class="slot-chip">违规类型 信息披露违规</span>
+                        <span class="slot-chip empty">主体人 未识别</span>
+                      </div>
+                      <div class="synonym-row">
+                        同义词扩展：
+                        <span class="syn-chip">披露不实</span>
+                        <span class="syn-chip">虚假陈述</span>
+                      </div>
+                    </div>
+                  </details>
+
+                  <!-- L3 检索证据 --
+                  <details class="fold-card">
+                    <summary>检索证据（8 条 / 重排前后排名可视化）</summary>
+                    <div class="fold-content evidence-panel">
+                      <article class="case-card">
+                        <header class="case-summary">
+                          <span class="case-rank">#1</span>
+                          <span class="case-title">康美药业信息披露违规案</span>
+                          <span class="rerank-diff up">#3 → #1 ▲2</span>
+                        </header>
+                        <div class="case-detail-body">...</div>
+                      </article>
+                    </div>
+                  </details>
+
+                  <!-- L5 答案 --
+                  <div class="bubble"><pre class="answer-text">...</pre></div>
+
+                  <!-- L7 引证校验 --
+                  <div class="validator-row validator-pass">
+                    ✓ 引证通过 · 覆盖率 92% · 2 条事件 ID / 1 条法条
+                  </div>
+
+                  <!-- L6 趋势图（仅 trend_analysis 意图）--
+                  <div class="trend-chart" id="trend-xxx"></div>
+                </article>
+              -->
+            </div>
+          </section>
+
+          <section class="composer-wrap">
+            <div class="composer-card">
+              <div class="sample-row" id="sampleRow"></div>
+              <div class="composer-main">
+                <textarea
+                  id="queryInput"
+                  rows="1"
+                  placeholder="输入案情、法规问题、处罚判断或趋势分析需求…"
+                ></textarea>
+                <button id="sendBtn" class="send-btn">发送</button>
+              </div>
+              <div class="composer-foot">
+                <label class="toggle">
+                  <input type="checkbox" id="strictCitation" checked />
+                  强证据约束
+                </label>
+                <label class="toggle">
+                  <input type="checkbox" id="enableRerank" checked />
+                  启用重排
+                </label>
+                <label class="toggle">
+                  <input type="checkbox" id="debugMode" />
+                  调试模式
+                </label>
+                <button id="clearSessionBtn" class="ghost-btn">清空当前会话</button>
+              </div>
+            </div>
+          </section>
+        </section>
+
+        <!-- TAB: 趋势分析 -->
+        <section class="tab-panel" id="tab-trend">
+          <div class="trend-page">
+            <header class="trend-header">
+              <h2>处罚案件趋势分析</h2>
+              <div class="trend-filters">
+                <label>
+                  起止年份
+                  <input type="number" id="trendYearFrom" value="2019" min="1994" max="2025" />
+                  -
+                  <input type="number" id="trendYearTo" value="2025" min="1994" max="2025" />
+                </label>
+                <label>
+                  违规类型
+                  <select id="trendViolationType">
+                    <option value="">全部</option>
+                    <option>信息披露违规</option>
+                    <option>内幕交易</option>
+                    <option>操纵市场</option>
+                    <option>短线交易</option>
+                  </select>
+                </label>
+                <button id="trendReloadBtn" class="send-btn">刷新</button>
+              </div>
+            </header>
+            <div class="trend-grid">
+              <div class="trend-card">
+                <div class="trend-title">逐年案件数（柱状）</div>
+                <div class="trend-chart-wrap" id="trendBarChart"></div>
+              </div>
+              <div class="trend-card">
+                <div class="trend-title">累计处罚金额（折线）</div>
+                <div class="trend-chart-wrap" id="trendLineChart"></div>
+              </div>
+              <div class="trend-card wide">
+                <div class="trend-title">逐年 Top-3 违规类型</div>
+                <div class="trend-chart-wrap" id="trendStackedChart"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- TAB: 链路追踪 -->
+        <section class="tab-panel" id="tab-trace">
+          <div class="trace-page">
+            <header class="trace-header">
+              <h2>L0 → L7 链路追踪</h2>
+              <span class="trace-hint">展示最近一次 /api/query 每层耗时与中间态（调试用）</span>
+            </header>
+            <ol class="layer-timeline" id="layerTimeline">
+              <li data-layer="l0">L0 预处理 <span class="layer-ms">—</span></li>
+              <li data-layer="l1">L1 意图 <span class="layer-ms">—</span></li>
+              <li data-layer="l2">L2 改写 <span class="layer-ms">—</span></li>
+              <li data-layer="l3">L3 检索 <span class="layer-ms">—</span></li>
+              <li data-layer="l3_rerank">L3 重排 <span class="layer-ms">—</span></li>
+              <li data-layer="l4">L4 组装 <span class="layer-ms">—</span></li>
+              <li data-layer="l5">L5 生成 <span class="layer-ms">—</span></li>
+              <li data-layer="l6">L6 趋势 <span class="layer-ms">—</span></li>
+              <li data-layer="l7">L7 校验 <span class="layer-ms">—</span></li>
+            </ol>
+            <pre class="trace-json" id="traceJson">请先在「对话」页触发一次查询。</pre>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- v1 app.js 仍保留以便 fallback；v2 的入口在下面 -->
+    <script src="/app_v2.js" defer></script>
+  </body>
+</html>

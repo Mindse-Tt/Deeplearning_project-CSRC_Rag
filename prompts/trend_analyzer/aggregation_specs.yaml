@@ -1,0 +1,92 @@
+# ------------------------------------------------------------------
+# Trend Analyzer · Aggregation Specs (L6)
+#
+# The trend analysis intent does NOT go through hybrid vector search;
+# instead the Planner emits `retrieval_mode: structured_aggregation` and
+# the aggregator in `src/csrc_rag/orchestration/trend_analyzer.py`
+# reads these specs to build pandas / duckdb groupby queries against
+# `data/processed/event_corpus.jsonl`.
+#
+# The resulting `<EVIDENCE>` block fed to the Responder is a
+# pre-computed statistics summary, NOT raw case snippets.
+# ------------------------------------------------------------------
+version: 1.0.0
+source:
+  path: data/processed/event_corpus.jsonl
+  row_count_hint: 4233
+  primary_date_field: declare_date
+  fallback_date_field: supervision_date
+
+facets:
+  year:
+    extractor:
+      type: strftime
+      field: declare_date
+      format: "%Y"
+    bucket: yearly
+    default_window: [2016, 2025]
+
+  agency:
+    extractor:
+      type: regex_first_match
+      field: supervisor
+      pattern: "(中国证监会|.*?证监局|上交所|深交所|北交所|证券业协会|基金业协会)"
+    top_n: 10
+
+  violation_type:
+    extractor:
+      type: split_and_flatten
+      field: violation_types
+      separators: [";", "、"]
+    canonical_map:
+      "老鼠仓": "利用未公开信息交易"
+      "坐庄":   "操纵市场"
+      "抄股":   "违规买卖股票"
+    top_n: 8
+
+  punishment_type:
+    extractor:
+      type: multi_hot
+      field: punishment_types
+    top_n: 6
+
+  company:
+    extractor:
+      type: join_first
+      field: parties
+    top_n: 15
+
+aggregations:
+  annual_totals:
+    groupby: [year]
+    metrics: [count]
+    description: "年度处罚总数"
+
+  violation_by_year:
+    groupby: [year, violation_type]
+    metrics: [count]
+    description: "各违规类型随年份的变化"
+
+  punishment_mix:
+    groupby: [punishment_type]
+    metrics: [count, share]
+    description: "处罚类型分布（Top-6 占比）"
+
+  agency_ranking:
+    groupby: [agency]
+    metrics: [count, share]
+    description: "处罚机构排名"
+
+  sanction_by_violation:
+    groupby: [violation_type, punishment_type]
+    metrics: [count]
+    description: "「违规类型 × 处罚方式」交叉统计，驱动 sanction_recommendation 意图的先验。"
+
+output:
+  # 送给 Responder 的 evidence_block 行格式
+  evidence_line_template: |
+    [Stat={facet}] {key} → count={count}{share_suffix}
+  share_format: " ({share}%)"
+  sample_events:
+    max_per_facet: 2
+    event_id_field: event_id
